@@ -1,0 +1,148 @@
+{
+	"destinations": [
+		{
+			"name": "Marble Mountains",
+			"address": "Hoa Hai Ward, Ngu Hanh Son District, Da Nang",
+			"openingHours": "8:00 AM",
+			"closingHours": "5:30 PM",
+			"averageCost": 50000,
+			"tags": ["mountains", "caves", "scenic"],
+			"image": "https://www.marmomac.com/wp-content/uploads/2022/07/Marble-Mountains_copertina.jpg"
+		},
+		{
+			"name": "Dragon Bridge",
+			"address": "Nguyen Van Linh Street, Da Nang",
+			"openingHours": "24/7",
+			"closingHours": "24/7",
+			"averageCost": 0,
+			"tags": ["bridge", "landmark", "nightlife"],
+			"image": "https://danangleisure.com/wp-content/uploads/2022/05/IMG_5318-1536x1028.jpeg"
+		},
+		{
+			"name": "My Khe Beach",
+			"address": "Phuoc My Ward, Son Tra District, Da Nang",
+			"openingHours": "24/7",
+			"closingHours": "24/7",
+			"averageCost": 0,
+			"tags": ["beach", "sunbathing", "water sports"],
+			"image": "https://statics.vinpearl.com/my-khe-beach-2_1692016028.jpg"
+		},
+		{
+			"name": "Ba Na Hills",
+			"address": "An Son Hamlet, Hoa Ninh Commune, Hoa Vang District, Da Nang",
+			"openingHours": "7:00 AM",
+			"closingHours": "9:00 PM",
+			"averageCost": 750000,
+			"tags": ["hills", "cable car", "amusement park"],
+			"image": "https://vietnam.travel/sites/default/files/inline-images/shutterstock_1346056832.jpg"
+		},
+		{
+			"name": "Han River Bridge",
+			"address": "Bach Dang Street, Da Nang",
+			"openingHours": "24/7",
+			"closingHours": "24/7",
+			"averageCost": 0,
+			"tags": ["bridge", "landmark", "nightlife"],
+			"image": "https://mercuryhotel.vn/storage/uploads/images/du-thuyen-song-han-mercury-hotel-danang.jpg"
+		},
+		{
+			"name": "Son Tra Peninsula",
+			"address": "Son Tra District, Da Nang",
+			"openingHours": "24/7",
+			"closingHours": "24/7",
+			"averageCost": 0,
+			"tags": ["peninsula", "scenic", "wildlife"],
+			"image": "https://vietnamdiscovery.com/wp-content/uploads/2020/10/son-tra-overview.jpg"
+		},
+		{
+			"name": "Linh Ung Pagoda",
+			"address": "Hoang Sa Road, Son Tra District, Da Nang",
+			"openingHours": "6:00 AM",
+			"closingHours": "6:00 PM",
+			"averageCost": 0,
+			"tags": ["pagoda", "scenic", "religious"],
+			"image": "https://static.vinwonders.com/2022/09/Son-tra-peninsula-banner.jpg"
+		},
+		{
+			"name": "Museum of Cham Sculpture",
+			"address": "2 2 Thang 9 Street, Da Nang",
+			"openingHours": "7:00 AM",
+			"closingHours": "5:30 PM",
+			"averageCost": 40000,
+			"tags": ["museum", "sculpture", "history"],
+			"image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Interior_view_-_Museum_of_Cham_Sculpture_-_Danang%2C_Vietnam_-_DSC01931.JPG"
+		},
+		{
+			"name": "Marble Mountain",
+			"address": "Hoa Hai Ward, Ngu Hanh Son District, Da Nang",
+			"openingHours": "8:00 AM",
+			"closingHours": "5:30 PM",
+			"averageCost": 50000,
+			"tags": ["mountains", "caves", "scenic"],
+			"image": "https://www.marmomac.com/wp-content/uploads/2022/07/Marble-Mountains_copertina.jpg"
+		},
+		{
+			"name": "Asia Park",
+			"address": "1 Phan Dang Luu Street, Da Nang",
+			"openingHours": "3:00 PM",
+			"closingHours": "10:00 PM",
+			"averageCost": 200000,
+			"tags": ["amusement park", "rides", "entertainment"],
+			"image": "https://duan-sungroup.com/wp-content/uploads/2022/11/cong-vien-chau-a-asia-park-duoc-cai-tao-vao-nam-2020.jpg"
+		},
+		{
+			"name": "Con Market",
+			"address": "318 Ong Ich Khiem Street, Da Nang",
+			"openingHours": "6:00 AM",
+			"closingHours": "7:00 PM",
+			"averageCost": 0,
+			"tags": ["market", "shopping", "local"],
+			"image": "https://danangleisure.com/wp-content/uploads/2023/03/Con-Market.jpg"
+		},
+		{
+			"name": "Da Nang Cathedral",
+			"address": "156 Tran Phu Street, Da Nang",
+			"openingHours": "5:00 AM",
+			"closingHours": "5:00 PM",
+			"averageCost": 0,
+			"tags": ["cathedral", "religious", "architecture"],
+			"image": "https://static.vinwonders.com/2022/12/Danang-Cathedral-thumb.jpg"
+		},
+		{
+			"name": "Han Market",
+			"address": "119 Tran Phu Street, Da Nang",
+			"openingHours": "6:00 AM",
+			"closingHours": "7:00 PM",
+			"averageCost": 0,
+			"tags": ["market", "shopping", "local"],
+			"image": "https://danangleisure.com/wp-content/uploads/2023/02/Han-Market-Da-Nang.jpg"
+		},
+		{
+			"name": "Phap Lam Pagoda",
+			"address": "574 Ong Ich Khiem Street, Da Nang",
+			"openingHours": "6:00 AM",
+			"closingHours": "6:00 PM",
+			"averageCost": 0,
+			"tags": ["pagoda", "religious", "architecture"],
+			"image": "https://www.holidify.com/images/cmsuploads/compressed/attr_2594_20190814180101.jpg"
+		},
+		{
+			"name": "Da Nang Museum of Fine Arts",
+			"address": "78 Le Duan Street, Da Nang",
+			"openingHours": "7:00 AM",
+			"closingHours": "5:00 PM",
+			"averageCost": 30000,
+			"tags": ["museum", "fine arts", "history"],
+			"image": "https://static.vinwonders.com/2023/02/da-nang-museum-thumb.jpg"
+		},
+		{
+			"name": "Nam Son Pagoda",
+			"address": "Lac Long Quan Street, Da Nang",
+			"openingHours": "6:00 AM",
+			"closingHours": "6:00 PM",
+			"averageCost": 0,
+			"tags": ["pagoda", "religious", "architecture"],
+			"image": "https://heyotour.com/wp-content/uploads/2022/06/image1-37.jpg"
+		}
+	]
+}
