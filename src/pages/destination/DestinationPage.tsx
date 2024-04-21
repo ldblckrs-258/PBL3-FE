@@ -23,25 +23,25 @@ const filterOptions = [
 	},
 ]
 
-const DestinationPage = () => {
-	const [destinations, setDestinations] = useState([])
+const DestinationPage: React.FC = () => {
+	// const [destinations, setDestinations] = useState([])
 	const [searchFocus, setSearchFocus] = useState(false)
 
-	useEffect(() => {
-		// getDestinations()
-	}, [])
+	// useEffect(() => {
+	// 	getDestinations()
+	// }, [])
 
-	const getDestinations = async () => {
-		try {
-			const response = await axios.get('/api/destinationList.json')
-			setDestinations(response.data)
-			console.log(response.data)
-		} catch (error) {
-			console.error(error)
-		}
-	}
+	// const getDestinations = async () => {
+	// 	try {
+	// 		const response = await axios.get('/api/destinationList.json')
+	// 		setDestinations(response.data)
+	// 		console.log(response.data)
+	// 	} catch (error) {
+	// 		console.error(error)
+	// 	}
+	// }
 	return (
-		<div className="text-txtCol-1 mx-auto flex h-screen justify-center pb-6 pt-20 xl:max-w-screen-xl">
+		<div className="mx-auto flex h-screen justify-center pb-6 pt-20 text-txtCol-1 xl:max-w-screen-xl">
 			<div className="flex h-full w-full justify-start gap-8">
 				<div className="my-auto h-auto w-[280px]">
 					{filterOptions &&
@@ -59,7 +59,7 @@ const DestinationPage = () => {
 						))}
 					<div className="mb-4 flex flex-col gap-2">
 						<label>Price</label>
-						<div className="text-txtCol-2 mb-3 flex w-full items-center justify-start gap-2 text-sm">
+						<div className="mb-3 flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
 							<p>From $</p>
 							<input
 								className="w-[92px]"
@@ -78,7 +78,7 @@ const DestinationPage = () => {
 					</div>
 					<div className="mb-4 flex flex-col gap-2">
 						<label> Rating </label>
-						<div className="text-txtCol-2 mb-3 flex w-full items-center justify-start gap-2 text-sm">
+						<div className="mb-3 flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
 							<p>From</p>
 							<input
 								className="w-[60px]"
@@ -100,24 +100,24 @@ const DestinationPage = () => {
 					</div>
 					<div className="mb-8 flex flex-col gap-2">
 						<label>Others</label>
-						<div className="text-txtCol-2 flex w-full items-center justify-start gap-2 text-sm">
+						<div className="flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
 							<input type="radio" id="hot_filter" name="others_filter" />
 							<label htmlFor="hot_filter">Hot destination</label>
 						</div>
-						<div className="text-txtCol-2 flex w-full items-center justify-start gap-2 text-sm">
+						<div className="flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
 							<input type="radio" id="new_filter" name="others_filter" />
 							<label htmlFor="new_filter">New destination</label>
 						</div>
-						<div className="text-txtCol-2 flex w-full items-center justify-start gap-2 text-sm">
+						<div className="flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
 							<input type="radio" id="rcm_filter" name="others_filter" />
 							<label htmlFor="rcm_filter">Recommended</label>
 						</div>
 					</div>
 					<div className="relative flex items-center justify-between gap-5">
-						<button className="text-tertiary-1 border-tertiary-1 w-[120px] rounded-md border-2 py-1 ">
+						<button className="w-[80px] rounded-md border-2 border-tertiary-1 py-1 text-tertiary-1 transition-all hover:scale-105 active:scale-100">
 							Clear
 						</button>
-						<button className="bg-primary-2 text-bgCol-1 w-full rounded-md py-1.5 font-medium">
+						<button className="flex-1 rounded-md bg-primary-2 py-1.5 font-medium text-bgCol-1 transition-all hover:scale-105 active:scale-100">
 							Apply
 						</button>
 					</div>
@@ -125,7 +125,7 @@ const DestinationPage = () => {
 				<div className="h-full flex-1 overflow-y-auto">
 					<div className="flex w-full items-center justify-between">
 						<div
-							className={`bg-bgCol-2 flex h-9 w-[200px] items-center gap-1 rounded-md border-[2px] border-[#dddddd] px-2 py-1 pl-3 ${searchFocus ? 'border-primary-2' : ''}`}
+							className={`flex h-9 w-[200px] items-center gap-1 rounded-md border-[2px] border-[#dddddd] bg-bgCol-2 px-2 py-1 pl-3 ${searchFocus ? 'border-primary-2' : ''}`}
 						>
 							<PiMagnifyingGlassBold className="text-txtCol-3" />
 							<input
@@ -136,7 +136,7 @@ const DestinationPage = () => {
 								onBlur={() => setSearchFocus(false)}
 							/>
 						</div>
-						<select className="bg-bgCol-2 h-9 w-[140px] rounded-md border-[2px] border-[#dddddd] px-3 py-1 text-sm">
+						<select className="h-9 w-[140px] rounded-md border-[2px] border-[#dddddd] bg-bgCol-2 px-3 py-1 text-sm">
 							<option value="sort">Sort by</option>
 							<option value="price">Price</option>
 							<option value="rating">Rating</option>

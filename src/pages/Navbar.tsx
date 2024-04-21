@@ -31,14 +31,14 @@ const NavItems = [
 	},
 ]
 
-export default function Navbar() {
+const Navbar: React.FC = () => {
 	const location = useLocation()
 	return (
-		<nav className="bg-bgCol-2 fixed left-0 top-0 z-10 flex h-14 w-full justify-center shadow-md">
+		<nav className="fixed left-0 top-0 z-10 flex h-14 w-full justify-center bg-bgCol-2 shadow-md">
 			<div className="my-auto flex h-10 w-full items-center justify-between xl:max-w-screen-xl">
 				<div className="h-full w-[200px]">
 					<Link
-						className="text-primary-1 cursor-pointer select-none text-xl font-bold leading-10"
+						className="cursor-pointer select-none text-xl font-bold leading-10 text-primary-1"
 						to="/"
 					>
 						Da Nang Explore
@@ -67,7 +67,7 @@ export default function Navbar() {
 										{item.name}
 									</p>
 									<span
-										className={`bg-primary-2 absolute bottom-[-8px] h-[2px] w-full ${location.pathname === item.path ? 'block' : 'hidden'}`}
+										className={`absolute bottom-[-8px] h-[2px] w-full bg-primary-2 ${location.pathname === item.path ? 'block' : 'hidden'}`}
 									></span>
 								</Link>
 							</li>
@@ -82,7 +82,7 @@ export default function Navbar() {
 							src={userAvatar}
 							alt="User Avatar"
 						/>
-						<span className="bg-bgCol-2 absolute bottom-[-3px] right-[-3px] rounded-full">
+						<span className="absolute bottom-[-3px] right-[-3px] rounded-full bg-bgCol-2">
 							<div className=" mx-[2px] my-[2px] rounded-[inherit] bg-[#dddddd] px-[1px] py-[1px] text-xs">
 								<PiCaretDownBold />
 							</div>
@@ -93,3 +93,5 @@ export default function Navbar() {
 		</nav>
 	)
 }
+
+export default Navbar
