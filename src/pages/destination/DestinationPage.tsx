@@ -1,6 +1,8 @@
-import { useState } from 'react'
-// import axios from 'axios'
-import { PiMagnifyingGlassBold } from 'react-icons/pi'
+import { useState, useEffect } from 'react'
+import DropdownSelect from '../../components/DropdownSelect'
+import SearchBox from '../../components/SearchBox'
+import DesPreviewCard from './DesPreviewCard'
+import axios from 'axios'
 
 const filterOptions = [
 	{
@@ -21,42 +23,101 @@ const filterOptions = [
 		name: 'Type',
 		options: ['All', 'Nature', 'Culture', 'Entertainment', 'Accommodation'],
 	},
+	{
+		name: 'Others',
+		options: ['Hot destination', 'New destination', 'Recommended'],
+	},
 ]
 
+type DestinationType = {
+	name: string
+	address: string
+	openingHours: string
+	closingHours: string
+	averageCost: number
+	rating: number
+	tags: string[]
+	thumbnail: string
+	pin: string
+	favorite: boolean
+}
+
+const sortOptions = ['Sort by', 'Price', 'Rating']
+
 const DestinationPage: React.FC = () => {
-	// const [destinations, setDestinations] = useState([])
-	const [searchFocus, setSearchFocus] = useState(false)
+	const [destinations, setDestinations] = useState<DestinationType[]>()
+	const [searchValue, setSearchValue] = useState('')
+	const [filter, setFilter] = useState({
+		location: 0,
+		type: 0,
+		price: {
+			min: 0,
+			max: 100,
+		},
+		rating: {
+			min: 0,
+			max: 5,
+		},
+		hot: false,
+		new: false,
+		rcm: false,
+		others: -1,
+	})
+	const [sort, setSort] = useState(0)
 
-	// useEffect(() => {
-	// 	getDestinations()
-	// }, [])
+	useEffect(() => {
+		getDestinations()
+	}, [])
 
-	// const getDestinations = async () => {
-	// 	try {
-	// 		const response = await axios.get('/api/destinationList.json')
-	// 		setDestinations(response.data)
-	// 		console.log(response.data)
-	// 	} catch (error) {
-	// 		console.error(error)
-	// 	}
-	// }
+	const getDestinations = async () => {
+		try {
+			const response = await axios.get('/api/destinationList.json')
+			setDestinations(response.data.destinations)
+			console.log(response.data)
+		} catch (error) {
+			console.error(error)
+		}
+	}
 	return (
-		<div className="mx-auto flex h-screen justify-center pb-6 pt-20 text-txtCol-1 xl:max-w-screen-xl">
+		<div className="mx-auto flex min-h-screen justify-center pb-6 pt-20 text-txtCol-1 xl:max-w-screen-xl">
 			<div className="flex h-full w-full justify-start gap-8">
-				<div className="my-auto h-auto w-[280px]">
-					{filterOptions &&
-						filterOptions.map((filter, index) => (
-							<div className="mb-4 flex w-full flex-col gap-2" key={index}>
-								<label htmlFor="filter_1">{filter.name}</label>
-								<select className="w-full" title="location" id="filter_1">
-									{filter.options.map((option, index) => (
-										<option key={index} value={index}>
-											{option}
-										</option>
-									))}
-								</select>
-							</div>
-						))}
+				<div className="sticky top-0 h-auto w-[280px] pt-14">
+					{filterOptions[0] && (
+						<div className="mb-4 flex w-full flex-col gap-2">
+							<label htmlFor={`filter_0`}>{filterOptions[0].name}</label>
+							<DropdownSelect
+								id={`filter_0`}
+								className="w-full"
+								options={filterOptions[0].options}
+								value={filter.location}
+								onChange={(event) => {
+									setFilter({
+										...filter,
+										location: Number(event.target.value),
+									})
+								}}
+							/>
+						</div>
+					)}
+
+					{filterOptions[1] && (
+						<div className="mb-4 flex w-full flex-col gap-2">
+							<label htmlFor={`filter_1`}>{filterOptions[1].name}</label>
+							<DropdownSelect
+								id={`filter_1`}
+								className="w-full"
+								options={filterOptions[1].options}
+								value={filter.type}
+								onChange={(event) => {
+									setFilter({
+										...filter,
+										type: Number(event.target.value),
+									})
+								}}
+							/>
+						</div>
+					)}
+
 					<div className="mb-4 flex flex-col gap-2">
 						<label>Price</label>
 						<div className="mb-3 flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
@@ -66,13 +127,32 @@ const DestinationPage: React.FC = () => {
 								type="number"
 								placeholder="0"
 								min={0}
+								max={filter.price.max}
+								onChange={(event) => {
+									setFilter({
+										...filter,
+										price: {
+											...filter.price,
+											min: Number(event.target.value),
+										},
+									})
+								}}
 							/>
 							<p>to $</p>
 							<input
 								className="w-[92px]"
 								type="number"
 								placeholder="100"
-								min={0}
+								min={filter.price.min}
+								onChange={(event) => {
+									setFilter({
+										...filter,
+										price: {
+											...filter.price,
+											max: Number(event.target.value),
+										},
+									})
+								}}
 							/>
 						</div>
 					</div>
@@ -81,37 +161,63 @@ const DestinationPage: React.FC = () => {
 						<div className="mb-3 flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
 							<p>From</p>
 							<input
-								className="w-[60px]"
+								className="border-borderCol-1 w-[60px]"
 								type="number"
 								placeholder="0"
 								min={0}
-								max={5}
+								max={filter.rating.max}
+								onChange={(event) => {
+									setFilter({
+										...filter,
+										rating: {
+											...filter.rating,
+											min: Number(event.target.value),
+										},
+									})
+								}}
 							/>
 							<p>stars to</p>
 							<input
-								className="w-[60px]"
+								className="border-borderCol-1 w-[60px]"
 								type="number"
 								placeholder="5"
-								min={0}
+								min={filter.rating.min}
 								max={5}
+								onChange={(event) => {
+									setFilter({
+										...filter,
+										rating: {
+											...filter.rating,
+											max: Number(event.target.value),
+										},
+									})
+								}}
 							/>
 							<p>stars</p>
 						</div>
 					</div>
 					<div className="mb-8 flex flex-col gap-2">
 						<label>Others</label>
-						<div className="flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
-							<input type="radio" id="hot_filter" name="others_filter" />
-							<label htmlFor="hot_filter">Hot destination</label>
-						</div>
-						<div className="flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
-							<input type="radio" id="new_filter" name="others_filter" />
-							<label htmlFor="new_filter">New destination</label>
-						</div>
-						<div className="flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
-							<input type="radio" id="rcm_filter" name="others_filter" />
-							<label htmlFor="rcm_filter">Recommended</label>
-						</div>
+						{filterOptions[2]?.options?.map((item, index) => (
+							<div
+								key={index}
+								className="flex w-full items-center justify-start gap-2 text-sm text-txtCol-2"
+							>
+								<input
+									type="radio"
+									id={`others_${index}`}
+									name="others_filter"
+									checked={filter.others === index}
+									onChange={() => {
+										setFilter({
+											...filter,
+											others: index,
+										})
+									}}
+								/>
+								<label htmlFor={`others_${index}`}>{item}</label>
+							</div>
+						))}
 					</div>
 					<div className="relative flex items-center justify-between gap-5">
 						<button className="w-[80px] rounded-md border-2 border-tertiary-1 py-1 text-tertiary-1 transition-all hover:scale-105 active:scale-100">
@@ -122,25 +228,39 @@ const DestinationPage: React.FC = () => {
 						</button>
 					</div>
 				</div>
-				<div className="h-full flex-1 overflow-y-auto">
-					<div className="flex w-full items-center justify-between">
-						<div
-							className={`flex h-9 w-[200px] items-center gap-1 rounded-md border-[2px] border-[#dddddd] bg-bgCol-2 px-2 py-1 pl-3 ${searchFocus ? 'border-primary-2' : ''}`}
-						>
-							<PiMagnifyingGlassBold className="text-txtCol-3" />
-							<input
-								type="text"
-								placeholder="Search"
-								className="h-full w-full border-none bg-transparent text-sm focus:border-none"
-								onFocus={() => setSearchFocus(true)}
-								onBlur={() => setSearchFocus(false)}
+				<div className="h-full flex-1">
+					<div className="mb-5 flex w-full items-center justify-between">
+						<SearchBox
+							className="w-[220px]"
+							onChangeValue={(event) => setSearchValue(event.target.value)}
+							onClickSearch={() => console.log(searchValue)}
+						/>
+						<DropdownSelect
+							id={`sort`}
+							className="w-[120px]"
+							options={sortOptions}
+							value={sort}
+							onChange={(event) => {
+								setSort(Number(event.target.value))
+							}}
+						/>
+					</div>
+					<div className="flex flex-wrap justify-between gap-y-5">
+						{destinations?.map((des, index) => (
+							<DesPreviewCard
+								key={index}
+								thumbnail={(des as any).thumbnail}
+								name={des.name}
+								location={des.address}
+								rating={des.rating}
+								cost={des.averageCost}
+								openTime={des.openingHours}
+								closeTime={des.closingHours}
+								tags={des.tags}
+								pin={des.pin}
+								favorite={des.favorite}
 							/>
-						</div>
-						<select className="h-9 w-[140px] rounded-md border-[2px] border-[#dddddd] bg-bgCol-2 px-3 py-1 text-sm">
-							<option value="sort">Sort by</option>
-							<option value="price">Price</option>
-							<option value="rating">Rating</option>
-						</select>
+						))}
 					</div>
 				</div>
 			</div>

@@ -16,6 +16,9 @@
 	--primary-1: #2898c8;
 	--primary-2: #64b8dc;
 	--primary-3: #64ccdc;
+
+	--secondary-1: #52b69a;
+	--secondary-2: #76c893;
 }
 
 body {
@@ -46,13 +49,13 @@ select {
 	background-size: 1.25em;
 	background-position: right 8px center;
 	padding: 4px 0px 4px 8px;
-	border: 2px solid #dddddd;
+	border: 1px solid #dddddd;
 	border-radius: 8px;
 }
 
 select:focus {
 	outline: none;
-	border: 2px solid var(--primary-2);
+	border: 1px solid var(--primary-2);
 }
 
 select option {
@@ -67,14 +70,14 @@ select option:checked {
 input,
 textarea {
 	padding: 4px 8px;
-	border: 2px solid #dddddd;
+	border: 1px solid #dddddd;
 	border-radius: 8px;
 }
 
 input:focus,
 textarea:focus {
 	outline: none;
-	border: 2px solid var(--primary-2);
+	border: 1px solid var(--primary-2);
 }
 
 input[type='range'] {
@@ -111,16 +114,26 @@ input[type='radio'] {
 	width: 12px;
 	height: 12px;
 	background: #ffffff;
-	border: 2px solid #dddddd;
+	border: 1px solid #d4d4d4;
 	border-radius: 4px;
 	cursor: pointer;
+}
+
+input[type='radio'] {
+	border-radius: 50%;
+	border: 2px;
 }
 
 input[type='checkbox']:checked,
 input[type='radio']:checked {
 	background-color: var(--primary-2);
-	border: 2px solid var(--primary-2);
+	border: 1px solid var(--primary-2);
 	background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" style="color: white;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>');
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+input[type='radio']:checked {
+	background-color: var(--secondary-1);
+	border: 2px;
 }
