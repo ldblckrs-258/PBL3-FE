@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import DropdownSelect from '../../components/DropdownSelect'
 import SearchBox from '../../components/SearchBox'
-import DesPreviewCard from './DesPreviewCard'
+import DesPreviewCard, { DPCLoading } from './DesPreviewCard'
 import axios from 'axios'
+import Pagination from '../../components/Pagination'
 
 const filterOptions = [
 	{
@@ -64,16 +65,18 @@ const DestinationPage: React.FC = () => {
 		others: -1,
 	})
 	const [sort, setSort] = useState(0)
-
+	const [currentPage, setCurrentPage] = useState(1)
 	useEffect(() => {
-		getDestinations()
-	}, [])
+		getDestinations(currentPage)
+	}, [currentPage])
 
-	const getDestinations = async () => {
+	const getDestinations = async (page: number) => {
 		try {
-			const response = await axios.get('/api/destinationList.json')
-			setDestinations(response.data.destinations)
-			console.log(response.data)
+			setDestinations(undefined)
+			const response = await axios.get(`/api/destination.page${page}.json`)
+			// simulate delay
+			await new Promise((resolve) => setTimeout(resolve, 1000))
+			setDestinations(response.data.data)
 		} catch (error) {
 			console.error(error)
 		}
@@ -161,7 +164,7 @@ const DestinationPage: React.FC = () => {
 						<div className="mb-3 flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
 							<p>From</p>
 							<input
-								className="border-borderCol-1 w-[60px]"
+								className="w-[60px] border-borderCol-1"
 								type="number"
 								placeholder="0"
 								min={0}
@@ -178,7 +181,7 @@ const DestinationPage: React.FC = () => {
 							/>
 							<p>stars to</p>
 							<input
-								className="border-borderCol-1 w-[60px]"
+								className="w-[60px] border-borderCol-1"
 								type="number"
 								placeholder="5"
 								min={filter.rating.min}
@@ -246,21 +249,35 @@ const DestinationPage: React.FC = () => {
 						/>
 					</div>
 					<div className="flex flex-wrap justify-between gap-y-5">
-						{destinations?.map((des, index) => (
-							<DesPreviewCard
-								key={index}
-								thumbnail={(des as any).thumbnail}
-								name={des.name}
-								location={des.address}
-								rating={des.rating}
-								cost={des.averageCost}
-								openTime={des.openingHours}
-								closeTime={des.closingHours}
-								tags={des.tags}
-								pin={des.pin}
-								favorite={des.favorite}
-							/>
-						))}
+						{destinations
+							? destinations.map((des, index) => (
+									<DesPreviewCard
+										key={index}
+										thumbnail={(des as any).thumbnail}
+										name={des.name}
+										location={des.address}
+										rating={des.rating}
+										cost={des.averageCost}
+										openTime={des.openingHours}
+										closeTime={des.closingHours}
+										tags={des.tags}
+										pin={des.pin}
+										favorite={des.favorite}
+									/>
+								))
+							: Array.from({ length: 6 }).map((_, index) => (
+									<DPCLoading key={index} />
+								))}
+
+						<Pagination
+							className="mt-2 w-full justify-center"
+							numbOfPages={8}
+							currentPage={currentPage}
+							setCurrentPage={(numb) => {
+								setCurrentPage(numb)
+								console.log(numb)
+							}}
+						/>
 					</div>
 				</div>
 			</div>

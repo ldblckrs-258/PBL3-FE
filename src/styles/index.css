@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+	scroll-behavior: smooth;
+}
+
 :root {
 	font-family: 'Open Sans', sans-serif;
 	font-optical-sizing: auto;
@@ -19,6 +23,8 @@
 
 	--secondary-1: #52b69a;
 	--secondary-2: #76c893;
+
+	--border-col-1: #d4d4d4;
 }
 
 body {
@@ -114,7 +120,7 @@ input[type='radio'] {
 	width: 12px;
 	height: 12px;
 	background: #ffffff;
-	border: 1px solid #d4d4d4;
+	border: 1px solid var(--border-col-1);
 	border-radius: 4px;
 	cursor: pointer;
 }
@@ -136,4 +142,38 @@ input[type='radio']:checked {
 input[type='radio']:checked {
 	background-color: var(--secondary-1);
 	border: 2px;
+}
+
+.pagination-node {
+	height: 32px;
+	min-width: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+.skeleton {
+	position: relative;
+	display: block;
+	background-color: #ebebeb;
+	overflow: hidden;
+}
+
+.skeleton::after {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100px;
+	left: -100px;
+	top: 0;
+	background: linear-gradient(to right, transparent, #fbfbfb70, transparent);
+	animation: reflect 800ms ease-out infinite;
+}
+
+@keyframes reflect {
+	to {
+		left: calc(100% + 100px);
+	}
 }

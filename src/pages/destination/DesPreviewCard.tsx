@@ -6,7 +6,6 @@ import {
 	PiStarFill,
 } from 'react-icons/pi'
 import { useState } from 'react'
-
 type DesPreviewCardProps = {
 	className?: string
 	name: string
@@ -35,15 +34,20 @@ const DesPreviewCard: React.FC<DesPreviewCardProps> = ({
 	favorite,
 }) => {
 	const [favor, setFavorite] = useState(favorite)
+	const [imgLoaded, setImgLoaded] = useState(false)
 	return (
 		<div
-			className={`border-borderCol-1 relative flex min-h-10 w-[300px] cursor-pointer flex-col flex-nowrap items-start rounded-[8px] border bg-[#fff] p-3 ${className}`}
+			className={`relative flex min-h-10 w-[300px] cursor-pointer flex-col flex-nowrap items-start rounded-[8px] border border-borderCol-1 bg-[#fff] p-3 ${className}`}
 		>
 			<img
 				src={thumbnail}
 				alt={name}
-				className="aspect-[16/9] w-full rounded object-cover"
+				className={`aspect-[16/9] w-full rounded object-cover ${imgLoaded ? 'block' : 'hidden'}`}
+				onLoad={() => setImgLoaded(true)}
 			/>
+			{!imgLoaded && (
+				<span className="skeleton w-full rounded pt-[56.25%]"></span>
+			)}
 			<div className="my-2 flex w-full overflow-hidden">
 				<div className="flex flex-1 flex-col items-start overflow-hidden">
 					<h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-base font-semibold">
@@ -68,7 +72,7 @@ const DesPreviewCard: React.FC<DesPreviewCardProps> = ({
 				<div className="flex flex-1 items-center gap-1 text-sm font-semibold">
 					<p className=" text-txtCol-2">Rating: </p>
 					<p>{rating}</p>
-					<PiStarFill />
+					<PiStarFill className="text-[#FFC70D]" />
 				</div>
 				<div className="flex flex-1 items-center gap-1 text-sm font-semibold">
 					<p className="text-txtCol-2">Avg. Cost: </p>
@@ -91,7 +95,7 @@ const DesPreviewCard: React.FC<DesPreviewCardProps> = ({
 					tags.map((tag, index) => (
 						<div
 							key={index}
-							className="border-borderCol-1 rounded-full border px-2 py-1 text-xs"
+							className="rounded-full border border-borderCol-1 px-2 py-1 text-xs"
 						>
 							{tag}
 						</div>
@@ -110,3 +114,40 @@ const DesPreviewCard: React.FC<DesPreviewCardProps> = ({
 }
 
 export default DesPreviewCard
+
+const DPCLoading: React.FC = () => {
+	return (
+		<div
+			className={`relative flex min-h-10 w-[300px] cursor-pointer flex-col flex-nowrap items-start rounded-[8px] border border-borderCol-1 bg-[#fff] p-3`}
+		>
+			<span className="skeleton w-full rounded pt-[56.25%]"></span>
+			<div className="my-2 flex w-full overflow-hidden">
+				<div className="flex flex-1 flex-col items-start overflow-hidden">
+					<span className="skeleton my-0.5 h-5 w-[160px] rounded-sm"></span>
+					<span className="skeleton h-4 w-[200px] rounded-sm"></span>
+				</div>
+			</div>
+			<div className="mb-1 flex w-full items-center">
+				<div className="flex-1">
+					<span className="skeleton my-[3px] h-[18px] w-[92px] rounded-sm"></span>
+				</div>
+				<div className="flex-1">
+					<span className="skeleton my-[3px] h-[18px] w-[108px] rounded-sm"></span>
+				</div>
+			</div>
+			<div className="mb-1 flex w-full items-center text-sm">
+				<div className="flex-1">
+					<span className="skeleton my-[3px] h-[18px] w-[116px] rounded-sm"></span>
+				</div>
+				<div className="flex-1">
+					<span className="skeleton my-[3px] h-[18px] w-[116px] rounded-sm"></span>
+				</div>
+			</div>
+			<div className="flex w-full items-center gap-2 overflow-hidden">
+				<span className="skeleton my-0.5 h-[21.45px] w-[200px] rounded-sm"></span>
+			</div>
+		</div>
+	)
+}
+
+export { DPCLoading }

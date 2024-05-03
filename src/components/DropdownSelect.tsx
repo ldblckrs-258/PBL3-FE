@@ -17,7 +17,7 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
 }) => {
 	return (
 		<select
-			className={`border-borderCol-1 h-9 rounded-md bg-bgCol-2 px-3 py-1 text-sm ${className} `}
+			className={`h-9 rounded-md border-borderCol-1 bg-bgCol-2 px-3 py-1 text-sm ${className} `}
 			title={title}
 			id={id}
 			value={value}
