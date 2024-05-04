@@ -1,5 +1,6 @@
 import { useLocation, Link } from 'react-router-dom'
 import userAvatar from '../assets/user-avatar.png'
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import {
 	PiCaretDownBold,
 	PiHouseBold,
@@ -7,6 +8,7 @@ import {
 	PiArticleBold,
 	PiCalendarBlankBold,
 } from 'react-icons/pi'
+import { useState } from 'react'
 
 const NavItems = [
 	{
@@ -33,8 +35,26 @@ const NavItems = [
 
 const Navbar: React.FC = () => {
 	const location = useLocation()
+	const firstPath = '/' + location.pathname.split('/')[1]
+	const [hidden, setHidden] = useState(false)
+	const { scrollY } = useScroll()
+
+	useMotionValueEvent(scrollY, 'change', (latest) => {
+		const previous = scrollY.getPrevious() as number
+		if (latest > previous && latest > 100) setHidden(true)
+		else setHidden(false)
+	})
+
 	return (
-		<nav className="fixed left-0 top-0 z-10 flex h-14 w-full justify-center bg-bgCol-2 shadow-md">
+		<motion.nav
+			variants={{
+				visible: { y: 0 },
+				hidden: { y: '-100%' },
+			}}
+			animate={hidden ? 'hidden' : 'visible'}
+			transition={{ duration: 0.35, ease: 'easeInOut' }}
+			className="fixed left-0 top-0 z-10 flex h-12 w-full justify-center bg-bgCol-2 shadow-md"
+		>
 			<div className="my-auto flex h-10 w-full items-center justify-between xl:max-w-screen-xl">
 				<div className="h-full w-[200px]">
 					<Link
@@ -50,24 +70,22 @@ const Navbar: React.FC = () => {
 							<li key={index}>
 								<Link
 									to={item.path}
-									className={`relative flex min-w-[120px] items-center justify-center gap-2 px-3 text-lg  ${
-										location.pathname === item.path
-											? 'text-primary-1'
-											: 'text-txtCol-3'
+									className={`relative flex min-w-[120px] items-center justify-center gap-2 px-3 text-base ${
+										firstPath === item.path ? 'text-primary-1' : 'text-txtCol-3'
 									} rounded-lg transition-all hover:bg-[#eeeeee]`}
 								>
 									<item.icon />
 									<p
 										className={`${
-											location.pathname === item.path
+											firstPath === item.path
 												? 'text-txtCol-1'
 												: 'text-txtCol-3'
-										} text-base font-semibold leading-10`}
+										} text-sm font-semibold leading-10`}
 									>
 										{item.name}
 									</p>
 									<span
-										className={`absolute bottom-[-8px] h-[2px] w-full bg-primary-2 ${location.pathname === item.path ? 'block' : 'hidden'}`}
+										className={`absolute bottom-[-4px] h-[2px] w-full bg-primary-2 ${firstPath === item.path ? 'block' : 'hidden'}`}
 									></span>
 								</Link>
 							</li>
@@ -75,8 +93,8 @@ const Navbar: React.FC = () => {
 					</ul>
 				</div>
 				<div className="flex w-[200px] items-center justify-end gap-4">
-					<p className=" font-semibold">dev01d</p>
-					<button className="relative h-10 w-10 rounded-full">
+					<p className="text-sm font-semibold">dev01d</p>
+					<button className="relative h-8 w-8 rounded-full">
 						<img
 							className="h-full w-full rounded-full object-cover"
 							src={userAvatar}
@@ -90,7 +108,7 @@ const Navbar: React.FC = () => {
 					</button>
 				</div>
 			</div>
-		</nav>
+		</motion.nav>
 	)
 }
 

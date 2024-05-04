@@ -5,6 +5,7 @@ import PageNotFound from './pages/PageNotFound'
 import Home from './pages/Home'
 import DestinationPage from './pages/destination/DestinationPage'
 import Blog from './pages/blog/BlogPage'
+import Destination from './pages/destination/Destination'
 function App() {
 	return (
 		<>
@@ -14,7 +15,7 @@ function App() {
 					<Route path="/" element={<Home />}></Route>
 					<Route path="/destination" element={<DestinationPage />}></Route>
 					<Route path="/blog" element={<Blog />}></Route>
-
+					<Route path="/destination/:id" element={<Destination />}></Route>
 					<Route path="*" element={<PageNotFound />}></Route>
 				</Routes>
 			</BrowserRouter>

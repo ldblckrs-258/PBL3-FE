@@ -17,13 +17,13 @@ const SearchBox: React.FC<SearchBoxProps> = ({
 	const [searchFocus, setSearchFocus] = useState(false)
 	return (
 		<div
-			className={`flex h-9 items-center rounded-md border border-[#dddddd] bg-bgCol-2 px-2 py-1 ${searchFocus ? 'border-primary-2' : ''} ${className}`}
+			className={`flex h-8 items-center rounded-md border border-[#dddddd] bg-bgCol-2 px-2 py-0.5  ${searchFocus ? 'border-primary-2' : ''} ${className}`}
 			id={id}
 		>
 			<input
 				type="text"
 				placeholder="Search"
-				className="h-full w-full border-none bg-transparent text-sm focus:border-none"
+				className="h-full w-full border-none bg-transparent text-xs focus:border-none"
 				onFocus={() => setSearchFocus(true)}
 				onBlur={() => setSearchFocus(false)}
 				onChange={(event) => {

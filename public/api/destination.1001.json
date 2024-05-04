@@ -1,0 +1,64 @@
+{
+	"status": "success",
+	"data": {
+		"imgs": [
+			"https://www.marmomac.com/wp-content/uploads/2022/07/Marble-Mountains_copertina.jpg",
+			"https://danangleisure.com/wp-content/uploads/2022/05/IMG_5318-1536x1028.jpeg",
+			"https://statics.vinpearl.com/my-khe-beach-2_1692016028.jpg"
+		],
+		"general": {
+			"id": 1001,
+			"name": "Golden Bridge",
+			"localName": "Cầu Vàng",
+			"address": "Ba Na Hills, Hoa Vang, Da Nang, Vietnam",
+			"rating": 4.7,
+			"cost": 20,
+			"openTime": "07:00",
+			"closeTime": "22:00",
+			"tags": ["bridge", "tourist", "sightseeing"]
+		},
+		"introduction": "<p class=\"paragraph\"> Golden Bridge (Cầu Vàng) is a 150-meter-long pedestrian bridge located in the Bà Nà Hills resort, near Da Nang, Vietnam. It is designed to connect the cable car station with the gardens, avoiding a steep incline, while also providing a scenic overlook and serving as a tourist attraction12. Here are some key details about the Golden Bridge: </p><p class=\"header-3\"> •\tDesign and Features </p><p class=\"paragraph\"> \t-\tThe bridge loops nearly back around to itself, creating a unique visual effect. </p><p class=\"paragraph\"> \t-\tIt features two giant hands that appear to support the structure. These hands are constructed of fiberglass and wire mesh, designed to resemble stone hands. </p><p class=\"paragraph\"> \t-\tThe hands add an artistic and mystical touch to the bridge, making it a captivating sight for visitors.</p><p class=\"paragraph\"> \t-\tThe bridge is made of steel painted gold and has a total width of 5 meters.</p><p class=\"header-3\"> •\tScenic Views: </p><p class=\"paragraph\"> \t-\tVisitors can enjoy breathtaking views of the surrounding landscape, including lush greenery, mountains, and the cable car system.</p><p class=\"paragraph\"> \t-\tThe Golden Bridge provides an excellent vantage point for capturing stunning photos.",
+		"reviews": {
+			"total": {
+				"count": 3021,
+				"average": 4.7,
+				"chart": {
+					"5": 0.8,
+					"4": 0.1,
+					"3": 0.05,
+					"2": 0.02,
+					"1": 0.03
+				}
+			},
+			"list": [
+				{
+					"id": 1,
+					"name": "John Doe",
+					"avatar": "https://randomuser.me/api/port",
+					"rating": 5,
+					"date": "2021-05-12",
+					"content": "The Golden Bridge is truly a marvel of architecture and design. The views are breathtaking, and the hands add a unique touch to the experience. I highly recommend visiting this attraction!",
+					"like": 12
+				},
+				{
+					"id": 2,
+					"name": "Jane Smith",
+					"avatar": "https://randomuser.me/api/port",
+					"rating": 4,
+					"date": "2021-05-10",
+					"content": "The Golden Bridge is a must-see destination in Vietnam. The views are incredible, and the bridge itself is a work of art. I had a great time exploring this attraction!",
+					"like": 8
+				},
+				{
+					"id": 3,
+					"name": "Alice Johnson",
+					"avatar": "https://randomuser.me/api/port",
+					"rating": 5,
+					"date": "2021-05-08",
+					"content": "I absolutely loved visiting the Golden Bridge. The views were stunning, and the bridge itself is a unique and captivating structure. I would definitely recommend this attraction to others!",
+					"like": 10
+				}
+			]
+		}
+	}
+}
