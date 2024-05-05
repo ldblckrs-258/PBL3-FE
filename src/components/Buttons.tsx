@@ -1,37 +1,79 @@
+import { motion } from 'framer-motion'
+import { useState } from 'react'
 type ButtonProps = {
 	children: React.ReactNode
 	className?: string
 	onClick: () => void
 }
+const buttonVariants = {
+	hover: {
+		scale: 1.03,
+	},
+	tap: {
+		scale: 0.93,
+		opacity: 0.85,
+	},
+}
 
-const PrimaryButton: React.FC<ButtonProps> = ({
-	children,
-	className,
-	onClick,
-}) => {
+const Button: React.FC<ButtonProps> = ({ children, className, onClick }) => {
 	return (
-		<button
-			className={`rounded-md bg-primary-2 py-1.5 text-sm font-medium text-bgCol-1 transition-all ${className}`}
+		<motion.button
+			className={`flex items-center justify-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${className}`}
+			whileTap="tap"
+			variants={buttonVariants}
+			transition={{ duration: 0.1 }}
 			onClick={onClick}
 		>
 			{children}
-		</button>
+		</motion.button>
 	)
 }
 
-const SecondaryButton: React.FC<ButtonProps> = ({
-	children,
+type ToggleButtonProps = {
+	className?: string
+	onClick: () => void
+	text: string
+	toggledText: string
+	icon?: React.ReactNode
+	initToggled: boolean
+	btnColor: string
+}
+
+const ToggleButton: React.FC<ToggleButtonProps> = ({
 	className,
 	onClick,
+	text,
+	toggledText,
+	initToggled,
+	icon,
+	btnColor,
 }) => {
+	const [toggled, setToggled] = useState(initToggled)
+
 	return (
-		<button
-			className={`rounded-md border-2 border-tertiary-1 py-1 text-sm text-tertiary-1 transition-all ${className}`}
-			onClick={onClick}
+		<motion.button
+			className={`flex items-center justify-center gap-2 rounded-md border-2 px-3 py-1.5 text-sm font-medium text-white transition-all ${className}`}
+			style={{ borderColor: btnColor }}
+			whileHover="hover"
+			whileTap="tap"
+			variants={buttonVariants}
+			animate={
+				toggled
+					? {
+							color: btnColor,
+						}
+					: { backgroundColor: btnColor }
+			}
+			transition={{ duration: 0.1 }}
+			onClick={() => {
+				onClick()
+				setToggled(!toggled)
+			}}
 		>
-			{children}
-		</button>
+			{icon}
+			{toggled ? toggledText : text}
+		</motion.button>
 	)
 }
 
-export { PrimaryButton, SecondaryButton }
+export { Button, ToggleButton }

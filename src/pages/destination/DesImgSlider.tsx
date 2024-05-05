@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { PiArrowCircleLeft, PiArrowCircleRight } from 'react-icons/pi'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -12,7 +12,7 @@ type DesImgSliderProps = {
 const DesImgSlider: React.FC<DesImgSliderProps> = ({
 	imgUrls,
 	className,
-	height = 'calc(100vh - 64px - 16px - 60px)',
+	height = 'calc(100vh - 64px - 16px - 48px)',
 	name,
 }) => {
 	const [currentImg, setCurrentImg] = useState(0)
@@ -25,6 +25,13 @@ const DesImgSlider: React.FC<DesImgSliderProps> = ({
 		setDirection('left')
 		setCurrentImg((prev) => (prev + imgUrls.length - 1) % imgUrls.length)
 	}
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			handleNextImg()
+		}, 5000)
+		return () => clearInterval(interval)
+	}, [currentImg])
 
 	return (
 		<div
@@ -39,9 +46,9 @@ const DesImgSlider: React.FC<DesImgSliderProps> = ({
 					className="absolute h-full w-full rounded object-cover"
 					src={imgUrls[currentImg]}
 					alt={`image ${currentImg}`}
-					initial={{ x: direction === 'left' ? '-100%' : '100%', opacity: 0.5 }}
+					initial={{ x: direction === 'left' ? '-100%' : '100%', opacity: 1 }}
 					animate={{ x: 0, opacity: 1 }}
-					exit={{ zIndex: -1, position: 'absolute', opacity: 0.5 }}
+					exit={{ zIndex: -1, position: 'absolute', opacity: 0.5, scale: 0.9 }}
 					transition={{ duration: 0.5 }}
 				/>
 			</AnimatePresence>

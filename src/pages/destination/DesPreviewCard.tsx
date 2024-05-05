@@ -18,6 +18,7 @@ type DesPreviewCardProps = {
 	tags: string[]
 	pin?: string
 	favorite?: boolean
+	onVisit?: () => void
 }
 
 const DesPreviewCard: React.FC<DesPreviewCardProps> = ({
@@ -32,25 +33,30 @@ const DesPreviewCard: React.FC<DesPreviewCardProps> = ({
 	tags,
 	pin,
 	favorite,
+	onVisit,
 }) => {
 	const [favor, setFavorite] = useState(favorite)
 	const [imgLoaded, setImgLoaded] = useState(false)
 	return (
 		<div
-			className={`relative flex min-h-10 w-[240px] cursor-pointer flex-col flex-nowrap items-start rounded-[8px] border border-borderCol-1 bg-[#fff] p-3 ${className}`}
+			className={`relative flex min-h-10 w-[240px] flex-col flex-nowrap items-start rounded-[8px] border border-borderCol-1 bg-[#fff] p-3 ${className}`}
 		>
 			<img
 				src={thumbnail}
 				alt={name}
-				className={`aspect-[16/9] w-full rounded object-cover ${imgLoaded ? 'block' : 'hidden'}`}
+				className={`aspect-[16/9] w-full cursor-pointer rounded object-cover ${imgLoaded ? 'block' : 'hidden'}`}
 				onLoad={() => setImgLoaded(true)}
+				onClick={onVisit}
 			/>
 			{!imgLoaded && (
 				<span className="skeleton w-full rounded pt-[56.25%]"></span>
 			)}
 			<div className="my-2 flex w-full gap-1 overflow-hidden">
-				<div className="flex flex-1 flex-col items-start overflow-hidden">
-					<h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-sm font-semibold">
+				<div
+					className="flex flex-1 cursor-pointer flex-col items-start overflow-hidden"
+					onClick={onVisit}
+				>
+					<h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-sm font-semibold hover:text-primary-1 hover:underline">
 						{name}
 					</h3>
 					<p className="overflow-hidden text-ellipsis whitespace-nowrap text-[11px]">

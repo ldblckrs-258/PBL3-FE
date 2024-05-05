@@ -29,6 +29,7 @@ html {
 
 body {
 	background-color: #f6faf9;
+	color: #0c0c20;
 }
 
 li {
@@ -176,4 +177,19 @@ input[type='radio']:checked {
 	to {
 		left: calc(100% + 100px);
 	}
+}
+
+.header-3 {
+	font-weight: 600;
+}
+.level-2 {
+	margin-left: 20px;
+}
+
+.level-3 {
+	margin-left: 40px;
+}
+
+.indent {
+	text-indent: 20px;
 }

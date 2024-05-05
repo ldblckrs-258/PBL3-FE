@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import DropdownSelect from '../../components/DropdownSelect'
 import SearchBox from '../../components/SearchBox'
 import DesPreviewCard, { DPCLoading } from './DesPreviewCard'
 import axios from 'axios'
 import Pagination from '../../components/Pagination'
-import { PrimaryButton, SecondaryButton } from '../../components/Buttons'
+import { Button } from '../../components/Buttons'
 
 const filterOptions = [
 	{
@@ -32,6 +33,7 @@ const filterOptions = [
 ]
 
 type DestinationType = {
+	id: number
 	name: string
 	address: string
 	openingHours: string
@@ -67,6 +69,8 @@ const DestinationPage: React.FC = () => {
 	const [filter, setFilter] = useState(initFilter)
 	const [sort, setSort] = useState(0)
 	const [currentPage, setCurrentPage] = useState(1)
+	const navigate = useNavigate()
+
 	useEffect(() => {
 		getDestinations(currentPage)
 	}, [currentPage])
@@ -74,7 +78,7 @@ const DestinationPage: React.FC = () => {
 	const getDestinations = async (page: number) => {
 		try {
 			setDestinations(undefined)
-			const response = await axios.get(`/api/destination.page${page}.json`)
+			const response = await axios.get(`/api/destination/page-${page}.json`)
 			// simulate delay
 			await new Promise((resolve) => setTimeout(resolve, 2000))
 			setDestinations(response.data.data)
@@ -239,23 +243,23 @@ const DestinationPage: React.FC = () => {
 						))}
 					</div>
 					<div className="relative flex items-center justify-between gap-5">
-						<SecondaryButton
-							className="w-20"
+						<Button
+							className="text-bold w-20 border-2 border-tertiary-1 text-tertiary-1"
 							onClick={() => {
 								setFilter(initFilter)
 								console.log(filter)
 							}}
 						>
 							Reset
-						</SecondaryButton>
-						<PrimaryButton
-							className="flex-1"
+						</Button>
+						<Button
+							className="flex-1 bg-primary-2 text-white"
 							onClick={() => {
 								console.log(filter)
 							}}
 						>
 							Apply
-						</PrimaryButton>
+						</Button>
 					</div>
 				</div>
 
@@ -291,6 +295,7 @@ const DestinationPage: React.FC = () => {
 										tags={des.tags}
 										pin={des.pin}
 										favorite={des.favorite}
+										onVisit={() => navigate(`/destination/${des.id}`)}
 									/>
 								))
 							: Array.from({ length: cardPerPage }).map((_, index) => (

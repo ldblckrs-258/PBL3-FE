@@ -15,7 +15,7 @@ export default {
 				},
 				tertiary: {
 					1: '#E75A51',
-					2: '#E76F51',
+					2: '#ee685e',
 					3: '#F6A894',
 				},
 				bgCol: {
