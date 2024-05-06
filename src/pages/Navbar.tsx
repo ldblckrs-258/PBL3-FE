@@ -38,6 +38,10 @@ const Navbar: React.FC = () => {
 	const firstPath = '/' + location.pathname.split('/')[1]
 	const [hidden, setHidden] = useState(false)
 	const { scrollY } = useScroll()
+	const windowHeight = window.innerHeight
+	const scrolledOnePage = scrollY.get() >= windowHeight
+
+	const isHome = scrolledOnePage ? false : firstPath === '/'
 
 	useMotionValueEvent(scrollY, 'change', (latest) => {
 		const previous = scrollY.getPrevious() as number
@@ -53,12 +57,12 @@ const Navbar: React.FC = () => {
 			}}
 			animate={hidden ? 'hidden' : 'visible'}
 			transition={{ duration: 0.35, ease: 'easeInOut' }}
-			className="fixed left-0 top-0 z-10 flex h-12 w-full justify-center bg-bgCol-2 shadow-md"
+			className={`fixed left-0 top-0 z-10 flex h-12 w-full justify-center ${isHome ? 'bg-transparent' : 'bg-bgCol-2 shadow-md'}`}
 		>
 			<div className="my-auto flex h-10 w-full items-center justify-between xl:max-w-screen-xl">
 				<div className="h-full w-[200px]">
 					<Link
-						className="cursor-pointer select-none text-xl font-bold leading-10 text-primary-1"
+						className={`cursor-pointer select-none text-xl font-bold leading-10 ${isHome ? 'text-primary-3' : 'text-primary-1'} `}
 						to="/"
 					>
 						Da Nang Explore
@@ -71,15 +75,25 @@ const Navbar: React.FC = () => {
 								<Link
 									to={item.path}
 									className={`relative flex min-w-[120px] items-center justify-center gap-2 px-3 text-base ${
-										firstPath === item.path ? 'text-primary-1' : 'text-txtCol-3'
-									} rounded-lg transition-all hover:bg-[#eeeeee]`}
+										firstPath === item.path
+											? isHome
+												? 'text-primary-3'
+												: 'text-primary-1'
+											: isHome
+												? 'text-txtCol-4'
+												: 'text-txtCol-3'
+									} rounded-lg transition-all ${isHome ? 'hover:bg-[#00000040]' : 'hover:bg-[#00000015]'}`}
 								>
 									<item.icon />
 									<p
 										className={`${
 											firstPath === item.path
-												? 'text-txtCol-1'
-												: 'text-txtCol-3'
+												? isHome
+													? 'text-white'
+													: 'text-txtCol-1'
+												: isHome
+													? 'text-txtCol-4'
+													: 'text-txtCol-3'
 										} text-sm font-semibold leading-10`}
 									>
 										{item.name}
@@ -93,14 +107,20 @@ const Navbar: React.FC = () => {
 					</ul>
 				</div>
 				<div className="flex w-[200px] items-center justify-end gap-4">
-					<p className="text-sm font-semibold">dev01d</p>
+					<p
+						className={`text-sm font-semibold ${isHome ? 'text-txtCol-4' : ''}`}
+					>
+						dev01d
+					</p>
 					<button className="relative h-8 w-8 rounded-full">
 						<img
 							className="h-full w-full rounded-full object-cover"
 							src={userAvatar}
 							alt="User Avatar"
 						/>
-						<span className="absolute bottom-[-3px] right-[-3px] rounded-full bg-bgCol-2">
+						<span
+							className={`absolute bottom-[-3px] right-[-3px] rounded-full ${isHome ? '' : 'bg-bgCol-2'}`}
+						>
 							<div className=" mx-[2px] my-[2px] rounded-[inherit] bg-[#dddddd] px-[1px] py-[1px] text-xs">
 								<PiCaretDownBold />
 							</div>

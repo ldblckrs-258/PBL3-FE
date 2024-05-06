@@ -3,6 +3,10 @@ export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {
+			fontFamily: {
+				sans: ['Poppins', 'sans-serif'],
+				lora: ['Lora', 'serif'],
+			},
 			colors: {
 				primary: {
 					1: '#2898C8',
@@ -26,6 +30,7 @@ export default {
 					1: '#0C0C20',
 					2: '#555555',
 					3: '#999999',
+					4: '#d3d3d3',
 				},
 				borderCol: {
 					1: '#D4D4D4',
