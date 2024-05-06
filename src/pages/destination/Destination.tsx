@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import PageNotFound from '../PageNotFound'
 import DesImgSlider from './DesImgSlider'
-import DestinationType from '../../types/DestinationType'
+import { DestinationType } from '../../types/destination.types'
 import DesInfo from './DesInfo'
 import RandomExplore from './RandomExplore'
 import { useEffect, useState } from 'react'
@@ -13,6 +13,7 @@ import {
 	PiShieldWarningBold,
 } from 'react-icons/pi'
 import { ToggleButton, Button } from '../../components/Buttons'
+import Reviews from './Reviews'
 
 const Destination: React.FC = () => {
 	const [destination, setDestination] = useState<DestinationType | undefined>(
@@ -27,7 +28,6 @@ const Destination: React.FC = () => {
 			// simulate delay
 			// await new Promise((resolve) => setTimeout(resolve, 500))
 			setDestination(response.data.data)
-			console.log(response.data.data)
 		} catch (error) {
 			console.error(error)
 		}
@@ -63,10 +63,7 @@ const Destination: React.FC = () => {
 					<RandomExplore />
 				</div>
 			</div>
-			<div className="mb-5 flex w-full gap-5 pt-5">
-				<div className=" relative flex-1 rounded-lg border border-borderCol-1 bg-white p-5 pt-8"></div>
-				<div className="flex w-[380px] flex-col items-center gap-3 rounded-lg border border-borderCol-1 bg-white p-3"></div>
-			</div>
+			<Reviews destinationId={id ? Number(id) : 0} className="mb-5 w-full" />
 		</div>
 	)
 }

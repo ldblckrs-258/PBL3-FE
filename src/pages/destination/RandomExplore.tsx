@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { PiStarFill } from 'react-icons/pi'
+import Stars from '../../components/Stars'
 
 type RandomItem = {
 	id: number
@@ -29,7 +30,7 @@ const RandomExplore: React.FC = () => {
 	return (
 		<div className="flex w-full flex-col gap-2">
 			<div className="mb-0.5 flex h-8 w-full items-center justify-center rounded border border-borderCol-1 bg-white font-bold tracking-wide">
-				Information
+				Random Explore
 			</div>
 			{randomDess.map((des) => (
 				<RandomCard
@@ -70,14 +71,7 @@ const RandomCard: React.FC<RandomItem> = ({
 				<div className="font-['Open Sans'] self-stretch text-xs font-normal text-primary-2">
 					{tags.join(', ')}
 				</div>
-				<div className="flex w-full items-center justify-start gap-1">
-					{[...Array(5)].map((_, index) => (
-						<PiStarFill
-							key={index}
-							className={`text-xl ${index < rating ? 'text-[#FFC70D]' : 'text-gray-200'}`}
-						/>
-					))}
-				</div>
+				<Stars rating={rating} className="w-full justify-start" />
 			</div>
 		</div>
 	)

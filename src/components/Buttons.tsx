@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { twMerge } from 'tailwind-merge'
 type ButtonProps = {
 	children: React.ReactNode
 	className?: string
@@ -18,7 +19,9 @@ const buttonVariants = {
 const Button: React.FC<ButtonProps> = ({ children, className, onClick }) => {
 	return (
 		<motion.button
-			className={`flex items-center justify-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${className}`}
+			className={twMerge(
+				`flex items-center justify-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${className ?? ''}`,
+			)}
 			whileTap="tap"
 			variants={buttonVariants}
 			transition={{ duration: 0.1 }}

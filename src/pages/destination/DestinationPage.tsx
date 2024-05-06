@@ -90,10 +90,10 @@ const DestinationPage: React.FC = () => {
 		<div className="mx-auto flex min-h-screen justify-center pb-6 pt-[64px] text-txtCol-1 xl:max-w-screen-xl">
 			<div className="flex h-full w-full justify-start gap-5 ">
 				{/* <div className="w-[260px] "></div> */}
-				<div className="top-0 h-auto w-[260px]">
+				<div className="mt-8 h-auto w-[260px]">
 					{filterOptions[0] && (
 						<div className="mb-4 flex w-full flex-col gap-2">
-							<label className="text-sm" htmlFor={`filter_0`}>
+							<label className="text-sm font-semibold" htmlFor={`filter_0`}>
 								{filterOptions[0].name}
 							</label>
 							<DropdownSelect
@@ -113,7 +113,7 @@ const DestinationPage: React.FC = () => {
 
 					{filterOptions[1] && (
 						<div className="mb-4 flex w-full flex-col gap-2">
-							<label className="text-sm" htmlFor={`filter_1`}>
+							<label className="text-sm font-semibold" htmlFor={`filter_1`}>
 								{filterOptions[1].name}
 							</label>
 							<DropdownSelect
@@ -132,11 +132,11 @@ const DestinationPage: React.FC = () => {
 					)}
 
 					<div className="mb-4 flex flex-col gap-2">
-						<label className="text-sm">Price</label>
-						<div className="mb-3 flex w-full items-center justify-start gap-2 text-xs text-txtCol-2">
+						<label className="text-sm font-semibold">Price</label>
+						<div className="mb-3 flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
 							<p>From $</p>
 							<input
-								className="w-[80px]"
+								className="w-[60px]"
 								type="number"
 								placeholder="0"
 								min={0}
@@ -154,7 +154,7 @@ const DestinationPage: React.FC = () => {
 							/>
 							<p>to $</p>
 							<input
-								className="w-[92px]"
+								className="w-[80px]"
 								type="number"
 								placeholder="100"
 								min={filter.price.min === -1 ? 0 : filter.price.min}
@@ -172,8 +172,8 @@ const DestinationPage: React.FC = () => {
 						</div>
 					</div>
 					<div className="mb-4 flex flex-col gap-2">
-						<label className="text-sm"> Rating </label>
-						<div className="mb-3 flex w-full items-center justify-start gap-2 text-xs text-txtCol-2">
+						<label className="text-sm font-semibold"> Rating </label>
+						<div className="mb-3 flex w-full items-center justify-start gap-2 text-sm text-txtCol-2">
 							<p>From</p>
 							<input
 								className="w-[52px] border-borderCol-1"
@@ -214,11 +214,11 @@ const DestinationPage: React.FC = () => {
 						</div>
 					</div>
 					<div className="mb-8 flex flex-col gap-2">
-						<label className="text-sm">Others</label>
+						<label className="text-sm font-semibold">Others</label>
 						{filterOptions[2]?.options?.map((item, index) => (
 							<div
 								key={index}
-								className="flex w-full items-center justify-start gap-2 text-xs text-txtCol-2"
+								className="flex w-full items-center justify-start gap-2 text-sm text-txtCol-2"
 							>
 								<input
 									type="checkbox"
@@ -244,7 +244,7 @@ const DestinationPage: React.FC = () => {
 					</div>
 					<div className="relative flex items-center justify-between gap-5">
 						<Button
-							className="text-bold w-20 border-2 border-tertiary-1 text-tertiary-1"
+							className="text-bold h-8 w-20 border-2 border-tertiary-1 text-tertiary-1"
 							onClick={() => {
 								setFilter(initFilter)
 								console.log(filter)

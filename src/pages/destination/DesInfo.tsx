@@ -1,5 +1,5 @@
-import DestinationType from '../../types/DestinationType'
-
+import { DestinationType } from '../../types/destination.types'
+import { PiStarFill } from 'react-icons/pi'
 const DesInfo: React.FC<{ general: DestinationType['general'] }> = ({
 	general,
 }) => {
@@ -19,11 +19,13 @@ const DesInfo: React.FC<{ general: DestinationType['general'] }> = ({
 				</li>
 				<li className="flex w-full items-start gap-[10px] text-sm">
 					<p className="w-[100px] font-semibold">Avg. rating</p>
-					<p className="flex-1">{general.rating}</p>
+					<div className="flex flex-1 items-center gap-1">
+						{general.rating} <PiStarFill className="text-[#FFC70D]" />
+					</div>
 				</li>
 				<li className="flex w-full items-start gap-[10px] text-sm">
 					<p className="w-[100px] font-semibold">Avg. cost</p>
-					<p className="flex-1">{general.cost}</p>
+					<p className="flex-1">{'$ ' + general.cost}</p>
 				</li>
 				<li className="flex w-full items-start gap-[10px] text-sm">
 					<p className="w-[100px] font-semibold">Open time</p>

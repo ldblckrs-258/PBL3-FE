@@ -1,3 +1,5 @@
+import { twMerge } from 'tailwind-merge'
+
 type DropdownSelectProps = {
 	id: string
 	className: string
@@ -17,7 +19,9 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
 }) => {
 	return (
 		<select
-			className={`h-8 rounded-md border-borderCol-1 bg-bgCol-2 px-3 py-0.5 text-xs ${className} `}
+			className={twMerge(
+				`rounded-md border-borderCol-1 bg-bgCol-2 px-3 py-[6px] text-sm ${className ?? ''} `,
+			)}
 			title={title}
 			id={id}
 			value={value}
