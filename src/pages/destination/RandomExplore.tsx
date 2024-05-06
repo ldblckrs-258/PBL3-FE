@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { PiStarFill } from 'react-icons/pi'
 import Stars from '../../components/Stars'
 
 type RandomItem = {
