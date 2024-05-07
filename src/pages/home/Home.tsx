@@ -32,8 +32,8 @@ const Home: React.FC = () => {
 				</div>
 			</div>
 			<div className="mx-auto min-h-screen w-full xl:max-w-screen-xl">
-				<HomeDestinations className="mt-10 w-full" />
-				<HomeBlogs className="my-10 w-full" />
+				<HomeDestinations className="mt-9 w-full" />
+				<HomeBlogs className="my-9 w-full" />
 			</div>
 		</div>
 	)
