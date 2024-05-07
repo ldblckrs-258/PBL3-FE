@@ -104,7 +104,8 @@ const BlogCard: React.FC<{ blog: BlogType; className?: string }> = ({
 	blog,
 	className,
 }) => {
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
+	console.log(blog)
 	return (
 		<div
 			className={twMerge(
