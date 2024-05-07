@@ -1,7 +1,23 @@
+import { motion } from 'framer-motion'
+
 export default function PageNotFound() {
 	return (
-		<div className="mx-auto flex h-screen items-center justify-center  pt-14 xl:max-w-screen-xl">
-			<h1 className="text-5xl font-bold text-gray-800">404 - Page Not Found</h1>
+		<div className="mx-auto flex h-screen items-center justify-center py-14 xl:max-w-screen-xl">
+			<motion.div
+				className="flex flex-col items-center justify-center gap-4"
+				initial={{
+					opacity: 0,
+					y: -80,
+				}}
+				animate={{
+					opacity: 1,
+					y: 0,
+				}}
+				transition={{ duration: 1.5, type: 'spring', stiffness: 200 }}
+			>
+				<h1 className="text-8xl font-bold tracking-wider">404</h1>
+				<h2 className="text-4xl font-semibold">Page Not Found</h2>
+			</motion.div>
 		</div>
 	)
 }

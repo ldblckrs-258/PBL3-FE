@@ -1,5 +1,6 @@
 {
-	"status": "success",
+	"status": 200,
+	"message": "success",
 	"data": {
 		"imgs": [
 			"https://www.marmomac.com/wp-content/uploads/2022/07/Marble-Mountains_copertina.jpg",
