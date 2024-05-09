@@ -8,6 +8,17 @@ export type BlogType = {
 	created_at: string
 }
 
-export interface BlogDetailType extends BlogType {
+export type BlogDetailType = {
+	id: number
+	title: string
+	type: string
+	image: string
+	description: string
+	author: {
+		id: number
+		name: string
+		avatar: string
+	}
+	created_at: string
 	content: string
 }

@@ -181,6 +181,11 @@ input[type='radio']:checked {
 	}
 }
 
+.header-2 {
+	font-size: 20px;
+	font-weight: 700;
+}
+
 .header-3 {
 	font-weight: 600;
 }
@@ -190,6 +195,12 @@ input[type='radio']:checked {
 
 .level-3 {
 	margin-left: 40px;
+}
+
+.blog-img {
+	width: 800px;
+	margin: 4px auto;
+	border-radius: 4px;
 }
 
 .indent {
