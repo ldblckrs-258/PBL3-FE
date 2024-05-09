@@ -40,6 +40,11 @@ const Destination: React.FC = () => {
 		getDestination(id ?? '')
 	}, [id])
 
+	useEffect(() => {
+		document.title =
+			(destination?.general.name ?? 'Destination') + ' | Da Nang Explore'
+	}, [destination])
+
 	if (loading)
 		return (
 			<div className="mx-auto mt-12 flex min-h-screen items-center justify-center xl:max-w-screen-xl">

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import Stars from '../../components/Stars'
+import { Stars } from '../../components'
 
 type RandomItem = {
 	id: number

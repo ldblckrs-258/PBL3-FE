@@ -10,6 +10,10 @@ const timeAgo = (dateString: string): string => {
 	if (interval > 1) {
 		return `${interval} months ago`
 	}
+	interval = Math.floor(seconds / 604800)
+	if (interval > 1) {
+		return `${interval} weeks ago`
+	}
 	interval = Math.floor(seconds / 86400)
 	if (interval > 1) {
 		return `${interval} days ago`
@@ -22,6 +26,7 @@ const timeAgo = (dateString: string): string => {
 	if (interval > 1) {
 		return `${interval} minutes ago`
 	}
+
 	return `${Math.floor(seconds)} seconds ago`
 }
 

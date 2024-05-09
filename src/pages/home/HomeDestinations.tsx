@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { AnimatePresence, motion } from 'framer-motion'
+import SliderNav from '../../components/SliderNav'
 
 type HomeDestinationsProps = {
 	className?: string
@@ -23,6 +24,7 @@ const HomeDestinations: React.FC<HomeDestinationsProps> = ({ className }) => {
 	const navigate = useNavigate()
 	const [destinations, setDestinations] = useState<HomeDestinationType[]>([])
 	const [sliderIndex, setSliderIndex] = useState(1)
+	const [isHovered, setIsHovered] = useState(false)
 	const getHomeDestinations = async () => {
 		try {
 			const response = await axios.get('/api/destination/home-des.json')
@@ -53,7 +55,11 @@ const HomeDestinations: React.FC<HomeDestinationsProps> = ({ className }) => {
 					<PiCaretRightBold />
 				</div>
 			</div>
-			<div className="relative mt-3 h-[400px] w-full overflow-hidden rounded-lg">
+			<div
+				className="relative mt-3 h-[400px] w-full overflow-hidden rounded-lg"
+				onMouseEnter={() => setIsHovered(true)}
+				onMouseLeave={() => setIsHovered(false)}
+			>
 				<AnimatePresence>
 					<motion.img
 						key={destinations[sliderIndex]?.id}
@@ -71,10 +77,13 @@ const HomeDestinations: React.FC<HomeDestinationsProps> = ({ className }) => {
 					/>
 				</AnimatePresence>
 
-				<div className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-between bg-[#00000075] p-5">
+				<motion.div
+					className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-between bg-[#00000075] p-5"
+					animate={isHovered ? { opacity: 1 } : { opacity: 0.75 }}
+				>
 					<div className="flex w-full items-start justify-between">
 						<div>
-							<h4 className="text-lg font-semibold text-white">
+							<h4 className="text-xl font-semibold text-white">
 								{destinations[sliderIndex]?.name}
 							</h4>
 							<p className=" text-base text-white opacity-80">
@@ -91,33 +100,22 @@ const HomeDestinations: React.FC<HomeDestinationsProps> = ({ className }) => {
 							View details
 						</Button>
 					</div>
-					<SliderNav
-						count={destinations.length}
-						current={sliderIndex}
-						onClick={(index) => setSliderIndex(index)}
-					></SliderNav>
-				</div>
+					{isHovered && (
+						<motion.div
+							initial={{ opacity: 0, y: 10 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: 10 }}
+							key={'slider-nav'}
+						>
+							<SliderNav
+								count={destinations.length}
+								current={sliderIndex}
+								onClick={(index) => setSliderIndex(index)}
+							></SliderNav>
+						</motion.div>
+					)}
+				</motion.div>
 			</div>
-		</div>
-	)
-}
-
-const SliderNav: React.FC<{
-	count: number
-	current: number
-	onClick: (index: number) => void
-}> = ({ count, current, onClick }) => {
-	return (
-		<div className="flex w-full items-center justify-center gap-2 rounded-[inherit] text-base">
-			{Array.from({ length: count }).map((_, index) => (
-				<button
-					key={index}
-					className={` h-2 rounded-full transition-all duration-1000 hover:bg-primary-3 ${
-						current === index ? 'w-10 bg-white' : ' w-2 bg-borderCol-1'
-					}`}
-					onClick={() => onClick(index)}
-				></button>
-			))}
 		</div>
 	)
 }

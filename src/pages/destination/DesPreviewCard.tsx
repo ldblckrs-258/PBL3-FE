@@ -56,10 +56,13 @@ const DesPreviewCard: React.FC<DesPreviewCardProps> = ({
 					className="flex flex-1 cursor-pointer flex-col items-start overflow-hidden"
 					onClick={onVisit}
 				>
-					<h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-sm font-semibold hover:text-primary-1 hover:underline">
+					<h3
+						className="line-clamp-1 text-sm font-semibold hover:text-primary-1 hover:underline"
+						title={name}
+					>
 						{name}
 					</h3>
-					<p className="overflow-hidden text-ellipsis whitespace-nowrap text-[11px]">
+					<p className=" line-clamp-1 text-[11px]" title={location}>
 						{location}
 					</p>
 				</div>

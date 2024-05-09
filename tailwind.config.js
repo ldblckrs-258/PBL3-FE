@@ -20,7 +20,7 @@ export default {
 				tertiary: {
 					1: '#E75A51',
 					2: '#ee685e',
-					3: '#F6A894',
+					3: '#ff9f86',
 				},
 				bgCol: {
 					1: '#F6FAF9',

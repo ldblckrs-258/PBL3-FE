@@ -6,9 +6,7 @@ import {
 } from '../../types/destination.types'
 import axios from 'axios'
 import { PiDotsThreeVerticalBold, PiStarFill } from 'react-icons/pi'
-import Stars from '../../components/Stars'
-import DropdownSelect from '../../components/DropdownSelect'
-import { Button } from '../../components/Buttons'
+import { Button, DropdownSelect, Stars } from '../../components'
 import { twMerge } from 'tailwind-merge'
 
 const SortOptions = ['Sort by', 'Newest', 'Oldest']

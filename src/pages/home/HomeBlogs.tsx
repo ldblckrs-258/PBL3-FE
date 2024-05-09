@@ -77,7 +77,7 @@ const FirstBlog: React.FC<{ blog: BlogType; className?: string }> = ({
 				alt={blog?.title}
 			/>
 			<div
-				className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-between bg-[#00000050] p-4"
+				className="absolute left-0 top-0 flex h-full w-full select-none flex-col items-center justify-between bg-[#00000050] p-4"
 				onMouseEnter={() => setIsHover(true)}
 				onMouseLeave={() => setIsHover(false)}
 			>
@@ -97,7 +97,7 @@ const FirstBlog: React.FC<{ blog: BlogType; className?: string }> = ({
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ duration: 0.3 }}
 							>
-								<span className=" rounded bg-secondary-2 px-2 py-1 text-xs font-semibold uppercase text-white">
+								<span className="rounded bg-secondary-2 px-2 py-1 text-xs font-semibold uppercase text-white">
 									{blog?.type}
 								</span>
 								<span className="text-xs text-txtCol-2">
@@ -128,12 +128,14 @@ const FirstBlog: React.FC<{ blog: BlogType; className?: string }> = ({
 						</motion.div>
 					)}
 				</div>
-				<Button
-					className="w-[120px] rounded-full border-2 border-white text-white hover:bg-[#ffffff30]"
-					onClick={() => navigate(`/blog/${blog?.id}`)}
-				>
-					Read blog
-				</Button>
+				<motion.div animate={isHover ? { opacity: 1 } : { opacity: 0.75 }}>
+					<Button
+						className="w-[120px] rounded-full border-2 border-white text-white hover:bg-[#ffffff30]"
+						onClick={() => navigate(`/blog/${blog?.id}`)}
+					>
+						Read blog
+					</Button>
+				</motion.div>
 			</div>
 		</div>
 	)
@@ -153,7 +155,7 @@ const BlogCard: React.FC<{ blog: BlogType; className?: string }> = ({
 		>
 			<img src={blog?.image} alt={blog?.title} />
 			<div
-				className="item-center absolute left-0 top-0 flex h-full w-full flex-col justify-between bg-[#00000050] p-4"
+				className="item-center absolute left-0 top-0 flex h-full w-full select-none flex-col justify-between bg-[#00000050] p-4"
 				onMouseEnter={() => setIsHover(true)}
 				onMouseLeave={() => setIsHover(false)}
 			>

@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import DropdownSelect from '../../components/DropdownSelect'
-import SearchBox from '../../components/SearchBox'
+import { Button, DropdownSelect, Pagination, SearchBox } from '../../components'
 import DesPreviewCard, { DPCLoading } from './DesPreviewCard'
 import axios from 'axios'
-import Pagination from '../../components/Pagination'
-import { Button } from '../../components/Buttons'
 
 const filterOptions = [
 	{
@@ -70,6 +67,8 @@ const DestinationPage: React.FC = () => {
 	const [sort, setSort] = useState(0)
 	const [currentPage, setCurrentPage] = useState(1)
 	const navigate = useNavigate()
+
+	document.title = 'Destinations | Da Nang Explore'
 
 	useEffect(() => {
 		getDestinations(currentPage)
@@ -266,13 +265,13 @@ const DestinationPage: React.FC = () => {
 				<div className="h-full flex-1">
 					<div className="mb-5 flex w-full items-center justify-between">
 						<SearchBox
-							className="w-[220px]"
+							className="h-9 w-[220px]"
 							onChangeValue={(event) => setSearchValue(event.target.value)}
 							onClickSearch={() => console.log(searchValue)}
 						/>
 						<DropdownSelect
 							id={`sort`}
-							className="w-[120px]"
+							className="h-9 w-[120px]"
 							options={sortOptions}
 							value={sort}
 							onChange={(event) => {
