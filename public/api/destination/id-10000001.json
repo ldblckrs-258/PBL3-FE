@@ -3,9 +3,10 @@
 	"message": "success",
 	"data": {
 		"imgs": [
-			"https://www.marmomac.com/wp-content/uploads/2022/07/Marble-Mountains_copertina.jpg",
-			"https://danangleisure.com/wp-content/uploads/2022/05/IMG_5318-1536x1028.jpeg",
-			"https://statics.vinpearl.com/my-khe-beach-2_1692016028.jpg"
+			"https://lp-cms-production.imgix.net/news/2018/08/Cau-Vang.jpg",
+			"https://girleatworld.net/wp-content/uploads/2020/01/ba-na-hills-01.jpeg",
+			"https://gadttravel.com/uploads/vietnam/da-nang/Danang-Golden-Bridge.jpg",
+			"https://d13jio720g7qcs.cloudfront.net/images/guides/origin/647db554e2daa.jpg"
 		],
 		"general": {
 			"id": 1001,

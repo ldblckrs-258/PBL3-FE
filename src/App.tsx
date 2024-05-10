@@ -8,6 +8,7 @@ import BlogPage from './pages/blog/BlogPage'
 import Blog from './pages/blog/Blog'
 import Destination from './pages/destination/Destination'
 import ScrollToTop from './utils/ScrollToTop'
+import SchedulePage from './pages/schedule/SchedulePage'
 function App() {
 	return (
 		<>
@@ -20,6 +21,7 @@ function App() {
 					<Route path="/destination/:id" element={<Destination />}></Route>
 					<Route path="/blog" element={<BlogPage />}></Route>
 					<Route path="/blog/:id" element={<Blog />}></Route>
+					<Route path="/schedule" element={<SchedulePage />}></Route>
 
 					<Route path="*" element={<PageNotFound />}></Route>
 				</Routes>

@@ -106,7 +106,7 @@ const GeneralReview: React.FC<{
 				<div className="flex-1">
 					{[5, 4, 3, 2, 1].map((star) => {
 						return (
-							<div className="flex items-center gap-2">
+							<div className="flex items-center gap-2" key={'star-' + star}>
 								<span className="w-3">{star}</span>
 								<div className="relative h-2 flex-1 rounded-full bg-[#F1F3F4]">
 									<span

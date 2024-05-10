@@ -39,7 +39,7 @@ const DesPreviewCard: React.FC<DesPreviewCardProps> = ({
 	const [imgLoaded, setImgLoaded] = useState(false)
 	return (
 		<div
-			className={`relative flex min-h-10 w-[240px] flex-col flex-nowrap items-start rounded-[8px] border border-borderCol-1 bg-[#fff] p-3 ${className}`}
+			className={`relative flex min-h-10 w-[240px] flex-col flex-nowrap items-start rounded-[8px] border border-borderCol-1 bg-[#fff] p-2 ${className}`}
 		>
 			<img
 				src={thumbnail}
