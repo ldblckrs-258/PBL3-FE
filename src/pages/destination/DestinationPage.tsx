@@ -33,9 +33,9 @@ type DestinationType = {
 	id: number
 	name: string
 	address: string
-	openingHours: string
-	closingHours: string
-	averageCost: number
+	openingTime: string
+	closingTime: string
+	cost: number
 	rating: number
 	tags: string[]
 	thumbnail: string

@@ -30,4 +30,44 @@ const timeAgo = (dateString: string): string => {
 	return `${Math.floor(seconds)} seconds ago`
 }
 
-export { timeAgo }
+const dayOfWeek = (date: string): string => {
+	const days = [
+		'Sunday',
+		'Monday',
+		'Tuesday',
+		'Wednesday',
+		'Thursday',
+		'Friday',
+		'Saturday',
+	]
+	const day = new Date(date).getDay()
+	return days[day]
+}
+
+const monthOfYear = (month: number) => {
+	const months = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December',
+	]
+	return months[month]
+}
+
+const dateDecay = (date: string) => {
+	const dateObj = new Date(date)
+	return {
+		day: dateObj.getDate(),
+		month: monthOfYear(dateObj.getMonth()),
+		year: dateObj.getFullYear(),
+	}
+}
+export { timeAgo, dayOfWeek, dateDecay }

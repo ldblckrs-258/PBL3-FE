@@ -19,3 +19,33 @@ export type PublicScheduleItemType = {
 	destinations: string[]
 	author: string
 }
+
+export type ScheduleDestinationType = {
+	id: number
+	name: string
+	address: string
+	thumbnail: string
+	date: string
+	arrival_time: string
+	departure_time: string
+	budget: number
+	note: string
+}
+
+export type ScheduleDayType = {
+	date: string
+	destinations: ScheduleDestinationType[]
+}
+
+export type ScheduleType = {
+	id: number
+	title: string
+	description: string
+	author: {
+		id: number
+		name: string
+		avatar: string
+	}
+	updated_at: string
+	details: ScheduleDayType[]
+}

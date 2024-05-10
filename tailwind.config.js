@@ -6,6 +6,7 @@ export default {
 			fontFamily: {
 				sans: ['Poppins', 'sans-serif'],
 				lora: ['Lora', 'serif'],
+				oxygenMono: ['Oxygen Mono', 'monospace'],
 			},
 			colors: {
 				primary: {
@@ -14,6 +15,7 @@ export default {
 					3: '#64CCDC',
 				},
 				secondary: {
+					0: '#49ad91',
 					1: '#52B69A',
 					2: '#76C893',
 				},
@@ -36,6 +38,9 @@ export default {
 					1: '#D4D4D4',
 					2: '#F4F4F4',
 				},
+			},
+			boxShadow: {
+				custom: '2px 2px 8px 0px rgba(0, 0, 0, 0.25)',
 			},
 		},
 	},
