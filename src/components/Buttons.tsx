@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 type ButtonProps = {
 	children: React.ReactNode
@@ -53,6 +53,10 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
 }) => {
 	const [toggled, setToggled] = useState(initToggled)
 
+	useEffect(() => {
+		setToggled(initToggled)
+	}, [initToggled])
+
 	return (
 		<motion.button
 			className={`flex items-center justify-center gap-2 rounded-md border-2 px-3 py-1.5 text-sm font-medium text-white transition-all ${className}`}
@@ -60,6 +64,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
 			whileHover="hover"
 			whileTap="tap"
 			variants={buttonVariants}
+			title={toggled.toString()}
 			animate={
 				toggled
 					? {

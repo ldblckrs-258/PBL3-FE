@@ -26,7 +26,9 @@ const timeAgo = (dateString: string): string => {
 	if (interval > 1) {
 		return `${interval} minutes ago`
 	}
-
+	if (interval <= 1) {
+		return 'Just now'
+	}
 	return `${Math.floor(seconds)} seconds ago`
 }
 

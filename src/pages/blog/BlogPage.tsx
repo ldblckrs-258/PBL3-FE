@@ -5,10 +5,12 @@ import axios from 'axios'
 import { BlogType } from '../../types/blog.types'
 import BlogItem, { LoadingBlogItem } from './BlogItem'
 import BlogSlider from './BlogSlider'
+import { useNavigate } from 'react-router-dom'
 const BlogsSortOptions = ['Sort by', 'Newest', 'Oldest', 'Popular']
 
 const BlogPage: React.FC = () => {
 	document.title = 'Blogs | Da Nang Explore'
+	const navigate = useNavigate()
 	const [sort, setSort] = useState(0)
 	const [searchValue, setSearchValue] = useState('')
 	const [blogs, setBlogs] = useState<BlogType[]>()
@@ -57,7 +59,7 @@ const BlogPage: React.FC = () => {
 					<Button
 						className="ml-4 h-9 bg-secondary-1 text-white hover:bg-[#42a186]"
 						onClick={() => {
-							console.log('Write a blog')
+							navigate('/blog/new')
 						}}
 					>
 						<PiPenFill className="text-lg" />

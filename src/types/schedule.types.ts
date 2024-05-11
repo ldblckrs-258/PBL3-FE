@@ -24,7 +24,6 @@ export type ScheduleDestinationType = {
 	id: number
 	name: string
 	address: string
-	thumbnail: string
 	date: string
 	arrival_time: string
 	departure_time: string
@@ -41,6 +40,8 @@ export type ScheduleType = {
 	id: number
 	title: string
 	description: string
+	isPublic: boolean
+	status: string
 	author: {
 		id: number
 		name: string

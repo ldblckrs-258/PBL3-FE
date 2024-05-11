@@ -288,9 +288,9 @@ const DestinationPage: React.FC = () => {
 										name={des.name}
 										location={des.address}
 										rating={des.rating}
-										cost={des.averageCost}
-										openTime={des.openingHours}
-										closeTime={des.closingHours}
+										cost={des.cost}
+										openTime={des.openingTime}
+										closeTime={des.closingTime}
 										tags={des.tags}
 										pin={des.pin}
 										favorite={des.favorite}

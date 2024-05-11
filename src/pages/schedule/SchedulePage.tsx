@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Button, DropdownSelect, Pagination, SearchBox } from '../../components'
 import { PiCalendarPlusBold } from 'react-icons/pi'
-import { useNavigate } from 'react-router-dom'
 import {
 	MyScheduleItemType,
 	PublicScheduleItemType,
@@ -10,6 +9,7 @@ import axios from 'axios'
 import MyScheduleItem from './MyScheduleItem'
 import PublicScheduleItem from './PublicScheduleItem'
 import LoadingScheduleItem from './LoadingScheduleItem'
+import SetupModal from './SetupModal'
 
 const ScheduleStatus = [
 	{
@@ -43,7 +43,6 @@ const SortOptions = [
 
 const SchedulePage: React.FC = () => {
 	document.title = 'Schedules | Da Nang Explore'
-	const navigate = useNavigate()
 	const [tabIndex, setTabIndex] = useState(0)
 	const [mySchedules, setMySchedules] = useState<MyScheduleItemType[]>()
 	const [publicSchedules, setPublicSchedules] =
@@ -53,6 +52,7 @@ const SchedulePage: React.FC = () => {
 	const [sortIndex, setSortIndex] = useState(0)
 	const [searchValue, setSearchValue] = useState('')
 	const [loading, setLoading] = useState(true)
+	const [isNewScheduleModalOpen, setIsNewScheduleModalOpen] = useState(false)
 	const numbOfPages = 5
 	const [currentPage, setCurrentPage] = useState(1)
 
@@ -63,7 +63,7 @@ const SchedulePage: React.FC = () => {
 			const response = await axios.get(
 				`/api/schedule/my-schedules-${page}.json`,
 			)
-			await new Promise((resolve) => setTimeout(resolve, 3000))
+			await new Promise((resolve) => setTimeout(resolve, 1500))
 			if (response.data.status === 200) {
 				setMySchedules(response.data.data)
 				setLoading(false)
@@ -149,7 +149,9 @@ const SchedulePage: React.FC = () => {
 							/>
 							<Button
 								className="h-9 bg-secondary-1 text-white hover:bg-[#42a186]"
-								onClick={() => navigate('/schedule/new')}
+								onClick={() => {
+									setIsNewScheduleModalOpen(true)
+								}}
 							>
 								<PiCalendarPlusBold className="text-lg" />
 								Create new
@@ -195,6 +197,12 @@ const SchedulePage: React.FC = () => {
 					</div>
 				</div>
 			</div>
+			{isNewScheduleModalOpen && (
+				<SetupModal
+					className="fixed left-0 top-0 z-10 h-screen w-screen"
+					onCancel={() => setIsNewScheduleModalOpen(false)}
+				/>
+			)}
 		</div>
 	)
 }

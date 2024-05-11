@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Button } from '../../components'
 import {
+	PiArrowSquareOutBold,
 	PiFloppyDiskBackFill,
 	PiPenFill,
 	PiTrashSimpleFill,
@@ -92,7 +93,7 @@ const ScheduleDestination: React.FC<{
 						onChange={(event) =>
 							setDes({ ...des, arrival_time: event.target.value })
 						}
-						className={`font-oxygenMono w-full border-2 pb-[2px] pt-1 ${editable ? 'focus:border-2' : 'border-secondary-1 bg-[#f9f9f9]'}`}
+						className={`w-full border-2 pb-[2px] pt-1 font-oxygenMono ${editable ? 'focus:border-2' : 'border-secondary-1 bg-[#f9f9f9]'}`}
 					/>
 					{!editable && (
 						<div className="absolute left-0 top-0 h-full w-full"></div>
@@ -109,7 +110,7 @@ const ScheduleDestination: React.FC<{
 						onChange={(event) =>
 							setDes({ ...des, departure_time: event.target.value })
 						}
-						className={`font-oxygenMono w-full border-2 pb-[2px] pt-1 focus:border-2  ${editable ? 'focus:border-2' : 'border-tertiary-2 bg-[#f9f9f9]'}`}
+						className={`w-full border-2 pb-[2px] pt-1 font-oxygenMono focus:border-2  ${editable ? 'focus:border-2' : 'border-tertiary-2 bg-[#f9f9f9]'}`}
 					/>
 					{!editable && (
 						<div className="absolute left-0 top-0 h-full w-full"></div>
@@ -122,11 +123,18 @@ const ScheduleDestination: React.FC<{
 					<input
 						type="text"
 						value={des.name}
-						onChange={(event) => setDes({ ...des, name: event.target.value })}
-						className={`flex-1 rounded font-semibold ${editable ? 'focus:border focus:border-primary-2' : 'bg-[#f9f9f9] focus:border-borderCol-1'}`}
-						readOnly={!editable}
+						className="relative flex-1 rounded bg-[#f9f9f9]  font-semibold focus:border-borderCol-1"
+						readOnly
 					/>
 				</div>
+				<a
+					className="absolute right-1 top-0 p-1.5 hover:text-primary-1"
+					href={`/destination/${des.id}`}
+					target="_blank"
+					title="View destination"
+				>
+					<PiArrowSquareOutBold />
+				</a>
 				<div className="mb-2 flex items-center gap-4">
 					<div className="w-[80px] font-semibold">Address</div>
 					<input
@@ -174,13 +182,13 @@ const ScheduleDestination: React.FC<{
 						{!editable ? (
 							<div className="flex h-full flex-col items-center justify-center gap-8">
 								<Button
-									className="shadow-custom rounded-full bg-primary-2 p-2 text-white"
+									className="rounded-full bg-primary-2 p-2 text-white shadow-custom"
 									onClick={() => setEditable(true)}
 								>
 									<PiPenFill className="text-lg" />
 								</Button>
 								<Button
-									className="shadow-custom rounded-full bg-tertiary-1 p-2 text-white"
+									className="rounded-full bg-tertiary-1 p-2 text-white shadow-custom"
 									onClick={() =>
 										window.confirm(
 											'Are you sure you want to delete this destination?',
@@ -193,13 +201,13 @@ const ScheduleDestination: React.FC<{
 						) : (
 							<div className="flex h-full flex-col items-center justify-center gap-8">
 								<Button
-									className="shadow-custom rounded-full bg-secondary-1 p-2 text-white"
+									className="rounded-full bg-secondary-1 p-2 text-white shadow-custom"
 									onClick={handleSave}
 								>
 									<PiFloppyDiskBackFill className="text-lg" />
 								</Button>
 								<Button
-									className="shadow-custom rounded-full bg-tertiary-2 p-2 text-white"
+									className="rounded-full bg-tertiary-2 p-2 text-white shadow-custom"
 									onClick={handleCancel}
 								>
 									<PiXBold className="text-lg" />
