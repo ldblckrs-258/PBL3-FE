@@ -59,7 +59,7 @@ select {
 	background-size: 1.25em;
 	background-position: right 8px center;
 	padding: 4px 0px 4px 8px;
-	border: 1px solid #dddddd;
+	border: 1px solid #ccc;
 	border-radius: 8px;
 }
 
@@ -80,7 +80,7 @@ select option:checked {
 input,
 textarea {
 	padding: 4px 8px;
-	border: 1px solid #dddddd;
+	border: 1px solid #ccc;
 	border-radius: 8px;
 }
 
@@ -113,7 +113,7 @@ input[type='range']::-webkit-slider-thumb {
 input[type='range']:focus {
 	outline: none;
 	border: none;
-	background: #dddddd;
+	background: #ccc;
 }
 
 input[type='checkbox'],
@@ -182,20 +182,39 @@ input[type='radio']:checked {
 	}
 }
 
-.header-2 {
+.ql-editor {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	padding: 16px;
+}
+
+.ql-snow .ql-editor h1,
+.ql-editor h1 {
 	font-size: 20px;
 	font-weight: 700;
+	margin-bottom: 8px;
 }
 
-.header-3 {
+.ql-snow .ql-editor h2,
+.ql-editor h2 {
+	font-size: 18px;
 	font-weight: 600;
-}
-.level-2 {
-	margin-left: 20px;
+	margin-bottom: 6px;
 }
 
-.level-3 {
-	margin-left: 40px;
+.ql-snow .ql-editor p,
+.ql-editor p {
+	font-size: 16px;
+	font-weight: 400;
+	margin-bottom: 4px;
+}
+
+.ql-snow .ql-editor img,
+.ql-editor img {
+	max-width: 90%;
+	width: 800px;
+	height: auto;
+	margin: 8px auto;
 }
 
 .blog-img {
@@ -204,6 +223,20 @@ input[type='radio']:checked {
 	border-radius: 4px;
 }
 
-.indent {
-	text-indent: 20px;
+.ql-toolbar.ql-snow {
+	border-top-right-radius: 8px;
+	border-top-left-radius: 8px;
+}
+
+.ql-container.ql-snow {
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+.ql-editor blockquote {
+	border-left: 4px solid #ccc;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	padding-left: 16px;
+	color: #505050;
 }

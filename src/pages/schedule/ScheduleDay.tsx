@@ -140,11 +140,8 @@ const ScheduleDestination: React.FC<{
 					<input
 						type="text"
 						value={des.address}
-						onChange={(event) =>
-							setDes({ ...des, address: event.target.value })
-						}
-						className={`flex-1 rounded ${editable ? 'focus:border focus:border-primary-2' : 'bg-[#f9f9f9] focus:border-borderCol-1'}`}
-						readOnly={!editable}
+						className="relative flex-1 rounded bg-[#f9f9f9]  focus:border-borderCol-1"
+						readOnly
 					/>
 				</div>
 				<div className="mb-2 flex items-center gap-4">

@@ -69,7 +69,7 @@ const Destination: React.FC = () => {
 							Introduction
 						</div>
 						<div
-							className="flex flex-col gap-[10px]"
+							className="ql-editor flex flex-col gap-[10px]"
 							dangerouslySetInnerHTML={{ __html: destination.introduction }}
 						></div>
 					</div>

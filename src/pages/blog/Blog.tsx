@@ -65,7 +65,7 @@ const Blog: React.FC = () => {
 				</div>
 				<div className="relative mt-10 w-full rounded-lg bg-white px-20 py-10 shadow-[0_4px_20px_0px_rgba(0,0,0,0.25)]">
 					<div
-						className="flex w-full flex-col gap-3 text-base"
+						className="ql-editor flex w-full flex-col gap-1"
 						dangerouslySetInnerHTML={{ __html: blog.content }}
 					></div>
 					<div className="absolute right-10 top-0 translate-y-[-50%]">

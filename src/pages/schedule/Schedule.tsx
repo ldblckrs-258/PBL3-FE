@@ -74,7 +74,11 @@ const Schedule: React.FC = () => {
 							Add destination
 						</Button>
 						{schedule.details.map((day, index) => (
-							<ScheduleDay className="w-full" key={index} scheduleDay={day} />
+							<ScheduleDay
+								className="mb-2 w-full"
+								key={index}
+								scheduleDay={day}
+							/>
 						))}
 					</div>
 					<div className="flex w-[300px] flex-col items-end gap-4">
