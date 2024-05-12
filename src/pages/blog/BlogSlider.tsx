@@ -24,7 +24,6 @@ const BlogSlider: React.FC<{
 			const response = await axios.get('/api/blog/blogs-recommend.json')
 			await new Promise((resolve) => setTimeout(resolve, 3000))
 			setBlogs(response.data.data)
-			console.log(response.data.data)
 		} catch (error) {
 			console.error(error)
 		}

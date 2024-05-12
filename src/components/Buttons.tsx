@@ -5,6 +5,7 @@ type ButtonProps = {
 	children: React.ReactNode
 	className?: string
 	onClick: () => void
+	disabled?: boolean
 }
 const buttonVariants = {
 	hover: {
@@ -16,16 +17,22 @@ const buttonVariants = {
 	},
 }
 
-const Button: React.FC<ButtonProps> = ({ children, className, onClick }) => {
+const Button: React.FC<ButtonProps> = ({
+	children,
+	className,
+	onClick,
+	disabled,
+}) => {
 	return (
 		<motion.button
 			className={twMerge(
-				`flex items-center justify-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${className ?? ''}`,
+				`flex items-center justify-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-all ${className ?? ''} ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`,
 			)}
-			whileTap="tap"
+			whileTap={disabled ? {} : 'tap'}
 			variants={buttonVariants}
 			transition={{ duration: 0.1 }}
 			onClick={onClick}
+			disabled={disabled}
 		>
 			{children}
 		</motion.button>

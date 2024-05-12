@@ -24,7 +24,6 @@ const Schedule: React.FC = () => {
 			// simulate delay
 			await new Promise((resolve) => setTimeout(resolve, 1000))
 			setSchedule(response.data.data)
-			console.log(response.data.data)
 		} catch (error) {
 			console.error(error)
 		}

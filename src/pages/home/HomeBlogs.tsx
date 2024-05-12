@@ -24,7 +24,6 @@ const HomeBlogs: React.FC<{ className?: string }> = ({ className }) => {
 		try {
 			const response = await axios.get('/api/blog/home-blogs.json')
 			setBlogs(response.data.data)
-			console.log(response.data.data)
 		} catch (error) {
 			console.error(error)
 		}

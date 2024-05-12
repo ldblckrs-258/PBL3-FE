@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export default function PageNotFound() {
+const PageNotFound: React.FC = () => {
 	document.title = 'Page Not Found'
 	return (
 		<div className="mx-auto flex h-screen items-center justify-center py-14 xl:max-w-screen-xl">
@@ -22,3 +22,5 @@ export default function PageNotFound() {
 		</div>
 	)
 }
+
+export default PageNotFound

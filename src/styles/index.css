@@ -129,6 +129,11 @@ input[type='radio'] {
 	cursor: pointer;
 }
 
+input[type='checkbox'].large {
+	width: 16px;
+	height: 16px;
+}
+
 input[type='radio'] {
 	border-radius: 50%;
 	border: 2px;
@@ -146,6 +151,16 @@ input[type='radio']:checked {
 input[type='radio']:checked {
 	background-color: var(--secondary-1);
 	border: 2px;
+}
+
+input.hide-arr::-webkit-outer-spin-button,
+input.hide-arr::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input.dollar {
+	position: relative;
+	padding-left: 30px;
 }
 
 .pagination-node {

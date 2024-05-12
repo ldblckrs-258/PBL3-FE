@@ -1,6 +1,5 @@
 import { Button, DropdownSelect } from '../../components'
 import { useEffect, useState } from 'react'
-import 'react-quill/dist/quill.snow.css'
 import TextEditor from '../../components/TextEditor'
 
 const BlogTypeOptions = ['All', 'Places', 'Tips']

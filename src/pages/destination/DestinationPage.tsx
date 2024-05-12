@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Button, DropdownSelect, Pagination, SearchBox } from '../../components'
 import DesPreviewCard, { DPCLoading } from './DesPreviewCard'
 import axios from 'axios'
+import { useToast } from '../../hook/useToast'
 
 const filterOptions = [
 	{
@@ -67,7 +68,7 @@ const DestinationPage: React.FC = () => {
 	const [sort, setSort] = useState(0)
 	const [currentPage, setCurrentPage] = useState(1)
 	const navigate = useNavigate()
-
+	const toast = useToast()
 	document.title = 'Destinations | Da Nang Explore'
 
 	useEffect(() => {
@@ -255,6 +256,7 @@ const DestinationPage: React.FC = () => {
 							className="flex-1 bg-primary-2 text-white"
 							onClick={() => {
 								console.log(filter)
+								toast.info('Filter applied', 'Check console for filter data')
 							}}
 						>
 							Apply

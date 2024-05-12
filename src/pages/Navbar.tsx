@@ -1,5 +1,4 @@
 import { useLocation, Link } from 'react-router-dom'
-import userAvatar from '../assets/user-avatar.png'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import {
 	PiCaretDownBold,
@@ -8,7 +7,9 @@ import {
 	PiArticleBold,
 	PiCalendarBlankBold,
 } from 'react-icons/pi'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { UserContext } from '../context/UserContext'
+import { Button } from '../components'
 
 const NavItems = [
 	{
@@ -32,8 +33,11 @@ const NavItems = [
 		path: '/schedule',
 	},
 ]
-
-const Navbar: React.FC = () => {
+interface NavbarProps {
+	onSignUp: () => void
+	onLogin: () => void
+}
+const Navbar: React.FC<NavbarProps> = ({ onSignUp, onLogin }) => {
 	const location = useLocation()
 	const firstPath = '/' + location.pathname.split('/')[1]
 	const [hidden, setHidden] = useState(false)
@@ -48,6 +52,8 @@ const Navbar: React.FC = () => {
 		if (latest > previous && latest > 100) setHidden(true)
 		else setHidden(false)
 	})
+
+	const { user } = useContext(UserContext)
 
 	return (
 		<motion.nav
@@ -106,27 +112,44 @@ const Navbar: React.FC = () => {
 						))}
 					</ul>
 				</div>
-				<div className="flex w-[200px] items-center justify-end gap-4">
-					<p
-						className={`text-sm font-semibold ${isHome ? 'text-txtCol-4' : ''}`}
-					>
-						dev01d
-					</p>
-					<button className="relative h-8 w-8 rounded-full">
-						<img
-							className="h-full w-full rounded-full object-cover"
-							src={userAvatar}
-							alt="User Avatar"
-						/>
-						<span
-							className={`absolute bottom-[-3px] right-[-3px] rounded-full ${isHome ? '' : 'bg-bgCol-2'}`}
+				{user.id !== 0 ? (
+					<div className="flex w-[200px] items-center justify-end gap-4">
+						<p
+							className={`text-sm font-semibold ${isHome ? 'text-txtCol-4' : ''}`}
 						>
-							<div className=" mx-[2px] my-[2px] rounded-[inherit] bg-[#dddddd] px-[1px] py-[1px] text-xs">
-								<PiCaretDownBold />
-							</div>
-						</span>
-					</button>
-				</div>
+							{user.username}
+						</p>
+						<button className="relative h-8 w-8 rounded-full">
+							<img
+								className="h-full w-full rounded-full object-cover"
+								src={user.avatar}
+								alt="User Avatar"
+							/>
+							<span
+								className={`absolute bottom-[-3px] right-[-3px] rounded-full ${isHome ? '' : 'bg-bgCol-2'}`}
+							>
+								<div className=" mx-[2px] my-[2px] rounded-[inherit] bg-[#dddddd] px-[1px] py-[1px] text-xs">
+									<PiCaretDownBold />
+								</div>
+							</span>
+						</button>
+					</div>
+				) : (
+					<div className="flex items-center justify-end gap-4">
+						<Button
+							className={`text-sm font-semibold ${isHome ? 'text-txtCol-4 hover:text-primary-3' : 'text-txtCol-1 hover:text-primary-1'}`}
+							onClick={onSignUp}
+						>
+							Sign up
+						</Button>
+						<Button
+							className={`w-[92px] bg-primary-2 text-sm font-semibold text-white hover:bg-primary-1 ${isHome ? 'opacity-80' : ''}`}
+							onClick={onLogin}
+						>
+							Login
+						</Button>
+					</div>
+				)}
 			</div>
 		</motion.nav>
 	)
