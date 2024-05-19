@@ -14,7 +14,7 @@
 
 1. Login
 
-- Request: POST `server.com/api/login`
+- Request: POST `http://server.com/api/login`
 
   ```json
   {
@@ -43,7 +43,7 @@
 
 2. Register
 
-- Request: POST `server.com/api/register`
+- Request: POST `http://server.com/api/register`
 
   ```json
   {
@@ -64,7 +64,7 @@
 
 3. Authenticated user by token
 
-- Request: GET `server.com/api/user`
+- Request: GET `http://server.com/api/user`
 
 - Response:
 
@@ -84,7 +84,7 @@
 
 4. Get user data by token
 
-- Request: GET `server.com/api/user/data`
+- Request: GET `http://server.com/api/user/data`
 
 - Response:
 
@@ -105,7 +105,7 @@
 
 5. Update user data by token
 
-- Request: PUT `server.com/api/user/data`
+- Request: PUT `http://server.com/api/user/data`
 
   ```json
   {
@@ -126,7 +126,7 @@
 
 6. Change password by token
 
-- Request: PUT `server.com/api/user/password`
+- Request: PUT `http://server.com/api/user/password`
 
   ```json
   {

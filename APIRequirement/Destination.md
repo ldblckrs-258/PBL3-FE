@@ -4,7 +4,7 @@ I. User permission
 
 1. Home page destinations
 
-- Request: GET `server.com/api/destination/home`
+- Request: GET `http://server.com/api/destination/home`
 
   - Response:
 
@@ -35,7 +35,7 @@ I. User permission
 
 2. Destination page
 
-- Request: GET `server.com/api/destination/list`
+- Request: GET `http://server.com/api/destination/list`
 
   - Parameters: (Optional)
 
@@ -50,7 +50,7 @@ I. User permission
     - `sortBy`: Sort by (price, rating, name, created_at) (Default: created_at)
     - `sortType`: Sort type (asc, desc) (Default: asc)
 
-  - Example: `server.com/api/destination/list?page=1&limit=12&search=Paris&location=Hai%20Chau&costFrom=100&costTo=200&ratingFrom=4&ratingTo=5&sortBy=price&sortType=asc`
+  - Example: `http://server.com/api/destination/list?page=1&limit=12&search=Paris&location=Hai%20Chau&costFrom=100&costTo=200&ratingFrom=4&ratingTo=5&sortBy=price&sortType=asc`
 
 - Response:
 
@@ -96,7 +96,7 @@ I. User permission
 
 3. Destination detail
 
-- Request: GET `server.com/api/destination/detail/:id`
+- Request: GET `http://server.com/api/destination/detail/:id`
 
 - Response:
 
@@ -142,17 +142,17 @@ I. User permission
 
 4. Get reviews by destination ID
 
-- Request: GET `server.com/api/destination/review/:id`
+- Request: GET `http://server.com/api/destination/review/:id`
   - Parameters: (Optional)
     - `page`: Number of page (Default: 1)
     - `limit`: Number of items per page (Default: 3)
     - `sortBy`: Sort by (rating, created_at) (Default: created_at)
     - `sortType`: Sort type (asc, desc) (Default: desc)
-  - Example: `server.com/api/destination/review/10000001?page=1&limit=3&sortBy=rating&sortType=desc`
+  - Example: `http://server.com/api/destination/review/10000001?page=1&limit=3&sortBy=rating&sortType=desc`
 
 5. Create review with token
 
-- Request: POST `server.com/api/destination/review`
+- Request: POST `http://server.com/api/destination/review`
 
   ```json
   {
@@ -175,7 +175,7 @@ I. User permission
 
 6. Update favorite destination with token
 
-- Request: PUT `server.com/api/destination/favorite/:id`
+- Request: PUT `http://server.com/api/destination/favorite/:id`
 
   > `:id` is destination ID
 
@@ -200,7 +200,7 @@ II. Admin permission
 
 1. Create destination with token
 
-- Request: POST `server.com/api/destination/create`
+- Request: POST `http://server.com/api/destination/create`
 
   ```json
   {
@@ -235,7 +235,7 @@ II. Admin permission
 
 2. Update destination with token
 
-- Request: PUT `server.com/api/destination/update/:id`
+- Request: PUT `http://server.com/api/destination/update/:id`
 
   > `:id` is destination ID
 
@@ -271,7 +271,7 @@ II. Admin permission
 
 3. Delete destination with token
 
-- Request: DELETE `server.com/api/destination/delete/:id`
+- Request: DELETE `http://server.com/api/destination/delete/:id`
 
   > `:id` is destination ID
 
