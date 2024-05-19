@@ -11,6 +11,8 @@
 }
 ```
 
+I. User permission
+
 1. Login
 
 - Request: POST `http://server.com/api/login`
@@ -143,7 +145,96 @@
   }
   ```
 
-7. Example failed response
+II. Admin permission
+
+1. User list with token for admin to manage
+
+- Request: GET `http://server.com/api/user/managelist`
+
+  - Parameters: (Optional)
+
+    - `page`: Number of page (Default: 1)
+    - `limit`: Number of items per page (Default: 15)
+    - `search`: Search by name
+    - `role`: Filter by role (user, admin, all) (Default: user)
+    - `sortBy`: Sort by (name, created_at) (Default: created_at)
+    - `sortType`: Sort type (asc, desc) (Default: desc)
+
+  - Example: `http://server.com/api/user/managelist?page=1&limit=12&search=John&role=user&sortBy=name&sortType=asc`
+
+- Response:
+
+  ```json
+  {
+  	"status": 200,
+  	"message": "Success",
+  	"data": {
+  		"total": 100,
+  		"page": 1,
+  		"limit": 12,
+  		"items": [
+  			{
+  				"id": 10000001,
+  				"name": "John Doe",
+  				"email": "example@email.com",
+  				"createdAt": "2024-05-19T03:31:09.229Z", // Datetime string in ISO 8601 format
+  				"role": "user"
+  			},
+  			{
+  				"id": 10000002,
+  				"name": "Jane Doe",
+  				"email": "example@email.com",
+  				"createdAt": "2024-05-19T03:31:09.229Z", // Datetime string in ISO 8601 format
+  				"role": "admin"
+  			}
+  		]
+  	}
+  }
+  ```
+
+  - Requirement: Admin must be authenticated
+
+2. Update user role by token
+
+- Request: PUT `http://server.com/api/user/update/:id`
+
+  > `:id` is user ID
+
+  ```json
+  {
+  	"role": "admin"
+  }
+  ```
+
+- Response:
+
+  ```json
+  {
+  	"status": 200,
+  	"message": "Update user role successful"
+  }
+  ```
+
+  - Requirement: Admin must be authenticated
+
+3. Delete user by token
+
+- Request: DELETE `http://server.com/api/user/delete/:id`
+
+  > `:id` is user ID
+
+- Response:
+
+  ```json
+  {
+  	"status": 200,
+  	"message": "Delete user successful"
+  }
+  ```
+
+  - Requirement: Admin must be authenticated
+
+4. Example failed response
 
 - Response: Wrong request format or missing required fields
 

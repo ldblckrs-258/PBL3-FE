@@ -15,16 +15,16 @@ I. User permission
     	"data": [
     		{
     			"id": 10000001,
-    			"name": "Paris",
-    			"address": "Paris, France",
-    			"image": "https://example.com/paris.jpg",
+    			"name": "Golden Bridge",
+    			"address": "Ba Na Hills, Da Nang, Vietnam",
+    			"image": "https://example.com/goldenbridge.jpg",
     			"rating": 4.5
     		},
     		{
     			"id": 10000002,
-    			"name": "New York",
-    			"address": "New York, USA",
-    			"image": "https://example.com/newyork.jpg",
+    			"name": "Linh Ung Pagoda",
+    			"address": "Son Tra Peninsula, Da Nang, Vietnam",
+    			"image": "https://example.com/linhungpagoda.jpg",
     			"rating": 4.8
     		}
     	]
@@ -47,6 +47,7 @@ I. User permission
     - `costTo`: Filter by cost to
     - `ratingFrom`: Filter by rating from
     - `ratingTo`: Filter by rating to
+    - `isFavorite`: Filter by favorite (true, false)
     - `sortBy`: Sort by (price, rating, name, created_at) (Default: created_at)
     - `sortType`: Sort type (asc, desc) (Default: asc)
 
@@ -196,9 +197,92 @@ I. User permission
 
   - Requirement: User must be authenticated
 
+7. Get random destinations
+
+- Request: GET `http://server.com/api/destination/random`
+
+  - Parameters: (Optional)
+    - `limit`: Number of items (Default: 3)
+  - Example: `http://server.com/api/destination/random?limit=3`
+
+- Response:
+
+  ```json
+  {
+  	"status": 200,
+  	"message": "Success",
+  	"data": [
+  		{
+  			"id": 10000011,
+  			"name": "Golden Bridge",
+  			"address": "Ba Na Hills, Da Nang, Vietnam",
+  			"image": "https://example.com/goldenbridge.jpg",
+  			"rating": 4.5
+  		},
+  		{
+  			"id": 10000032,
+  			"name": "Linh Ung Pagoda",
+  			"address": "Son Tra Peninsula, Da Nang, Vietnam",
+  			"image": "https://example.com/linhungpagoda.jpg",
+  			"rating": 4.8
+  		},
+  		{
+  			"id": 10000033,
+  			"name": "My Khe Beach",
+  			"address": "My Khe, Da Nang, Vietnam",
+  			"image": "https://example.com/mykhebeach.jpg",
+  			"rating": 4.7
+  		}
+  	]
+  }
+  ```
+
+  - Requirement: Return 3 random destinations
+
 II. Admin permission
 
-1. Create destination with token
+1. Destination list with token for admin to manage
+
+- Request: GET `http://server.com/api/destination/managelist`
+
+  - Parameters: (Optional)
+
+    - `page`: Number of page (Default: 1)
+    - `limit`: Number of items per page (Default: 15)
+    - `search`: Search by name
+    - `sortBy`: Sort by (rating, review, favorite, created_at) (Default: created_at)
+    - `sortType`: Sort type (asc, desc) (Default: asc)
+
+  - Example: `http://server.com/api/destination/managelist?page=1&limit=12&search=Paris&sortBy=rating&sortType=desc`
+
+- Response:
+
+  ```json
+  {
+  	"status": 200,
+  	"message": "Success",
+  	"data": {
+  		"total": 100,
+  		"page": 1,
+  		"limit": 12,
+  		"items": [
+  			{
+  				"id": 10000001,
+  				"name": "Golden Bridge",
+  				"address": "Ba Na Hills, Da Nang, Vietnam",
+  				"rating": 4.5,
+  				"review": 100,
+  				"favorite": 100,
+  				"created_at": "2024-05-19T03:31:09.229Z" // Datetime string in ISO 8601 format
+  			}
+  		]
+  	}
+  }
+  ```
+
+  - Requirement: Admin must be authenticated
+
+2. Create destination with token
 
 - Request: POST `http://server.com/api/destination/create`
 
@@ -233,7 +317,7 @@ II. Admin permission
   - Requirement: Admin must be authenticated
   - Note: also save `created_at` to sort destinations
 
-2. Update destination with token
+3. Update destination with token
 
 - Request: PUT `http://server.com/api/destination/update/:id`
 
@@ -269,7 +353,7 @@ II. Admin permission
 
   - Requirement: Admin must be authenticated
 
-3. Delete destination with token
+4. Delete destination with token
 
 - Request: DELETE `http://server.com/api/destination/delete/:id`
 
