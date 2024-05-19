@@ -65,9 +65,9 @@ I. User permission
   		"items": [
   			{
   				"id": 10000001,
-  				"name": "Paris",
-  				"address": "Paris, France",
-  				"image": "https://example.com/paris.jpg",
+  				"name": "Golden Bridge",
+  				"address": "Ba Na Hills, Da Nang, Vietnam",
+  				"image": "https://example.com/goldenbridge.jpg",
   				"rating": 4.5,
   				"cost": 150,
   				"openTime": "8:00",
@@ -77,9 +77,9 @@ I. User permission
   			},
   			{
   				"id": 10000002,
-  				"name": "New York",
-  				"address": "New York, USA",
-  				"image": "https://example.com/newyork.jpg",
+  				"name": "Linh Ung Pagoda",
+  				"address": "Son Tra Peninsula, Da Nang, Vietnam",
+  				"image": "https://example.com/linhungpagoda.jpg",
   				"rating": 4.8,
   				"cost": 200,
   				"openTime": "8:00",
@@ -92,7 +92,7 @@ I. User permission
   }
   ```
 
-  - Requirement: Return 12 items per page
+  - Requirement: Return 12 items per page in default
 
 3. Destination detail
 
@@ -231,7 +231,7 @@ II. Admin permission
   ```
 
   - Requirement: Admin must be authenticated
-  - Note: also save `created_at` and `created_by` (admin ID)
+  - Note: also save `created_at` to sort destinations
 
 2. Update destination with token
 
@@ -268,7 +268,6 @@ II. Admin permission
   ```
 
   - Requirement: Admin must be authenticated
-  - Note: also save `updated_at` and `updated_by` (admin ID)
 
 3. Delete destination with token
 
