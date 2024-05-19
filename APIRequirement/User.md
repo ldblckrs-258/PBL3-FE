@@ -63,6 +63,8 @@ I. User permission
   }
   ```
 
+  - Also save `create_at`
+
 3. Authenticated user by token
 
 - Request: GET `http://server.com/api/user`

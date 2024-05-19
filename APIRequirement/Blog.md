@@ -23,14 +23,14 @@ I. User permission
     			"title": "Top 10 best destinations in Vietnam",
     			"image": "https://example.com/top10bestdestinations.jpg",
     			"author": "John Doe",
-    			"created_at": "2021-01-01 08:00:00"
+    			"created_at": "2024-05-19T03:31:09.229Z"
     		},
     		{
     			"id": 10000002,
     			"title": "The most beautiful beaches in the world",
     			"image": "https://example.com/mostbeautifulbeaches.jpg",
     			"author": "Jane Doe",
-    			"created_at": "2021-01-02 08:00:00"
+    			"created_at": "2024-05-19T03:31:09.229Z"
     		}
     	]
     }
@@ -69,7 +69,7 @@ I. User permission
   				"name": "John Doe",
   				"avatar": "https://example.com/johndoe.jpg"
   			},
-  			"created_at": "2021-01-01 08:00:00",
+  			"created_at": "2024-05-19T03:31:09.229Z",
   			"views": 1000,
   			"introduction": "Vietnam is a beautiful country with many famous destinations. Here are the top 10 best destinations in Vietnam."
   		},
@@ -83,7 +83,7 @@ I. User permission
   				"name": "Jane Doe",
   				"avatar": "https://example.com/janedoe.jpg"
   			},
-  			"created_at": "2021-01-02 08:00:00",
+  			"created_at": "2024-05-19T03:31:09.229Z",
   			"views": 800,
   			"introduction": "Da Nang is a beautiful city in Vietnam. Here are some tips for your first time traveling to Da Nang."
   		},
@@ -97,7 +97,7 @@ I. User permission
   				"name": "John Doe",
   				"avatar": "https://example.com/johndoe.jpg"
   			},
-  			"created_at": "2021-01-03 08:00:00",
+  			"created_at": "2024-05-19T03:31:09.229Z",
   			"views": 500,
   			"introduction": "Da Nang is a beautiful city in Vietnam. Here is the ultimate guide to travel to Da Nang."
   		}
@@ -128,7 +128,7 @@ I. User permission
   			"type": "places",
   			"image": "https://example.com/top10bestdestinations.jpg",
   			"author": "John Doe",
-  			"created_at": "2021-01-01 08:00:00"
+  			"created_at": "2024-05-19T03:31:09.229Z"
   		},
   		{
   			"id": 10000002,
@@ -136,7 +136,7 @@ I. User permission
   			"type": "tips",
   			"image": "https://example.com/firsttimetravelingtodanang.jpg",
   			"author": "Jane Doe",
-  			"created_at": "2021-01-02 08:00:00"
+  			"created_at": "2024-05-19T03:31:09.229Z"
   		},
   		{
   			"id": 10000003,
@@ -144,7 +144,7 @@ I. User permission
   			"type": "all",
   			"image": "https://example.com/ultimateguidetotraveltodanang.jpg",
   			"author": "John Doe",
-  			"created_at": "2021-01-03 08:00:00"
+  			"created_at": "2024-05-19T03:31:09.229Z"
   		}
   	]
   }
@@ -173,7 +173,7 @@ I. User permission
   			"name": "John Doe",
   			"avatar": "https://example.com/johndoe.jpg"
   		},
-  		"created_at": "2021-01-01 08:00:00",
+  		"created_at":
   		"views": 1000,
   		"content": "<p> ... </p>" // HTML content
   	}
