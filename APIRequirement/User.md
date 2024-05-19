@@ -5,7 +5,6 @@
 ```json
 {
 	"id": 10000001, // Registered claim: Subject (user ID)
-	"name": "John Doe", // Private claim: User name
 	"role": "user", // Private claim: User role
 	"iat": 1500000000, // Registered claim: Issued at (timestamp)
 	"exp": 1600000000 // Registered claim: Expiration time (timestamp)
