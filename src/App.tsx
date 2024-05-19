@@ -17,6 +17,7 @@ import {
 } from './pages'
 import { useContext, useEffect, useState } from 'react'
 import { UserContext } from './context/UserContext'
+import ScrollToTop from './utils/ScrollToTop'
 
 function App() {
 	const [accountModal, setAccountModal] = useState(0)
@@ -33,6 +34,7 @@ function App() {
 	return (
 		<>
 			<BrowserRouter>
+				<ScrollToTop />
 				<Navbar
 					onLogin={() => setAccountModal(1)}
 					onSignUp={() => setAccountModal(2)}
