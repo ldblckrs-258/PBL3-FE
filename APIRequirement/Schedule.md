@@ -6,7 +6,7 @@
 
 1. Get my schedule list by token
 
-- Request: GET `http://server.com/api/schedule/myschedule`
+- HTTP GET `http://server.com/api/schedule/myschedule`
 
   - Parameters: (Optional)
     - `page`: Number of page (Default: 1)
@@ -72,7 +72,7 @@
 
 2. Get public shared schedule list
 
-- Request: GET `http://server.com/api/schedule/sharedlist`
+- HTTP GET `http://server.com/api/schedule/sharedlist`
 
   - Parameters: (Optional)
     - `page`: Number of page (Default: 1)
@@ -132,7 +132,7 @@
 
 3. Get schedule detail by ID with token
 
-- Request: GET `http://server.com/api/schedule/detail/:id`
+- HTTP GET `http://server.com/api/schedule/detail/:id`
 
   > `:id` is schedule ID
 
@@ -204,7 +204,7 @@
 
 4. Create new schedule by token
 
-- Request: POST `http://server.com/api/schedule/create`
+- HTTP POST `http://server.com/api/schedule/create`
 
   ```json
   {
@@ -230,7 +230,7 @@
 
 5. Clone public schedule by token
 
-- Request: POST `http://server.com/api/schedule/clone/:id`
+- HTTP POST `http://server.com/api/schedule/clone/:id`
 
   > `:id` is schedule ID
 
@@ -248,7 +248,7 @@
 
 6. Add schedule destination by token
 
-- Request: POST `http://server.com/api/schedule/adddestination`
+- HTTP POST `http://server.com/api/schedule/adddestination`
 
   ```json
   {
@@ -278,7 +278,7 @@
 
 7. Remove schedule destination by token
 
-- Request: DELETE `http://server.com/api/schedule/removedestination/:id`
+- HTTP DELETE `http://server.com/api/schedule/removedestination/:id`
 
   > `:id` is schedule destination ID
 
@@ -293,7 +293,7 @@
 
 8. Update schedule destination by token
 
-- Request: PUT `http://server.com/api/schedule/updatedestination/:id`
+- HTTP PUT `http://server.com/api/schedule/updatedestination/:id`
 
   > `:id` is schedule destination ID
 
@@ -320,7 +320,7 @@
 
 9. Update schedule information by token
 
-- Request: PUT `http://server.com/api/schedule/update/:id`
+- HTTP PUT `http://server.com/api/schedule/update/:id`
 
   > `:id` is schedule ID
 

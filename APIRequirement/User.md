@@ -15,7 +15,7 @@ I. User permission
 
 1. Login
 
-- Request: POST `http://server.com/api/login`
+- HTTP POST `http://server.com/api/login`
 
   ```json
   {
@@ -44,7 +44,7 @@ I. User permission
 
 2. Register
 
-- Request: POST `http://server.com/api/register`
+- HTTP POST `http://server.com/api/register`
 
   ```json
   {
@@ -67,7 +67,7 @@ I. User permission
 
 3. Authenticated user by token
 
-- Request: GET `http://server.com/api/user`
+- HTTP GET `http://server.com/api/user`
 
 - Response:
 
@@ -87,7 +87,7 @@ I. User permission
 
 4. Get user data by token
 
-- Request: GET `http://server.com/api/user/data`
+- HTTP GET `http://server.com/api/user/data`
 
 - Response:
 
@@ -108,7 +108,7 @@ I. User permission
 
 5. Update user data by token
 
-- Request: PUT `http://server.com/api/user/data`
+- HTTP PUT `http://server.com/api/user/data`
 
   ```json
   {
@@ -129,7 +129,7 @@ I. User permission
 
 6. Change password by token
 
-- Request: PUT `http://server.com/api/user/password`
+- HTTP PUT `http://server.com/api/user/password`
 
   ```json
   {
@@ -151,7 +151,7 @@ II. Admin permission
 
 1. User list with token for admin to manage
 
-- Request: GET `http://server.com/api/user/managelist`
+- HTTP GET `http://server.com/api/user/managelist`
 
   - Parameters: (Optional)
 
@@ -198,7 +198,7 @@ II. Admin permission
 
 2. Update user role by token
 
-- Request: PUT `http://server.com/api/user/update/:id`
+- HTTP PUT `http://server.com/api/user/update/:id`
 
   > `:id` is user ID
 
@@ -221,7 +221,7 @@ II. Admin permission
 
 3. Delete user by token
 
-- Request: DELETE `http://server.com/api/user/delete/:id`
+- HTTP DELETE `http://server.com/api/user/delete/:id`
 
   > `:id` is user ID
 

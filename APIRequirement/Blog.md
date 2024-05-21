@@ -9,38 +9,38 @@ I. User permission
 
 1. Blog home page
 
-- Request: GET `http://server.com/api/blog/home`
+- HTTP GET `http://server.com/api/blog/home`
 
-  - Response:
+- Response:
 
-    ```json
-    {
-    	"status": 200,
-    	"message": "Success",
-    	"data": [
-    		{
-    			"id": 10000001,
-    			"title": "Top 10 best destinations in Vietnam",
-    			"image": "https://example.com/top10bestdestinations.jpg",
-    			"author": "John Doe",
-    			"created_at": "2024-05-19T03:31:09.229Z"
-    		},
-    		{
-    			"id": 10000002,
-    			"title": "The most beautiful beaches in the world",
-    			"image": "https://example.com/mostbeautifulbeaches.jpg",
-    			"author": "Jane Doe",
-    			"created_at": "2024-05-19T03:31:09.229Z"
-    		}
-    	]
-    }
-    ```
+  ```json
+  {
+  	"status": 200,
+  	"message": "Success",
+  	"data": [
+  		{
+  			"id": 10000001,
+  			"title": "Top 10 best destinations in Vietnam",
+  			"image": "https://example.com/top10bestdestinations.jpg",
+  			"author": "John Doe",
+  			"created_at": "2024-05-19T03:31:09.229Z"
+  		},
+  		{
+  			"id": 10000002,
+  			"title": "The most beautiful beaches in the world",
+  			"image": "https://example.com/mostbeautifulbeaches.jpg",
+  			"author": "Jane Doe",
+  			"created_at": "2024-05-19T03:31:09.229Z"
+  		}
+  	]
+  }
+  ```
 
   - Requirement: Return 5 most viewed blogs
 
 2. Blogs page
 
-- Request: GET `http://server.com/api/blog/list`
+- HTTP GET `http://server.com/api/blog/list`
 
   - Parameters: (Optional)
 
@@ -109,7 +109,7 @@ I. User permission
 
 3. Random blogs
 
-- Request: GET `http://server.com/api/blog/random`
+- HTTP GET `http://server.com/api/blog/random`
 
   - Parameters: (Optional)
     - `limit`: Number of random blogs (Default: 5)
@@ -154,7 +154,7 @@ I. User permission
 
 4. Blog detail
 
-- Request: GET `http://server.com/api/blog/:id`
+- HTTP GET `http://server.com/api/blog/:id`
 
   > `:id` is blog ID
 
@@ -184,7 +184,7 @@ I. User permission
 
 5. Request create blog with token
 
-- Request: POST `http://server.com/api/blog/create`
+- HTTP POST `http://server.com/api/blog/create`
 
   ```json
   {
@@ -214,7 +214,7 @@ I. User permission
 
 6. Update blog with token
 
-- Request: PUT `http://server.com/api/blog/update/:id`
+- HTTP PUT `http://server.com/api/blog/update/:id`
 
   > `:id` is blog ID
 
@@ -241,7 +241,7 @@ I. User permission
 
 7. Delete blog with token
 
-- Request: DELETE `http://server.com/api/blog/delete/:id`
+- HTTP DELETE `http://server.com/api/blog/delete/:id`
 
   > `:id` is blog ID
 
@@ -260,7 +260,7 @@ II. Admin permission
 
 1. Get blog list with token for admin to manage
 
-- Request: GET `http://server.com/api/blog/managelist`
+- HTTP GET `http://server.com/api/blog/managelist`
 
   - Parameters: (Optional)
 
@@ -313,7 +313,7 @@ II. Admin permission
 
 2. Update blog status with token
 
-- Request: PUT `http://server.com/api/blog/updatestatus/:id`
+- HTTP PUT `http://server.com/api/blog/updatestatus/:id`
 
   > `:id` is blog ID
 

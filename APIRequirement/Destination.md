@@ -4,38 +4,38 @@ I. User permission
 
 1. Home page destinations
 
-- Request: GET `http://server.com/api/destination/home`
+- HTTP GET `http://server.com/api/destination/home`
 
-  - Response:
+- Response:
 
-    ```json
-    {
-    	"status": 200,
-    	"message": "Success",
-    	"data": [
-    		{
-    			"id": 10000001,
-    			"name": "Golden Bridge",
-    			"address": "Ba Na Hills, Da Nang, Vietnam",
-    			"image": "https://example.com/goldenbridge.jpg",
-    			"rating": 4.5
-    		},
-    		{
-    			"id": 10000002,
-    			"name": "Linh Ung Pagoda",
-    			"address": "Son Tra Peninsula, Da Nang, Vietnam",
-    			"image": "https://example.com/linhungpagoda.jpg",
-    			"rating": 4.8
-    		}
-    	]
-    }
-    ```
+  ```json
+  {
+  	"status": 200,
+  	"message": "Success",
+  	"data": [
+  		{
+  			"id": 10000001,
+  			"name": "Golden Bridge",
+  			"address": "Ba Na Hills, Da Nang, Vietnam",
+  			"image": "https://example.com/goldenbridge.jpg",
+  			"rating": 4.5
+  		},
+  		{
+  			"id": 10000002,
+  			"name": "Linh Ung Pagoda",
+  			"address": "Son Tra Peninsula, Da Nang, Vietnam",
+  			"image": "https://example.com/linhungpagoda.jpg",
+  			"rating": 4.8
+  		}
+  	]
+  }
+  ```
 
   - Requirement: Return 10 newest destinations
 
 2. Destination page
 
-- Request: GET `http://server.com/api/destination/list`
+- HTTP GET `http://server.com/api/destination/list`
 
   - Parameters: (Optional)
 
@@ -97,7 +97,7 @@ I. User permission
 
 3. Destination detail
 
-- Request: GET `http://server.com/api/destination/detail/:id`
+- HTTP GET `http://server.com/api/destination/detail/:id`
 
 - Response:
 
@@ -143,7 +143,8 @@ I. User permission
 
 4. Get reviews by destination ID
 
-- Request: GET `http://server.com/api/destination/review/:id`
+- HTTP GET `http://server.com/api/review/list/:id`
+
   - Parameters: (Optional)
     - `page`: Number of page (Default: 1)
     - `limit`: Number of items per page (Default: 3)
@@ -151,14 +152,48 @@ I. User permission
     - `sortType`: Sort type (asc, desc) (Default: desc)
   - Example: `http://server.com/api/destination/review/10000001?page=1&limit=3&sortBy=rating&sortType=desc`
 
+- Response:
+
+  ```json
+  {
+  	"status": 200,
+  	"message": "Success",
+  	"data": {
+  		"total": 10,
+  		"page": 1,
+  		"limit": 3,
+  		"items": [
+  			{
+  				"id": 10000001,
+  				"author": "John Doe",
+  				"avatar": "https://example.com/avatar.jpg",
+  				"rating": 4,
+  				"comment": "Good place",
+  				"created_at": "2024-05-19T03:31:09.229Z" // Datetime string in ISO 8601 format
+  			},
+  			{
+  				"id": 10000002,
+  				"author": "Jane Doe",
+  				"avatar": "https://example.com/avatar.jpg",
+  				"rating": 5,
+  				"comment": "Amazing place",
+  				"created_at": "2024-05-19T03:31:09.229Z"
+  			}
+  		]
+  	}
+  }
+  ```
+
+  - Requirement: Return 3 reviews per page
+
 5. Create review with token
 
-- Request: POST `http://server.com/api/destination/review`
+- HTTP POST `http://server.com/api/review/create`
 
   ```json
   {
   	"destinationId": 10000001,
-  	"rating": 4.5,
+  	"rating": 4,
   	"comment": "Good place"
   }
   ```
@@ -176,7 +211,7 @@ I. User permission
 
 6. Update favorite destination with token
 
-- Request: PUT `http://server.com/api/destination/favorite/:id`
+- HTTP PUT `http://server.com/api/destination/favorite/:id`
 
   > `:id` is destination ID
 
@@ -199,7 +234,7 @@ I. User permission
 
 7. Get random destinations
 
-- Request: GET `http://server.com/api/destination/random`
+- HTTP GET `http://server.com/api/destination/random`
 
   - Parameters: (Optional)
     - `limit`: Number of items (Default: 3)
@@ -243,7 +278,7 @@ II. Admin permission
 
 1. Destination list with token for admin to manage
 
-- Request: GET `http://server.com/api/destination/managelist`
+- HTTP GET `http://server.com/api/destination/managelist`
 
   - Parameters: (Optional)
 
@@ -284,7 +319,7 @@ II. Admin permission
 
 2. Create destination with token
 
-- Request: POST `http://server.com/api/destination/create`
+- HTTP POST `http://server.com/api/destination/create`
 
   ```json
   {
@@ -319,7 +354,7 @@ II. Admin permission
 
 3. Update destination with token
 
-- Request: PUT `http://server.com/api/destination/update/:id`
+- HTTP PUT `http://server.com/api/destination/update/:id`
 
   > `:id` is destination ID
 
@@ -355,7 +390,7 @@ II. Admin permission
 
 4. Delete destination with token
 
-- Request: DELETE `http://server.com/api/destination/delete/:id`
+- HTTP DELETE `http://server.com/api/destination/delete/:id`
 
   > `:id` is destination ID
 
@@ -365,6 +400,23 @@ II. Admin permission
   {
   	"status": 200,
   	"message": "Destination deleted"
+  }
+  ```
+
+  - Requirement: Admin must be authenticated
+
+5. Delete review with token
+
+- HTTP DELETE `http://server.com/api/review/delete/:id`
+
+  > `:id` is review ID
+
+- Response:
+
+  ```json
+  {
+  	"status": 200,
+  	"message": "Review deleted"
   }
   ```
 
