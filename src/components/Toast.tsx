@@ -54,7 +54,7 @@ const Toast: React.FC<ToastProps> = ({ type, title, message, id }) => {
 				</div>
 				<div className="flex-1">
 					<h4 className="line-clamp-1 text-base font-semibold">{title}</h4>
-					<p className="line-clamp-1 text-sm">{message}</p>
+					<p className="text-sm">{message}</p>
 				</div>
 				<button
 					className="rounded-full p-2 hover:bg-gray-200 hover:text-tertiary-1"

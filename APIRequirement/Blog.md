@@ -20,6 +20,7 @@ I. User permission
   	"data": [
   		{
   			"id": 10000001,
+  			"type": "places",
   			"title": "Top 10 best destinations in Vietnam",
   			"image": "https://example.com/top10bestdestinations.jpg",
   			"author": "John Doe",
@@ -27,6 +28,7 @@ I. User permission
   		},
   		{
   			"id": 10000002,
+  			"type": "tips",
   			"title": "The most beautiful beaches in the world",
   			"image": "https://example.com/mostbeautifulbeaches.jpg",
   			"author": "Jane Doe",
@@ -58,50 +60,55 @@ I. User permission
   {
   	"status": 200,
   	"message": "Success",
-  	"data": [
-  		{
-  			"id": 10000001,
-  			"title": "Top 10 best destinations in Vietnam",
-  			"image": "https://example.com/top10bestdestinations.jpg",
-  			"type": "places",
-  			"author": {
+  	"data": {
+  		"total": 100,
+  		"page": 1,
+  		"limit": 12,
+  		"items": [
+  			{
   				"id": 10000001,
-  				"name": "John Doe",
-  				"avatar": "https://example.com/johndoe.jpg"
+  				"title": "Top 10 best destinations in Vietnam",
+  				"image": "https://example.com/top10bestdestinations.jpg",
+  				"type": "places",
+  				"author": {
+  					"id": 10000001,
+  					"name": "John Doe",
+  					"avatar": "https://example.com/johndoe.jpg"
+  				},
+  				"created_at": "2024-05-19T03:31:09.229Z",
+  				"views": 1000,
+  				"introduction": "Vietnam is a beautiful country with many famous destinations. Here are the top 10 best destinations in Vietnam."
   			},
-  			"created_at": "2024-05-19T03:31:09.229Z",
-  			"views": 1000,
-  			"introduction": "Vietnam is a beautiful country with many famous destinations. Here are the top 10 best destinations in Vietnam."
-  		},
-  		{
-  			"id": 10000002,
-  			"title": "First time traveling to Da Nang - Things you need to know",
-  			"image": "https://example.com/firsttimetravelingtodanang.jpg",
-  			"type": "tips",
-  			"author": {
+  			{
   				"id": 10000002,
-  				"name": "Jane Doe",
-  				"avatar": "https://example.com/janedoe.jpg"
+  				"title": "First time traveling to Da Nang - Things you need to know",
+  				"image": "https://example.com/firsttimetravelingtodanang.jpg",
+  				"type": "tips",
+  				"author": {
+  					"id": 10000002,
+  					"name": "Jane Doe",
+  					"avatar": "https://example.com/janedoe.jpg"
+  				},
+  				"created_at": "2024-05-19T03:31:09.229Z",
+  				"views": 800,
+  				"introduction": "Da Nang is a beautiful city in Vietnam. Here are some tips for your first time traveling to Da Nang."
   			},
-  			"created_at": "2024-05-19T03:31:09.229Z",
-  			"views": 800,
-  			"introduction": "Da Nang is a beautiful city in Vietnam. Here are some tips for your first time traveling to Da Nang."
-  		},
-  		{
-  			"id": 10000003,
-  			"title": "Ultimate guide to travel to Da Nang",
-  			"image": "https://example.com/ultimateguidetotraveltodanang.jpg",
-  			"type": "all",
-  			"author": {
-  				"id": 10000001,
-  				"name": "John Doe",
-  				"avatar": "https://example.com/johndoe.jpg"
-  			},
-  			"created_at": "2024-05-19T03:31:09.229Z",
-  			"views": 500,
-  			"introduction": "Da Nang is a beautiful city in Vietnam. Here is the ultimate guide to travel to Da Nang."
-  		}
-  	]
+  			{
+  				"id": 10000003,
+  				"title": "Ultimate guide to travel to Da Nang",
+  				"image": "https://example.com/ultimateguidetotraveltodanang.jpg",
+  				"type": "all",
+  				"author": {
+  					"id": 10000001,
+  					"name": "John Doe",
+  					"avatar": "https://example.com/johndoe.jpg"
+  				},
+  				"created_at": "2024-05-19T03:31:09.229Z",
+  				"views": 500,
+  				"introduction": "Da Nang is a beautiful city in Vietnam. Here is the ultimate guide to travel to Da Nang."
+  			}
+  		]
+  	}
   }
   ```
 
@@ -280,32 +287,37 @@ II. Admin permission
   {
   	"status": 200,
   	"message": "Success",
-  	"data": [
-  		{
-  			"id": 10000001,
-  			"title": "Top 10 best destinations in Vietnam",
-  			"type": "places",
-  			"author": "John Doe",
-  			"created_at": "2024-05-19T03:31:09.229Z",
-  			"status": "pending"
-  		},
-  		{
-  			"id": 10000002,
-  			"title": "First time traveling to Da Nang - Things you need to know",
-  			"type": "tips",
-  			"author": "Jane Doe",
-  			"created_at": "2024-05-19T03:31:09.229Z",
-  			"status": "published"
-  		},
-  		{
-  			"id": 10000003,
-  			"title": "Ultimate guide to travel to Da Nang",
-  			"type": "all",
-  			"author": "John Doe",
-  			"created_at": "2024-05-19T03:31:09.229Z",
-  			"status": "rejected"
-  		}
-  	]
+  	"data": {
+  		"total": 100,
+  		"page": 1,
+  		"limit": 12,
+  		"items": [
+  			{
+  				"id": 10000001,
+  				"title": "Top 10 best destinations in Vietnam",
+  				"type": "places",
+  				"author": "John Doe",
+  				"created_at": "2024-05-19T03:31:09.229Z",
+  				"status": "pending"
+  			},
+  			{
+  				"id": 10000002,
+  				"title": "First time traveling to Da Nang - Things you need to know",
+  				"type": "tips",
+  				"author": "Jane Doe",
+  				"created_at": "2024-05-19T03:31:09.229Z",
+  				"status": "published"
+  			},
+  			{
+  				"id": 10000003,
+  				"title": "Ultimate guide to travel to Da Nang",
+  				"type": "all",
+  				"author": "John Doe",
+  				"created_at": "2024-05-19T03:31:09.229Z",
+  				"status": "rejected"
+  			}
+  		]
+  	}
   }
   ```
 

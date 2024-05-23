@@ -1,41 +1,57 @@
-export type DestinationType = {
-	imgs: string[]
-	general: GeneralType
-	introduction: string
+export interface DesListItemProps {
+	id: number
+	name: string
+	address: string
+	image: string
+	rating: number
+	cost: number
+	openTime: string
+	closeTime: string
+	tags: string[]
+	favorite: boolean
 }
 
-type GeneralType = {
-	id: number
+export interface DesInfoProps {
 	name: string
 	localName: string
 	address: string
-	rating: number
+	images: string[]
 	cost: number
 	openTime: string
 	closeTime: string
 	tags: string[]
 }
 
-export type ReviewsType = {
-	summary: ReviewSummaryType
-	list: ReviewType[]
+export interface GeneralReviewProps {
+	rating: number
+	totalReview: number
+	detail: {
+		[key: number]: number
+	}
 }
 
-export type ReviewSummaryType = {
-	count: number
-	average: number
-	chart: RatingRatioType
-}
-
-type RatingRatioType = {
-	[key: number]: number
-}
-
-export type ReviewType = {
+export interface DestinationDetailProps {
 	id: number
-	name: string
+	information: DesInfoProps
+	introduction: string
+	googleMapUrl: string
+	generalReview: GeneralReviewProps
+}
+
+export interface ReviewProps {
+	id: number
+	author: string
 	avatar: string
 	rating: number
-	time: string
-	content: string
+	comment: string
+	created_at: string
+}
+
+export interface SortDesProps {
+	id: number
+	name: string
+	address: string
+	tags: string[]
+	rating: number
+	image: string
 }

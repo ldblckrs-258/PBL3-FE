@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge'
-import { BlogType } from '../../types/blog.types'
+import { BlogCardProps } from '../../types/blog.types'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
@@ -11,7 +11,7 @@ import { BlogTypeColors } from '../../styles/Styles'
 const BlogSlider: React.FC<{
 	className?: string
 }> = ({ className }) => {
-	const [blogs, setBlogs] = useState<BlogType[]>()
+	const [blogs, setBlogs] = useState<BlogCardProps[]>()
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const navigate = useNavigate()
 	useEffect(() => {

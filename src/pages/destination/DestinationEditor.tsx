@@ -3,12 +3,14 @@ import { useState } from 'react'
 import TextEditor from '../../components/TextEditor'
 import { PiXBold } from 'react-icons/pi'
 import { uploadToCloudinary } from '../../utils/Cloundinary'
+import { useToast } from '../../hook/useToast'
 
 const DestinationEditor: React.FC = () => {
 	document.title = 'New Destination | Da Nang Explore'
-
+	const toast = useToast()
 	const [desName, setDesName] = useState('')
 	const [desAddress, setDesAddress] = useState('')
+	const [mapUrl, setMapUrl] = useState('')
 	const [details, setDetails] = useState({
 		cost: 0,
 		is247: false,
@@ -48,16 +50,19 @@ const DestinationEditor: React.FC = () => {
 		if (
 			!desName ||
 			!desAddress ||
+			!mapUrl ||
 			!desTags ||
-			!details.cost ||
 			!desImgs ||
 			!desContent
 		) {
-			alert('Please fill in all fields')
+			toast.error('Empty fields1', 'Please fill in all fields')
 			return
 		}
 		if (!details.is247 && (!details.openTime || !details.closeTime)) {
-			alert('Tick open 24/7 or fill in open and close time')
+			toast.error(
+				'Empty time',
+				'Please fill in open and close time or check 24/7',
+			)
 			return
 		}
 
@@ -66,8 +71,7 @@ const DestinationEditor: React.FC = () => {
 			details.closeTime = '23:59'
 		}
 
-		alert('Destination posted successfully, check console for details')
-		window.location.reload()
+		toast.success('Success', 'Destination posted successfully')
 	}
 	const [imgFile, setImgFile] = useState<File>()
 	const [uploading, setUploading] = useState(false)
@@ -198,6 +202,20 @@ const DestinationEditor: React.FC = () => {
 							placeholder="Enter destination address"
 							value={desAddress}
 							onChange={(e) => setDesAddress(e.target.value)}
+							required
+						/>
+					</div>
+					<div className="flex w-full items-center gap-4">
+						<label className="w-[100px] font-semibold" htmlFor="des-map">
+							Google Map
+						</label>
+						<input
+							className="h-9 flex-1 border-borderCol-1 px-3 text-sm invalid:focus:border-tertiary-1"
+							id="des-map"
+							type="text"
+							placeholder="Enter google map URL"
+							value={mapUrl}
+							onChange={(e) => setMapUrl(e.target.value)}
 							required
 						/>
 					</div>

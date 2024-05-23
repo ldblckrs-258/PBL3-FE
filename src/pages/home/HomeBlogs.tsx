@@ -6,19 +6,10 @@ import { Button } from '../../components/Buttons'
 import { useNavigate } from 'react-router-dom'
 import { timeAgo } from '../../utils/TimeFormatters'
 import { motion } from 'framer-motion'
-
-type BlogType = {
-	id: number
-	title: string
-	type: string
-	image: string
-	description: string
-	author: string
-	created_at: string
-}
+import { HomeBlogProps } from '../../types/blog.types'
 
 const HomeBlogs: React.FC<{ className?: string }> = ({ className }) => {
-	const [blogs, setBlogs] = useState<BlogType[]>([])
+	const [blogs, setBlogs] = useState<HomeBlogProps[]>([])
 
 	const getBlogs = async () => {
 		try {
@@ -58,7 +49,7 @@ const HomeBlogs: React.FC<{ className?: string }> = ({ className }) => {
 	)
 }
 
-const FirstBlog: React.FC<{ blog: BlogType; className?: string }> = ({
+const FirstBlog: React.FC<{ blog: HomeBlogProps; className?: string }> = ({
 	blog,
 	className,
 }) => {
@@ -140,7 +131,7 @@ const FirstBlog: React.FC<{ blog: BlogType; className?: string }> = ({
 	)
 }
 
-const BlogCard: React.FC<{ blog: BlogType; className?: string }> = ({
+const BlogCard: React.FC<{ blog: HomeBlogProps; className?: string }> = ({
 	blog,
 	className,
 }) => {

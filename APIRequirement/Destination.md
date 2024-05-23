@@ -48,7 +48,7 @@ I. User permission
     - `ratingFrom`: Filter by rating from
     - `ratingTo`: Filter by rating to
     - `isFavorite`: Filter by favorite (true, false)
-    - `sortBy`: Sort by (price, rating, name, created_at) (Default: created_at)
+    - `sortBy`: Sort by (cost, rating, name, created_at) (Default: created_at)
     - `sortType`: Sort type (asc, desc) (Default: asc)
 
   - Example: `http://server.com/api/destination/list?page=1&limit=12&search=Paris&location=Hai%20Chau&costFrom=100&costTo=200&ratingFrom=4&ratingTo=5&sortBy=price&sortType=asc`
@@ -121,6 +121,7 @@ I. User permission
   			"closeTime": "17:00",
   			"tags": ["tag1", "tag2"]
   		},
+  		"favorite": true,
   		"introduction": "<p> ... </p>", // HTML content formatted
   		"googleMapUrl": "https://www.google.com/maps/example",
   		"generalReview": {
@@ -252,21 +253,24 @@ I. User permission
   			"name": "Golden Bridge",
   			"address": "Ba Na Hills, Da Nang, Vietnam",
   			"image": "https://example.com/goldenbridge.jpg",
-  			"rating": 4.5
+  			"rating": 4.5,
+  			"tags": ["bridge", "landmark", "nightlife"]
   		},
   		{
   			"id": 10000032,
   			"name": "Linh Ung Pagoda",
   			"address": "Son Tra Peninsula, Da Nang, Vietnam",
   			"image": "https://example.com/linhungpagoda.jpg",
-  			"rating": 4.8
+  			"rating": 4.8,
+  			"tags": ["pagoda", "landmark", "nightlife"]
   		},
   		{
   			"id": 10000033,
   			"name": "My Khe Beach",
   			"address": "My Khe, Da Nang, Vietnam",
   			"image": "https://example.com/mykhebeach.jpg",
-  			"rating": 4.7
+  			"rating": 4.7,
+  			"tags": ["beach", "landmark", "nightlife"]
   		}
   	]
   }
