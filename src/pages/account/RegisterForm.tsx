@@ -61,18 +61,16 @@ const RegisterForm: React.FC<{
 		} else {
 			setWarnings((prev) => ({ ...prev, confirm: '' }))
 		}
-
-		if (!capVal) {
-			toast.error('Captcha validation failed', 'Please complete the captcha')
-			isValid = false
-		}
-
 		return isValid
 	}
 	// const { setUser } = useContext(UserContext)
 	const toast = useToast()
 	const handleSignUp = async () => {
 		setFirstMount(false)
+		if (!capVal) {
+			toast.error('Captcha validation failed', 'Please complete the captcha')
+			return
+		}
 		if (validateData()) {
 			toast.success('Sign up success', 'You have successfully signed up')
 			onClose()
