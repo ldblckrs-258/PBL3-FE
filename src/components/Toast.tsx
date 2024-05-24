@@ -42,10 +42,10 @@ const Toast: React.FC<ToastProps> = ({ type, title, message, id }) => {
 		<motion.div
 			id={'toast-' + id}
 			layoutId={'toast-' + id}
-			initial={{ opacity: 0, x: '100%' }}
+			initial={{ opacity: 0, x: '-100%' }}
 			animate={{ opacity: 1, x: 0 }}
 			exit={{ opacity: 0, y: -50 }}
-			className={`w-[380px] rounded-lg border-l-[6px] bg-gray-100 py-2 pl-3 pr-1 shadow-lg`}
+			className={`shadow-modal-2 w-[380px] rounded-lg border-l-[6px] bg-gray-100 py-2 pl-3 pr-1`}
 			style={{ borderLeftColor: color }}
 		>
 			<div className="flex items-center gap-3">

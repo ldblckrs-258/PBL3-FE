@@ -9,7 +9,7 @@ const ToastContainer: React.FC<{
 	return (
 		<>
 			{children}
-			<div className="fixed right-5 top-14 z-50 flex flex-col gap-3">
+			<div className="fixed bottom-5 left-5 z-50 flex flex-col gap-3">
 				<AnimatePresence>
 					{toasts.map((toast) => (
 						<Toast key={toast.id} {...toast} />

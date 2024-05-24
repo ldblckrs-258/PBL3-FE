@@ -143,10 +143,10 @@ const DestinationPage: React.FC = () => {
 						<AnimatePresence>
 							{isFilterOpen && (
 								<motion.div
-									className="absolute bottom-[-12px] left-[92px] z-[5] w-[300px]"
-									animate={{ opacity: 1, y: 0 }}
-									initial={{ opacity: 0, y: -8 }}
-									exit={{ opacity: 0, y: -8 }}
+									className="absolute -left-4 top-0 z-[5] w-[300px]"
+									initial={{ opacity: 0, x: '-100%' }}
+									animate={{ opacity: 1, x: '-105%' }}
+									exit={{ opacity: 0, x: '-100%' }}
 								>
 									<DestinationFilter
 										filter={filter}
@@ -208,7 +208,7 @@ const DestinationFilter: React.FC<{
 	return (
 		<div
 			className={twMerge(
-				`z-[5] translate-x-[-100%] translate-y-[100%] rounded border border-borderCol-1 bg-bgCol-3 p-5 shadow-xl`,
+				'shadow-modal rounded-lg border border-borderCol-1 bg-bgCol-3 p-5',
 				className,
 			)}
 		>

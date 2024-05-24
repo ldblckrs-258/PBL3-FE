@@ -1,5 +1,10 @@
 import { useLocation, Link } from 'react-router-dom'
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import {
+	motion,
+	useScroll,
+	useMotionValueEvent,
+	AnimatePresence,
+} from 'framer-motion'
 import {
 	PiCaretDownBold,
 	PiHouseBold,
@@ -10,6 +15,7 @@ import {
 import { useContext, useState } from 'react'
 import { UserContext } from '../context/UserContext'
 import { Button } from '../components'
+import AccountMenu from './account/AccountMenu'
 
 const NavItems = [
 	{
@@ -41,10 +47,10 @@ const Navbar: React.FC<NavbarProps> = ({ onSignUp, onLogin }) => {
 	const location = useLocation()
 	const firstPath = '/' + location.pathname.split('/')[1]
 	const [hidden, setHidden] = useState(false)
+	const [showMenu, setShowMenu] = useState(false)
 	const { scrollY } = useScroll()
 	const windowHeight = window.innerHeight
 	const scrolledOnePage = scrollY.get() >= windowHeight
-
 	const isHome = scrolledOnePage ? false : firstPath === '/'
 
 	useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -113,13 +119,16 @@ const Navbar: React.FC<NavbarProps> = ({ onSignUp, onLogin }) => {
 					</ul>
 				</div>
 				{user.id !== 0 ? (
-					<div className="flex w-[200px] items-center justify-end gap-4">
+					<div className="relative flex w-[200px] items-center justify-end gap-4">
 						<p
 							className={`text-sm font-semibold ${isHome ? 'text-txtCol-4' : ''}`}
 						>
 							{user.username}
 						</p>
-						<button className="relative h-8 w-8 rounded-full">
+						<button
+							className="relative h-8 w-8 rounded-full"
+							onClick={() => setShowMenu(!showMenu)}
+						>
 							<img
 								className="h-full w-full rounded-full object-cover"
 								src={user.avatar}
@@ -133,6 +142,16 @@ const Navbar: React.FC<NavbarProps> = ({ onSignUp, onLogin }) => {
 								</div>
 							</span>
 						</button>
+						<AnimatePresence>
+							{showMenu && (
+								<AccountMenu
+									className="absolute bottom-[-10px] right-0"
+									onClose={() => {
+										setShowMenu(false)
+									}}
+								/>
+							)}
+						</AnimatePresence>
 					</div>
 				) : (
 					<div className="flex items-center justify-end gap-4">

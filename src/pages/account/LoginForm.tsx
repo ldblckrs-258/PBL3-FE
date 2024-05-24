@@ -3,6 +3,7 @@ import { twMerge } from 'tailwind-merge'
 import { Button } from '../../components'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { variantsDefault, variantsY } from '../../styles/variants'
 // import { UserContext } from '../../context/UserContext'
 
 const LoginForm: React.FC<{
@@ -53,7 +54,7 @@ const LoginForm: React.FC<{
 		const UserData = {
 			id: 40000001,
 			username: 'Admin Account',
-			email: 'adminaccount@email.con',
+			email: 'adminaccount@email.com',
 			avatar:
 				'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745',
 			roleId: 1,
@@ -72,22 +73,26 @@ const LoginForm: React.FC<{
 	return (
 		<motion.div
 			className={twMerge(
-				`flex items-center justify-center bg-[#0000004b] ${className} fixed left-0 top-0 z-10 h-screen w-screen`,
+				'fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center bg-[#0000004b]',
+				className,
 			)}
 			onMouseDown={(e) => {
 				if (e.target === e.currentTarget) {
 					onClose()
 				}
 			}}
-			animate={{ opacity: 1 }}
-			initial={{ opacity: 0 }}
-			exit={{ opacity: 0 }}
+			variants={variantsDefault}
+			initial="hidden"
+			animate="visible"
+			exit="hidden"
 		>
 			<motion.div
 				className="flex w-[560px] items-center p-5"
-				animate={{ opacity: 1, y: 0 }}
-				initial={{ opacity: 0, y: -100 }}
-				exit={{ opacity: 0, y: 100 }}
+				variants={variantsY}
+				initial="top"
+				animate="visible"
+				exit="bottom"
+				custom={100}
 			>
 				<div className="flex w-[520px] flex-col items-center gap-4 rounded-xl bg-white px-14 py-10">
 					<h1 className="inline-block bg-gradient-to-br from-primary-1 to-secondary-2 bg-clip-text text-3xl font-bold text-transparent">

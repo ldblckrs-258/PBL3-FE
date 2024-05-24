@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useToast } from '../../hook/useToast'
 import ReCAPTCHA from 'react-google-recaptcha'
+import { variantsDefault, variantsY } from '../../styles/variants'
 // import { UserContext } from '../../context/UserContext'
 // 6LcV0uYpAAAAABNE0DW6qJ8fPNjoydVhG_HYKo7u
 const RegisterForm: React.FC<{
@@ -74,6 +75,8 @@ const RegisterForm: React.FC<{
 		if (validateData()) {
 			toast.success('Sign up success', 'You have successfully signed up')
 			onClose()
+		} else {
+			toast.error('Sign up failed', 'Please check your input')
 		}
 	}
 
@@ -91,15 +94,18 @@ const RegisterForm: React.FC<{
 					onClose()
 				}
 			}}
-			animate={{ opacity: 1 }}
-			initial={{ opacity: 0 }}
-			exit={{ opacity: 0 }}
+			variants={variantsDefault}
+			initial="hidden"
+			animate="visible"
+			exit="hidden"
 		>
 			<motion.div
 				className="flex w-[560px] items-center p-5"
-				animate={{ opacity: 1, y: 0 }}
-				initial={{ opacity: 0, y: -100 }}
-				exit={{ opacity: 0, y: 100 }}
+				variants={variantsY}
+				initial="top"
+				animate="visible"
+				exit="bottom"
+				custom={100}
 			>
 				<div className="flex w-[520px] flex-col items-center gap-2 rounded-xl bg-white px-14 py-10">
 					<h1 className="inline-block bg-gradient-to-br from-primary-1 to-secondary-2 bg-clip-text text-3xl font-bold text-transparent">
