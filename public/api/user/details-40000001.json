@@ -1,0 +1,12 @@
+{
+	"status": 200,
+	"message": "Get user data successful",
+	"data": {
+		"id": 10000001,
+		"name": "John Doe",
+		"avatar": "https://example.com/avatar.jpg",
+		"email": "example@email.com",
+		"role": "user",
+		"dateOfBirth": "2004-08-25T00:00:00.000Z"
+	}
+}

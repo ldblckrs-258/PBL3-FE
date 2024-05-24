@@ -15,21 +15,32 @@ import {
 	DestinationEditor,
 	LoginForm,
 	RegisterForm,
+	AccountPage,
 } from './pages'
 import { useContext, useEffect, useState } from 'react'
 import { UserContext } from './context/UserContext'
 import ScrollToTop from './utils/ScrollToTop'
 import { AnimatePresence } from 'framer-motion'
+import axios from 'axios'
 
 function App() {
 	const [accountModal, setAccountModal] = useState(0)
 	const { setUser } = useContext(UserContext)
 
+	const auth = async (id: number) => {
+		try {
+			const response = await axios.get(`/api/user/${id}.json`)
+			setUser(response.data.data)
+		} catch (error) {
+			console.error(error)
+		}
+	}
+
 	useEffect(() => {
-		const localUser = sessionStorage.getItem('user')
-		if (localUser) {
-			const user = JSON.parse(localUser)
-			setUser(user)
+		const userId = sessionStorage.getItem('userId')
+		if (userId) {
+			const id = JSON.parse(userId)
+			auth(id)
 		}
 	}, [])
 
@@ -54,6 +65,7 @@ function App() {
 					<Route path="/blog/:id" element={<Blog />}></Route>
 					<Route path="/schedule" element={<SchedulePage />}></Route>
 					<Route path="/schedule/:id" element={<Schedule />}></Route>
+					<Route path="/account" element={<AccountPage />}></Route>
 					<Route path="*" element={<PageNotFound />}></Route>
 				</Routes>
 			</BrowserRouter>

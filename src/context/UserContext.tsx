@@ -10,9 +10,9 @@ import {
 
 export interface User {
 	id: number
-	username: string
-	email: string
+	name: string
 	avatar: string
+	email: string
 	role: string
 }
 
@@ -24,9 +24,9 @@ export interface UserContextInterface {
 export const defaultUser = {
 	user: {
 		id: 0,
-		username: '',
-		email: '',
+		name: '',
 		avatar: '',
+		email: '',
 		role: '',
 	},
 	setUser: (_user: User) => {},

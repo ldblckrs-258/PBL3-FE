@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { twMerge } from 'tailwind-merge'
-import { UserContext } from '../../context/UserContext'
+import { UserContext, defaultUser } from '../../context/UserContext'
 import { useContext } from 'react'
 import {
 	PiHardDrivesFill,
@@ -8,22 +8,16 @@ import {
 	PiSignOutBold,
 	PiUserFill,
 } from 'react-icons/pi'
+import { Link } from 'react-router-dom'
 
 const AccountMenu: React.FC<{
 	className?: string
 	onClose: () => void
 }> = ({ className = '', onClose }) => {
 	const { user, setUser } = useContext(UserContext)
-
 	const handleSignOut = () => {
 		sessionStorage.removeItem('user')
-		setUser({
-			id: 0,
-			username: '',
-			email: '',
-			avatar: '',
-			role: '',
-		})
+		setUser(defaultUser.user)
 		onClose()
 		window.location.reload()
 	}
@@ -41,12 +35,16 @@ const AccountMenu: React.FC<{
 			<p className="mb-1 line-clamp-1 select-text px-2 text-right text-sm text-primary-1">
 				{user.email}
 			</p>
-			<div className="flex cursor-pointer items-center rounded py-2 pl-2 pr-1 transition-all hover:bg-gray-100 active:bg-gray-200">
+			<Link
+				className="flex cursor-pointer items-center rounded py-2 pl-2 pr-1 transition-all hover:bg-gray-100 active:bg-gray-200"
+				to="/account"
+				onClick={onClose}
+			>
 				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-300 text-xl">
 					<PiUserFill />
 				</div>
 				<p className="ml-4 flex-1 text-sm font-semibold">My Account</p>
-			</div>
+			</Link>
 			<div className="flex cursor-pointer items-center rounded py-2 pl-2 pr-1 transition-all hover:bg-gray-100 active:bg-gray-200">
 				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-300 text-xl">
 					<PiMapPinFill />

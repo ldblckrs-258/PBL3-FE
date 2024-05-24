@@ -51,17 +51,8 @@ const LoginForm: React.FC<{
 	// const { setUser } = useContext(UserContext)
 	const handleLogin = async () => {
 		setFirstMount(false)
-		const UserData = {
-			id: 40000001,
-			username: 'Admin Account',
-			email: 'adminaccount@email.com',
-			avatar:
-				'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745',
-			roleId: 1,
-		}
 		if (validateData()) {
-			// setUser(UserData)
-			sessionStorage.setItem('user', JSON.stringify(UserData))
+			sessionStorage.setItem('userId', JSON.stringify(40000001))
 			window.location.reload()
 		}
 	}
@@ -112,6 +103,9 @@ const LoginForm: React.FC<{
 							onChange={(e) =>
 								setFormData({ ...formData, email: e.target.value })
 							}
+							onKeyDown={(e) => {
+								if (e.key === 'Enter') handleLogin()
+							}}
 						/>
 						<p className="text-sm text-tertiary-1">{warnings.email}</p>
 					</div>
@@ -128,6 +122,9 @@ const LoginForm: React.FC<{
 							onChange={(e) =>
 								setFormData({ ...formData, password: e.target.value })
 							}
+							onKeyDown={(e) => {
+								if (e.key === 'Enter') handleLogin()
+							}}
 						/>
 						<p className="text-sm text-tertiary-1">{warnings.password}</p>
 					</div>

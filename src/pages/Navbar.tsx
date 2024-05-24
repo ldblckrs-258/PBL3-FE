@@ -123,7 +123,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSignUp, onLogin }) => {
 						<p
 							className={`text-sm font-semibold ${isHome ? 'text-txtCol-4' : ''}`}
 						>
-							{user.username}
+							{user.name}
 						</p>
 						<button
 							className="relative h-8 w-8 rounded-full"
