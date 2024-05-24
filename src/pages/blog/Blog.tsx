@@ -44,8 +44,8 @@ const Blog: React.FC = () => {
 	else if (!blog) return <PageNotFound />
 	return (
 		<div className="mx-auto min-h-screen xl:max-w-screen-xl">
-			<div className="w-full pb-5 pt-[64px] text-txtCol-1 ">
-				<div className="mx-auto mt-5 flex w-[800px] flex-col items-center">
+			<div className="w-full pb-5 pt-[72px] text-txtCol-1 ">
+				<div className="mx-auto flex w-[800px] flex-col items-center">
 					<span
 						className={`min-w-[72px] rounded px-2 py-1 text-center text-sm font-semibold uppercase text-white ${BlogTypeColors[blog.type]}`}
 					>
