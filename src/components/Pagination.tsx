@@ -47,7 +47,7 @@ const Pagination: React.FC<PaginationProps> = ({
 	}, [currentPage, numbOfPages])
 
 	return (
-		<div className={twMerge(`flex items-center gap-2 ${className ?? ''}`)}>
+		<div className={twMerge(`flex items-center gap-2`, className)}>
 			<button
 				className="pagination-node flex gap-2 border border-borderCol-1 pl-2 pr-3 hover:border-primary-2"
 				onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}

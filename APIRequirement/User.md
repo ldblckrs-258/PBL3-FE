@@ -48,7 +48,6 @@ I. User permission
 
   ```json
   {
-  	"name": "John Doe",
   	"email": "example@email.com",
   	"password": "123456"
   }
@@ -63,6 +62,7 @@ I. User permission
   }
   ```
 
+  - Auto generate default `dateOfBirth` & `name` like `User 10000001`
   - Also save `create_at`
 
 3. Authenticated user by token

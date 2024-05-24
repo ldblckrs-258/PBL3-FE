@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import PageNotFound from '../PageNotFound'
 import DesImgSlider from './DesImgSlider'
-import { DestinationDetailProps } from '../../types/destination.types'
+import { DestinationDetailProps } from '../../types/destination'
 import DesInfo from './DesInfo'
 import RandomExplore from './RandomExplore'
 import { useEffect, useState } from 'react'

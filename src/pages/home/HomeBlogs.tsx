@@ -6,7 +6,7 @@ import { Button } from '../../components/Buttons'
 import { useNavigate } from 'react-router-dom'
 import { timeAgo } from '../../utils/TimeFormatters'
 import { motion } from 'framer-motion'
-import { HomeBlogProps } from '../../types/blog.types'
+import { HomeBlogProps } from '../../types/blog'
 
 const HomeBlogs: React.FC<{ className?: string }> = ({ className }) => {
 	const [blogs, setBlogs] = useState<HomeBlogProps[]>([])

@@ -76,7 +76,10 @@ const DestinationEditor: React.FC = () => {
 	const [imgFile, setImgFile] = useState<File>()
 	const [uploading, setUploading] = useState(false)
 	const handleUpload = async () => {
-		if (!imgFile) return
+		if (!imgFile) {
+			toast.error('Empty image', 'Please select an image to upload')
+			return
+		}
 		setUploading(true)
 		const url = await uploadToCloudinary(imgFile)
 		setDesImgs((prevImgs) => [...(prevImgs || []), url])

@@ -8,12 +8,12 @@ import {
 	ReactNode,
 } from 'react'
 
-export type User = {
+export interface User {
 	id: number
 	username: string
 	email: string
 	avatar: string
-	roleId: number
+	role: string
 }
 
 export interface UserContextInterface {
@@ -27,7 +27,7 @@ export const defaultUser = {
 		username: '',
 		email: '',
 		avatar: '',
-		roleId: 0,
+		role: '',
 	},
 	setUser: (_user: User) => {},
 } as UserContextInterface

@@ -14,10 +14,12 @@ import {
 	BlogEditor,
 	DestinationEditor,
 	LoginForm,
+	RegisterForm,
 } from './pages'
 import { useContext, useEffect, useState } from 'react'
 import { UserContext } from './context/UserContext'
 import ScrollToTop from './utils/ScrollToTop'
+import { AnimatePresence } from 'framer-motion'
 
 function App() {
 	const [accountModal, setAccountModal] = useState(0)
@@ -55,7 +57,20 @@ function App() {
 					<Route path="*" element={<PageNotFound />}></Route>
 				</Routes>
 			</BrowserRouter>
-			{accountModal === 1 && <LoginForm onClose={() => setAccountModal(0)} />}
+			<AnimatePresence>
+				{accountModal === 1 && (
+					<LoginForm
+						onClose={() => setAccountModal(0)}
+						onSwitch={() => setAccountModal(2)}
+					/>
+				)}
+				{accountModal === 2 && (
+					<RegisterForm
+						onClose={() => setAccountModal(0)}
+						onSwitch={() => setAccountModal(1)}
+					/>
+				)}
+			</AnimatePresence>
 		</>
 	)
 }

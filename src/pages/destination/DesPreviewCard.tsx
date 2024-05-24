@@ -6,7 +6,7 @@ import {
 	PiStarFill,
 } from 'react-icons/pi'
 import { useState } from 'react'
-import { DesListItemProps } from '../../types/destination.types'
+import { DesListItemProps } from '../../types/destination'
 
 interface DesPreviewCardProps extends DesListItemProps {
 	className?: string

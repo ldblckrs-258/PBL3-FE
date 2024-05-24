@@ -153,6 +153,10 @@ input[type='radio']:checked {
 	border: 2px;
 }
 
+input[type='file'].hidden {
+	display: none;
+}
+
 input.hide-arr::-webkit-outer-spin-button,
 input.hide-arr::-webkit-inner-spin-button {
 	-webkit-appearance: none;

@@ -3,9 +3,11 @@ import { twMerge } from 'tailwind-merge'
 import { Button } from '../../components'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { useToast } from '../../hook/useToast'
+import ReCAPTCHA from 'react-google-recaptcha'
 // import { UserContext } from '../../context/UserContext'
-
-const LoginForm: React.FC<{
+// 6LcV0uYpAAAAABNE0DW6qJ8fPNjoydVhG_HYKo7u
+const RegisterForm: React.FC<{
 	className?: string
 	onClose: () => void
 	onSwitch: () => void
@@ -13,12 +15,14 @@ const LoginForm: React.FC<{
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
-		remember: false,
+		confirm: '',
 	})
 	const [warnings, setWarnings] = useState({
 		email: '',
 		password: '',
+		confirm: '',
 	})
+	const [capVal, setCapVal] = useState<string | null>(null)
 	const [firstMount, setFirstMount] = useState(true)
 
 	const validateData = () => {
@@ -45,23 +49,33 @@ const LoginForm: React.FC<{
 			setWarnings((prev) => ({ ...prev, password: '' }))
 		}
 
+		if (!formData.confirm) {
+			setWarnings((prev) => ({
+				...prev,
+				confirm: 'Please confirm your password',
+			}))
+			isValid = false
+		} else if (formData.confirm !== formData.password) {
+			setWarnings((prev) => ({ ...prev, confirm: 'Password does not match' }))
+			isValid = false
+		} else {
+			setWarnings((prev) => ({ ...prev, confirm: '' }))
+		}
+
+		if (!capVal) {
+			toast.error('Captcha validation failed', 'Please complete the captcha')
+			isValid = false
+		}
+
 		return isValid
 	}
 	// const { setUser } = useContext(UserContext)
-	const handleLogin = async () => {
+	const toast = useToast()
+	const handleSignUp = async () => {
 		setFirstMount(false)
-		const UserData = {
-			id: 40000001,
-			username: 'Admin Account',
-			email: 'adminaccount@email.con',
-			avatar:
-				'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745',
-			roleId: 1,
-		}
 		if (validateData()) {
-			// setUser(UserData)
-			sessionStorage.setItem('user', JSON.stringify(UserData))
-			window.location.reload()
+			toast.success('Sign up success', 'You have successfully signed up')
+			onClose()
 		}
 	}
 
@@ -89,19 +103,18 @@ const LoginForm: React.FC<{
 				initial={{ opacity: 0, y: -100 }}
 				exit={{ opacity: 0, y: 100 }}
 			>
-				<div className="flex w-[520px] flex-col items-center gap-4 rounded-xl bg-white px-14 py-10">
+				<div className="flex w-[520px] flex-col items-center gap-2 rounded-xl bg-white px-14 py-10">
 					<h1 className="inline-block bg-gradient-to-br from-primary-1 to-secondary-2 bg-clip-text text-3xl font-bold text-transparent">
-						Welcome back !
+						Register
 					</h1>
-					<p>Login to explore all destinations & features</p>
 					<div className="flex w-full flex-col gap-1">
-						<label className="font-semibold" htmlFor="login-email">
+						<label className="font-semibold" htmlFor="signup-email">
 							Email
 						</label>
 						<input
 							className="h-10 w-full border-2 bg-[#fdfdfd] px-4 text-sm focus:border-2"
 							type="email"
-							id="login-email"
+							id="signup-email"
 							placeholder="Enter your email address"
 							value={formData.email}
 							onChange={(e) =>
@@ -111,13 +124,13 @@ const LoginForm: React.FC<{
 						<p className="text-sm text-tertiary-1">{warnings.email}</p>
 					</div>
 					<div className="flex w-full flex-col gap-1">
-						<label className="font-semibold" htmlFor="login-password">
+						<label className="font-semibold" htmlFor="signup-password">
 							Password
 						</label>
 						<input
 							className="h-10 w-full border-2 bg-[#fdfdfd] px-4 text-sm focus:border-2"
 							type="password"
-							id="login-password"
+							id="signup-password"
 							placeholder="Enter your password"
 							value={formData.password}
 							onChange={(e) =>
@@ -126,38 +139,42 @@ const LoginForm: React.FC<{
 						/>
 						<p className="text-sm text-tertiary-1">{warnings.password}</p>
 					</div>
-					<div className="item-center flex w-full justify-between text-sm">
-						<div className="inline-flex items-center gap-2">
-							<input
-								className="large"
-								type="checkbox"
-								id="login-remember"
-								checked={formData.remember}
-								onChange={(e) =>
-									setFormData({ ...formData, remember: e.target.checked })
-								}
-							/>
-							<label htmlFor="login-remember">Remember me</label>
-						</div>
-						<button className="text-primary-1 hover:underline">
-							Forgot your password
-						</button>
+					<div className="flex w-full flex-col gap-1">
+						<label className="font-semibold" htmlFor="signup-password">
+							Confirm Password
+						</label>
+						<input
+							className="h-10 w-full border-2 bg-[#fdfdfd] px-4 text-sm focus:border-2"
+							type="password"
+							id="signup-confirm"
+							placeholder="Re-enter your password"
+							value={formData.confirm}
+							onChange={(e) =>
+								setFormData({ ...formData, confirm: e.target.value })
+							}
+						/>
+						<p className="text-sm text-tertiary-1">{warnings.confirm}</p>
 					</div>
+					<ReCAPTCHA
+						className="mt-2"
+						sitekey="6LcV0uYpAAAAABNE0DW6qJ8fPNjoydVhG_HYKo7u"
+						onChange={(val) => setCapVal(val)}
+					/>
 					<div className="mt-2 flex w-full items-center">
 						<Button
 							className="h-10 w-full rounded bg-primary-2 text-base text-white hover:bg-primary-1"
-							onClick={handleLogin}
+							onClick={handleSignUp}
 						>
-							Login
+							Sign Up
 						</Button>
 					</div>
 					<div className="mt-2 flex w-full items-center justify-center gap-2 text-sm">
-						<p className="text-txtCol-2">Don't have account?</p>
+						<p className="text-txtCol-2">Already have account?</p>
 						<button
 							className="text-primary-1 hover:underline"
 							onClick={onSwitch}
 						>
-							Sign up here
+							Login here
 						</button>
 					</div>
 				</div>
@@ -166,4 +183,4 @@ const LoginForm: React.FC<{
 	)
 }
 
-export default LoginForm
+export default RegisterForm

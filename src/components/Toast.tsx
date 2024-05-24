@@ -6,7 +6,7 @@ import {
 	PiXBold,
 	PiXCircleFill,
 } from 'react-icons/pi'
-import { ToastProps } from '../types/global.types'
+import { ToastProps } from '../types/global'
 import { useToast } from '../hook/useToast'
 import { useEffect } from 'react'
 

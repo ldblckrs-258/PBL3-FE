@@ -5,7 +5,7 @@ import { PiSlidersFill } from 'react-icons/pi'
 import DesPreviewCard, { DPCLoading } from './DesPreviewCard'
 import axios from 'axios'
 import { useToast } from '../../hook/useToast'
-import { DesListItemProps } from '../../types/destination.types'
+import { DesListItemProps } from '../../types/destination'
 import { SortTypeButton, ToggleButton } from '../../components/Buttons'
 import { twMerge } from 'tailwind-merge'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -102,7 +102,7 @@ const DestinationPage: React.FC = () => {
 			<div className="h-full w-full">
 				<div className="mb-5 flex w-full items-center justify-between">
 					<SearchBox
-						className="h-9 w-[196px] border-2 focus:border-2"
+						className="h-9 w-[300px]"
 						onChangeValue={(event) => setSearchValue(event.target.value)}
 						onClickSearch={handleSearch}
 					/>
@@ -119,7 +119,7 @@ const DestinationPage: React.FC = () => {
 						></ToggleButton>
 						<DropdownSelect
 							id="sort-by"
-							className="h-9 w-[140px] border-2 focus:border-2"
+							className="h-9 w-[140px]"
 							options={sortBy.map((item) => item.label)}
 							value={sort.by}
 							onChange={(event) => {
@@ -208,7 +208,7 @@ const DestinationFilter: React.FC<{
 	return (
 		<div
 			className={twMerge(
-				`bg-bgCol-3 z-[5] translate-x-[-100%] translate-y-[100%] rounded border border-borderCol-1 p-5 shadow-xl`,
+				`z-[5] translate-x-[-100%] translate-y-[100%] rounded border border-borderCol-1 bg-bgCol-3 p-5 shadow-xl`,
 				className,
 			)}
 		>

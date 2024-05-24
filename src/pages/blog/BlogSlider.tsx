@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge'
-import { BlogCardProps } from '../../types/blog.types'
+import { BlogCardProps } from '../../types/blog'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'

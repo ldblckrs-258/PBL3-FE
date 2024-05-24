@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge'
-import { BlogLineProps } from '../../types/blog.types'
+import { BlogLineProps } from '../../types/blog'
 import { timeAgo } from '../../utils/TimeFormatters'
 import { Button } from '../../components'
 import { useNavigate } from 'react-router-dom'

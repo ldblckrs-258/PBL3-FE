@@ -2,7 +2,7 @@ import { ChangeEvent, useEffect, useState } from 'react'
 import { SearchBox, Button, Pagination, DropdownSelect } from '../../components'
 import { PiPenFill } from 'react-icons/pi'
 import axios from 'axios'
-import { BlogLineProps } from '../../types/blog.types'
+import { BlogLineProps } from '../../types/blog'
 import BlogItem, { LoadingBlogItem } from './BlogItem'
 import BlogSlider from './BlogSlider'
 import { useNavigate } from 'react-router-dom'
@@ -34,7 +34,7 @@ const BlogPage: React.FC = () => {
 	}, [currentPage])
 
 	return (
-		<div className="mx-auto min-h-screen justify-center pb-6 pt-[64px] text-txtCol-1 xl:max-w-screen-xl">
+		<div className="mx-auto min-h-screen justify-center pb-6 pt-[72px] text-txtCol-1 xl:max-w-screen-xl">
 			<div className=" flex w-full items-center justify-between">
 				<DropdownSelect
 					id="blogs-sort-options"

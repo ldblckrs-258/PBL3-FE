@@ -43,7 +43,7 @@
   				"startDate": "2021-12-01",
   				"totalDays": 5,
   				"totalBudget": 500,
-  				"updatedAt": "2021-11-01"
+  				"updatedAt": "2024-05-19T03:31:09.229Z"
   			},
   			{
   				"id": 10000002,
@@ -60,7 +60,7 @@
   				"startDate": "2021-11-15",
   				"totalDays": 10,
   				"totalBudget": 1000,
-  				"updatedAt": "2021-11-01"
+  				"updatedAt": "2024-05-19T03:31:09.229Z"
   			}
   		]
   	}
@@ -151,7 +151,7 @@
   		"totalDays": 5,
   		"numbOfDes": 5,
   		"totalBudget": 500,
-  		"updatedAt": "2021-11-01",
+  		"updatedAt": "2024-05-19T03:31:09.229Z",
   		"creator": "John Doe",
   		"isPublic": false,
   		"days": [
@@ -166,7 +166,7 @@
   						"arrivalTime": "09:00",
   						"leaveTime": "11:00",
   						"budget": 50,
-  						"notes": "Don't forget to take a photo at the Golden Bridge."
+  						"note": "Don't forget to take a photo at the Golden Bridge."
   					},
   					{
   						"id": 90000002, // Schedule destination ID
@@ -176,7 +176,7 @@
   						"arrivalTime": "09:00",
   						"leaveTime": "11:00",
   						"budget": 50,
-  						"notes": "Don't forget to take a photo at the Golden Bridge."
+  						"note": "Don't forget to take a photo at the Golden Bridge."
   					}
   				]
   			},
@@ -191,7 +191,7 @@
   						"arrivalTime": "09:00",
   						"leaveTime": "11:00",
   						"budget": 50,
-  						"notes": "Explore the caves and pagodas in the Marble Mountains."
+  						"note": "Explore the caves and pagodas in the Marble Mountains."
   					}
   				]
   			} // ...
@@ -258,7 +258,7 @@
   	"arrivalTime": "09:00",
   	"leaveTime": "11:00",
   	"budget": 50,
-  	"notes": "Don't forget to take a photo at the Golden Bridge."
+  	"note": "Don't forget to take a photo at the Golden Bridge."
   }
   ```
 
@@ -303,7 +303,7 @@
   	"arrivalTime": "09:00",
   	"leaveTime": "11:00",
   	"budget": 50,
-  	"notes": "Don't forget to take a photo at the Golden Bridge."
+  	"note": "Don't forget to take a photo at the Golden Bridge."
   }
   ```
 

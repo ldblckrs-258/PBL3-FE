@@ -1,5 +1,5 @@
 import { AnimatePresence } from 'framer-motion'
-import { ToastProps } from '../types/global.types'
+import { ToastProps } from '../types/global'
 import Toast from './Toast'
 
 const ToastContainer: React.FC<{

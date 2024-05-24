@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BlogDetailType } from '../../types/blog.types'
+import { BlogDetailType } from '../../types/blog'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Button, Loader } from '../../components'

@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react'
-import { GeneralReviewProps, ReviewProps } from '../../types/destination.types'
+import { GeneralReviewProps, ReviewProps } from '../../types/destination'
 import axios from 'axios'
 import { PiDotsThreeVerticalBold, PiStarFill } from 'react-icons/pi'
 import { Button, DropdownSelect, Pagination, Stars } from '../../components'

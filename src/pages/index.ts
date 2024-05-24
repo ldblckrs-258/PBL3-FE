@@ -10,6 +10,7 @@ import Schedule from './schedule/Schedule'
 import BlogEditor from './blog/BlogEditor'
 import DestinationEditor from './destination/DestinationEditor'
 import LoginForm from './account/LoginForm'
+import RegisterForm from './account/RegisterForm'
 
 export {
 	Navbar,
@@ -24,4 +25,5 @@ export {
 	BlogEditor,
 	DestinationEditor,
 	LoginForm,
+	RegisterForm,
 }
