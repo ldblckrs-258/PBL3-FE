@@ -289,7 +289,7 @@ II. Admin permission
     - `page`: Number of page (Default: 1)
     - `limit`: Number of items per page (Default: 15)
     - `search`: Search by name
-    - `sortBy`: Sort by (rating, review, favorite, created_at) (Default: created_at)
+    - `sortBy`: Sort by (name, rating, review, favorite, created_at) (Default: created_at)
     - `sortType`: Sort type (asc, desc) (Default: asc)
 
   - Example: `http://server.com/api/destination/managelist?page=1&limit=12&search=Paris&sortBy=rating&sortType=desc`
@@ -308,7 +308,6 @@ II. Admin permission
   			{
   				"id": 10000001,
   				"name": "Golden Bridge",
-  				"address": "Ba Na Hills, Da Nang, Vietnam",
   				"rating": 4.5,
   				"review": 100,
   				"favorite": 100,

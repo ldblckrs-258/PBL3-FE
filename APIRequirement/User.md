@@ -101,7 +101,7 @@ I. User permission
   		"avatar": "https://example.com/avatar.jpg",
   		"email": "example@email.com",
   		"role": "user",
-  		"dateOfBirth": "2024-05-19T03:31:09.229Z" // Datetime string in ISO 8601 format
+  		"dateOfBirth": "2024-05-19" // Datetime string
   	}
   }
   ```
@@ -114,7 +114,7 @@ I. User permission
   {
   	"name": "John Doe",
   	"avatar": "https://example.com/avatar.jpg",
-  	"dateOfBirth": "2024-05-19T03:31:09.229Z"
+  	"dateOfBirth": "2024-05-19"
   }
   ```
 

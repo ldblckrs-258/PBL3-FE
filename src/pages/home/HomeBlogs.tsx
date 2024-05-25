@@ -151,8 +151,6 @@ const BlogCard: React.FC<{ blog: HomeBlogProps; className?: string }> = ({
 			>
 				<motion.div
 					className="my-auto text-center text-xl font-semibold text-white"
-					initial={{ opacity: 0, y: 40 }}
-					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.2 }}
 					layoutId={`blog-title-${blog?.id}`}
 				>

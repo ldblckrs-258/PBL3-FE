@@ -72,4 +72,15 @@ const dateDecay = (date: string) => {
 		year: dateObj.getFullYear(),
 	}
 }
-export { timeAgo, dayOfWeek, dateDecay }
+
+const datetimeDecay = (date: string) => {
+	const dateObj = new Date(date)
+	return {
+		day: dateObj.getDate(),
+		month: monthOfYear(dateObj.getMonth()),
+		year: dateObj.getFullYear(),
+		hour: dateObj.getHours(),
+		minute: dateObj.getMinutes(),
+	}
+}
+export { timeAgo, dayOfWeek, dateDecay, datetimeDecay }

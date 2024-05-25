@@ -16,7 +16,7 @@ const AccountMenu: React.FC<{
 }> = ({ className = '', onClose }) => {
 	const { user, setUser } = useContext(UserContext)
 	const handleSignOut = () => {
-		sessionStorage.removeItem('user')
+		sessionStorage.removeItem('userId')
 		setUser(defaultUser.user)
 		onClose()
 		window.location.reload()

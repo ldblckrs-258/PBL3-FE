@@ -124,4 +124,21 @@ const SortTypeButton: React.FC<SortTypeButtonProps> = ({
 	)
 }
 
-export { Button, ToggleButton, SortTypeButton }
+const TabButton: React.FC<{
+	index: number
+	tabIndex: number
+	onClick: () => void
+	children: React.ReactNode
+}> = ({ index, tabIndex, onClick, children }) => {
+	return (
+		<button
+			className={`flex h-11 w-full  items-center gap-3 rounded border px-4 text-left text-sm font-semibold ${tabIndex == index ? 'border-borderCol-1 bg-white' : 'border-transparent text-txtCol-2 transition-all hover:bg-[#0000000e]'}`}
+			id={`tab-${index}`}
+			onClick={onClick}
+		>
+			{children}
+		</button>
+	)
+}
+
+export { Button, ToggleButton, SortTypeButton, TabButton }

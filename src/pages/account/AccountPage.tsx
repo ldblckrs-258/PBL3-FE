@@ -3,6 +3,7 @@ import { UserContext } from '../../context/UserContext'
 import PageNotFound from '../PageNotFound'
 import { UserDetailsProps } from '../../types/user'
 import { Loader } from '../../components'
+import { TabButton } from '../../components/Buttons'
 import axios from 'axios'
 import { PiHardDrivesBold, PiMapPinBold, PiUserBold } from 'react-icons/pi'
 import MyAccount from './MyAccount'
@@ -74,23 +75,6 @@ const AccountPage: React.FC = () => {
 				</div>
 			</div>
 		</div>
-	)
-}
-
-const TabButton: React.FC<{
-	index: number
-	tabIndex: number
-	onClick: () => void
-	children: React.ReactNode
-}> = ({ index, tabIndex, onClick, children }) => {
-	return (
-		<button
-			className={`flex h-11 w-full  items-center gap-3 rounded border px-4 text-left text-sm font-semibold ${tabIndex == index ? 'border-borderCol-1 bg-white' : 'border-transparent text-txtCol-2 transition-all hover:bg-[#0000000e]'}`}
-			id={`tab-${index}`}
-			onClick={onClick}
-		>
-			{children}
-		</button>
 	)
 }
 

@@ -11,6 +11,7 @@ import {
 	PiCompassBold,
 	PiArticleBold,
 	PiCalendarBlankBold,
+	PiTableBold,
 } from 'react-icons/pi'
 import { useContext, useState } from 'react'
 import { UserContext } from '../context/UserContext'
@@ -38,7 +39,13 @@ const NavItems = [
 		icon: PiCalendarBlankBold,
 		path: '/schedule',
 	},
+	{
+		name: 'Manage',
+		icon: PiTableBold,
+		path: '/manage',
+	},
 ]
+
 interface NavbarProps {
 	onSignUp: () => void
 	onLogin: () => void
@@ -82,40 +89,48 @@ const Navbar: React.FC<NavbarProps> = ({ onSignUp, onLogin }) => {
 				</div>
 				<div className="h-full">
 					<ul className="flex h-full gap-1">
-						{NavItems.map((item, index) => (
-							<li key={index}>
-								<Link
-									to={item.path}
-									className={`relative flex min-w-[120px] items-center justify-center gap-2 px-3 text-base ${
-										firstPath === item.path
-											? isHome
-												? 'text-primary-3'
-												: 'text-primary-1'
-											: isHome
-												? 'text-txtCol-4'
-												: 'text-txtCol-3'
-									} rounded-lg transition-all ${isHome ? 'hover:bg-[#00000040]' : 'hover:bg-[#00000015]'}`}
-								>
-									<item.icon />
-									<p
-										className={`${
-											firstPath === item.path
-												? isHome
-													? 'text-white'
-													: 'text-txtCol-1'
-												: isHome
-													? 'text-txtCol-4'
-													: 'text-txtCol-3'
-										} text-sm font-semibold leading-10`}
-									>
-										{item.name}
-									</p>
-									<span
-										className={`absolute bottom-[-4px] h-[2px] w-full bg-primary-2 ${firstPath === item.path ? 'block' : 'hidden'}`}
-									></span>
-								</Link>
-							</li>
-						))}
+						{NavItems.map(
+							(item, index) =>
+								(item.name !== 'Manage' ||
+									(item.name === 'Manage' && user.role === 'admin')) && (
+									<li key={index}>
+										<Link
+											to={item.path}
+											className={`relative flex min-w-[120px] items-center justify-center gap-2 px-3 text-base ${
+												firstPath === item.path
+													? isHome
+														? 'text-primary-3'
+														: 'text-primary-1'
+													: isHome
+														? 'text-txtCol-4'
+														: 'text-txtCol-3'
+											} rounded-lg transition-all ${isHome ? 'hover:bg-[#00000040]' : 'hover:bg-[#00000015]'}`}
+										>
+											<item.icon />
+											<p
+												className={`${
+													firstPath === item.path
+														? isHome
+															? 'text-white'
+															: 'text-txtCol-1'
+														: isHome
+															? 'text-txtCol-4'
+															: 'text-txtCol-3'
+												} text-sm font-semibold leading-10`}
+											>
+												{item.name}
+											</p>
+											{firstPath === item.path && (
+												<motion.span
+													className="absolute bottom-[-4px] h-[2px] w-full bg-primary-2"
+													layoutId="underline"
+													transition={{ duration: 0.2 }}
+												></motion.span>
+											)}
+										</Link>
+									</li>
+								),
+						)}
 					</ul>
 				</div>
 				{user.id !== 0 ? (

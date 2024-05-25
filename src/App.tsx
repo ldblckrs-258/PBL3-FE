@@ -16,6 +16,7 @@ import {
 	LoginForm,
 	RegisterForm,
 	AccountPage,
+	ManagePage,
 } from './pages'
 import { useContext, useEffect, useState } from 'react'
 import { UserContext } from './context/UserContext'
@@ -65,6 +66,7 @@ function App() {
 					<Route path="/blog/:id" element={<Blog />}></Route>
 					<Route path="/schedule" element={<SchedulePage />}></Route>
 					<Route path="/schedule/:id" element={<Schedule />}></Route>
+					<Route path="/manage" element={<ManagePage />}></Route>
 					<Route path="/account" element={<AccountPage />}></Route>
 					<Route path="*" element={<PageNotFound />}></Route>
 				</Routes>
