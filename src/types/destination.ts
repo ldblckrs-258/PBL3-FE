@@ -55,3 +55,12 @@ export interface SortDesProps {
 	rating: number
 	image: string
 }
+
+export interface ManageDesProps {
+	id: number
+	name: string
+	rating: number
+	review: number
+	favorite: number
+	created_at: string
+}
