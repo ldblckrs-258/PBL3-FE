@@ -73,7 +73,7 @@ const BlogSlider: React.FC<{
 								{blogs[currentIndex]?.type}
 							</span>
 							<span className="text-xs text-txtCol-2">
-								{timeAgo(blogs[currentIndex]?.created_at)}
+								{timeAgo(blogs[currentIndex]?.createdAt)}
 							</span>
 						</div>
 						<h4 className="mt-2 text-xl font-bold ">

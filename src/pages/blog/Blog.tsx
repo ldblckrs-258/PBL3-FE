@@ -53,7 +53,7 @@ const Blog: React.FC = () => {
 					</span>
 					<h1 className="mt-2 text-center text-4xl font-bold">{blog.title}</h1>
 					<div className="mt-3 flex items-center gap-3">
-						<div className="text-sm">{timeAgo(blog.created_at)}</div>
+						<div className="text-sm">{timeAgo(blog.createdAt)}</div>
 						<span className="h-1 w-1 rounded-full bg-txtCol-2"></span>
 						<img
 							className=" h- w-6 rounded-full object-cover"

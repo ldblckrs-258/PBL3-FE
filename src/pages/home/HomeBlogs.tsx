@@ -91,7 +91,7 @@ const FirstBlog: React.FC<{ blog: HomeBlogProps; className?: string }> = ({
 									{blog?.type}
 								</span>
 								<span className="text-xs text-txtCol-2">
-									{timeAgo(blog?.created_at)}
+									{timeAgo(blog?.createdAt)}
 								</span>
 							</motion.div>
 						)}

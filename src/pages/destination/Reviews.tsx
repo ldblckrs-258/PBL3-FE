@@ -71,7 +71,7 @@ const Review: React.FC<ReviewProps> = ({
 	author,
 	avatar,
 	rating,
-	created_at,
+	createdAt,
 	comment,
 }) => {
 	return (
@@ -92,7 +92,7 @@ const Review: React.FC<ReviewProps> = ({
 			</div>
 			<p className="mb-1 mt-2 text-sm leading-5">{comment}</p>
 			<div className="flex w-full items-center justify-end">
-				<p className=" text-xs text-txtCol-2">{timeAgo(created_at)}</p>
+				<p className=" text-xs text-txtCol-2">{timeAgo(createdAt)}</p>
 			</div>
 		</div>
 	)

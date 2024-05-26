@@ -29,7 +29,7 @@ const BlogItem: React.FC<{
 						</span>
 						<div className="text-xs">{NumberFormat(blog.views)} views</div>
 						<span className="h-1 w-1 rounded-full bg-txtCol-2"></span>
-						<div className="text-xs">{timeAgo(blog.created_at)}</div>
+						<div className="text-xs">{timeAgo(blog.createdAt)}</div>
 					</div>
 					<h4
 						className=" my-[5px] line-clamp-1 text-xl font-bold"

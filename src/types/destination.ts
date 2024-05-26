@@ -30,11 +30,14 @@ export interface GeneralReviewProps {
 	}
 }
 
-export interface DestinationDetailProps {
+export interface DestinationEditorProps {
 	id: number
 	information: DesInfoProps
 	introduction: string
 	googleMapUrl: string
+}
+
+export interface DestinationDetailProps extends DestinationEditorProps {
 	generalReview: GeneralReviewProps
 }
 
@@ -44,7 +47,7 @@ export interface ReviewProps {
 	avatar: string
 	rating: number
 	comment: string
-	created_at: string
+	createdAt: string
 }
 
 export interface SortDesProps {
@@ -62,5 +65,5 @@ export interface ManageDesProps {
 	rating: number
 	review: number
 	favorite: number
-	created_at: string
+	createdAt: string
 }

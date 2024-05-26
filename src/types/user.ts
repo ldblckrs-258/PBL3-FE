@@ -12,3 +12,11 @@ export interface UserDetailsProps {
 	role: string
 	dateOfBirth: string
 }
+
+export interface ManageUserProps {
+	id: number
+	name: string
+	email: string
+	role: string
+	createdAt: string
+}

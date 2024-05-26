@@ -141,4 +141,33 @@ const TabButton: React.FC<{
 	)
 }
 
-export { Button, ToggleButton, SortTypeButton, TabButton }
+const CircleButton: React.FC<{
+	id?: string
+	className?: string
+	onClick: () => void
+	disabled?: boolean
+	children: React.ReactNode
+	title?: string
+}> = ({ id, className, onClick, disabled, children, title }) => {
+	return (
+		<motion.button
+			className={twMerge(
+				`flex h-6 w-6 items-center justify-center rounded-full border-2 transition-all`,
+				className,
+				disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+			)}
+			id={id}
+			type="button"
+			whileTap={disabled ? {} : 'tap'}
+			variants={buttonVariants}
+			transition={{ duration: 0.1 }}
+			onClick={onClick}
+			disabled={disabled}
+			title={title}
+		>
+			{children}
+		</motion.button>
+	)
+}
+
+export { Button, ToggleButton, SortTypeButton, TabButton, CircleButton }

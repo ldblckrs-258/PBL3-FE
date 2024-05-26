@@ -48,7 +48,7 @@ I. User permission
     - `ratingFrom`: Filter by rating from
     - `ratingTo`: Filter by rating to
     - `isFavorite`: Filter by favorite (true, false)
-    - `sortBy`: Sort by (cost, rating, name, created_at) (Default: created_at)
+    - `sortBy`: Sort by (cost, rating, name, createdAt) (Default: createdAt)
     - `sortType`: Sort type (asc, desc) (Default: asc)
 
   - Example: `http://server.com/api/destination/list?page=1&limit=12&search=Paris&location=Hai%20Chau&costFrom=100&costTo=200&ratingFrom=4&ratingTo=5&sortBy=price&sortType=asc`
@@ -149,7 +149,7 @@ I. User permission
   - Parameters: (Optional)
     - `page`: Number of page (Default: 1)
     - `limit`: Number of items per page (Default: 3)
-    - `sortBy`: Sort by (rating, created_at) (Default: created_at)
+    - `sortBy`: Sort by (rating, createdAt) (Default: createdAt)
     - `sortType`: Sort type (asc, desc) (Default: desc)
   - Example: `http://server.com/api/destination/review/10000001?page=1&limit=3&sortBy=rating&sortType=desc`
 
@@ -170,7 +170,7 @@ I. User permission
   				"avatar": "https://example.com/avatar.jpg",
   				"rating": 4,
   				"comment": "Good place",
-  				"created_at": "2024-05-19T03:31:09.229Z" // Datetime string in ISO 8601 format
+  				"createdAt": "2024-05-19T03:31:09.229Z" // Datetime string in ISO 8601 format
   			},
   			{
   				"id": 10000002,
@@ -178,7 +178,7 @@ I. User permission
   				"avatar": "https://example.com/avatar.jpg",
   				"rating": 5,
   				"comment": "Amazing place",
-  				"created_at": "2024-05-19T03:31:09.229Z"
+  				"createdAt": "2024-05-19T03:31:09.229Z"
   			}
   		]
   	}
@@ -289,7 +289,7 @@ II. Admin permission
     - `page`: Number of page (Default: 1)
     - `limit`: Number of items per page (Default: 15)
     - `search`: Search by name
-    - `sortBy`: Sort by (name, rating, review, favorite, created_at) (Default: created_at)
+    - `sortBy`: Sort by (name, rating, review, favorite, createdAt) (Default: createdAt)
     - `sortType`: Sort type (asc, desc) (Default: asc)
 
   - Example: `http://server.com/api/destination/managelist?page=1&limit=12&search=Paris&sortBy=rating&sortType=desc`
@@ -311,7 +311,7 @@ II. Admin permission
   				"rating": 4.5,
   				"review": 100,
   				"favorite": 100,
-  				"created_at": "2024-05-19T03:31:09.229Z" // Datetime string in ISO 8601 format
+  				"createdAt": "2024-05-19T03:31:09.229Z" // Datetime string in ISO 8601 format
   			}
   		]
   	}
@@ -353,7 +353,7 @@ II. Admin permission
   ```
 
   - Requirement: Admin must be authenticated
-  - Note: also save `created_at` to sort destinations
+  - Note: also save `createdAt` to sort destinations
 
 3. Update destination with token
 

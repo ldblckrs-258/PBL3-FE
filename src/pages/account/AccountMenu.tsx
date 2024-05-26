@@ -45,20 +45,26 @@ const AccountMenu: React.FC<{
 				</div>
 				<p className="ml-4 flex-1 text-sm font-semibold">My Account</p>
 			</Link>
-			<div className="flex cursor-pointer items-center rounded py-2 pl-2 pr-1 transition-all hover:bg-gray-100 active:bg-gray-200">
+			<Link
+				className="flex cursor-pointer items-center rounded py-2 pl-2 pr-1 transition-all hover:bg-gray-100 active:bg-gray-200"
+				to="/account?tab=1"
+			>
 				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-300 text-xl">
 					<PiMapPinFill />
 				</div>
 				<p className="ml-4 flex-1 text-sm font-semibold">
 					Favorite Destinations
 				</p>
-			</div>
-			<div className="flex cursor-pointer items-center rounded py-2 pl-2 pr-1 transition-all hover:bg-gray-100 active:bg-gray-200">
+			</Link>
+			<Link
+				className="flex cursor-pointer items-center rounded py-2 pl-2 pr-1 transition-all hover:bg-gray-100 active:bg-gray-200"
+				to="/account?tab=2"
+			>
 				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-300 text-xl">
 					<PiHardDrivesFill />
 				</div>
 				<p className="ml-4 flex-1 text-sm font-semibold">My Blogs</p>
-			</div>
+			</Link>
 			<div className="my-1 h-[1px] w-full bg-borderCol-1"></div>
 			<button
 				className="flex w-full items-center rounded py-2 pl-2 pr-1 transition-all hover:bg-gray-100 active:bg-gray-200"

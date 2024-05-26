@@ -6,7 +6,7 @@ export interface BlogCardProps {
 	type: string
 	image: string
 	author: string
-	created_at: string
+	createdAt: string
 }
 
 export type BlogDetailType = {
@@ -20,7 +20,7 @@ export type BlogDetailType = {
 		name: string
 		avatar: string
 	}
-	created_at: string
+	createdAt: string
 	content: string
 }
 
@@ -30,7 +30,7 @@ export interface HomeBlogProps {
 	title: string
 	image: string
 	author: string
-	created_at: string
+	createdAt: string
 }
 
 export interface BlogLineProps {
@@ -38,8 +38,18 @@ export interface BlogLineProps {
 	title: string
 	type: string
 	image: string
-	created_at: string
+	createdAt: string
 	views: number
 	introduction: string
 	author: AuthorProps
+}
+
+export interface ManageBlogProps {
+	id: number
+	title: string
+	type: string
+	author: string
+	createdAt: string
+	status: string
+	view: number
 }

@@ -24,7 +24,7 @@ I. User permission
   			"title": "Top 10 best destinations in Vietnam",
   			"image": "https://example.com/top10bestdestinations.jpg",
   			"author": "John Doe",
-  			"created_at": "2024-05-19T03:31:09.229Z"
+  			"createdAt": "2024-05-19T03:31:09.229Z"
   		},
   		{
   			"id": 10000002,
@@ -32,7 +32,7 @@ I. User permission
   			"title": "The most beautiful beaches in the world",
   			"image": "https://example.com/mostbeautifulbeaches.jpg",
   			"author": "Jane Doe",
-  			"created_at": "2024-05-19T03:31:09.229Z"
+  			"createdAt": "2024-05-19T03:31:09.229Z"
   		}
   	]
   }
@@ -49,7 +49,7 @@ I. User permission
     - `page`: Number of page (Default: 1)
     - `limit`: Number of items per page (Default: 5)
     - `search`: Search by title
-    - `sortBy`: Sort by (title, views, created_at) (Default: created_at)
+    - `sortBy`: Sort by (title, views, createdAt) (Default: createdAt)
     - `sortType`: Sort type (asc, desc) (Default: desc)
 
   - Example: `http://server.com/api/blog/list?page=1&limit=5&search=Vietnam&sortBy=views&sortType=desc`
@@ -75,7 +75,7 @@ I. User permission
   					"name": "John Doe",
   					"avatar": "https://example.com/johndoe.jpg"
   				},
-  				"created_at": "2024-05-19T03:31:09.229Z",
+  				"createdAt": "2024-05-19T03:31:09.229Z",
   				"views": 1000,
   				"introduction": "Vietnam is a beautiful country with many famous destinations. Here are the top 10 best destinations in Vietnam."
   			},
@@ -89,7 +89,7 @@ I. User permission
   					"name": "Jane Doe",
   					"avatar": "https://example.com/janedoe.jpg"
   				},
-  				"created_at": "2024-05-19T03:31:09.229Z",
+  				"createdAt": "2024-05-19T03:31:09.229Z",
   				"views": 800,
   				"introduction": "Da Nang is a beautiful city in Vietnam. Here are some tips for your first time traveling to Da Nang."
   			},
@@ -103,7 +103,7 @@ I. User permission
   					"name": "John Doe",
   					"avatar": "https://example.com/johndoe.jpg"
   				},
-  				"created_at": "2024-05-19T03:31:09.229Z",
+  				"createdAt": "2024-05-19T03:31:09.229Z",
   				"views": 500,
   				"introduction": "Da Nang is a beautiful city in Vietnam. Here is the ultimate guide to travel to Da Nang."
   			}
@@ -135,7 +135,7 @@ I. User permission
   			"type": "places",
   			"image": "https://example.com/top10bestdestinations.jpg",
   			"author": "John Doe",
-  			"created_at": "2024-05-19T03:31:09.229Z"
+  			"createdAt": "2024-05-19T03:31:09.229Z"
   		},
   		{
   			"id": 10000002,
@@ -143,7 +143,7 @@ I. User permission
   			"type": "tips",
   			"image": "https://example.com/firsttimetravelingtodanang.jpg",
   			"author": "Jane Doe",
-  			"created_at": "2024-05-19T03:31:09.229Z"
+  			"createdAt": "2024-05-19T03:31:09.229Z"
   		},
   		{
   			"id": 10000003,
@@ -151,7 +151,7 @@ I. User permission
   			"type": "all",
   			"image": "https://example.com/ultimateguidetotraveltodanang.jpg",
   			"author": "John Doe",
-  			"created_at": "2024-05-19T03:31:09.229Z"
+  			"createdAt": "2024-05-19T03:31:09.229Z"
   		}
   	]
   }
@@ -180,7 +180,7 @@ I. User permission
   			"name": "John Doe",
   			"avatar": "https://example.com/johndoe.jpg"
   		},
-  		"created_at":
+  		"createdAt": "2024-05-19T03:31:09.229Z",
   		"views": 1000,
   		"content": "<p> ... </p>" // HTML content
   	}
@@ -276,10 +276,10 @@ II. Admin permission
     - `search`: Search by title
     - `type`: Filter by type (places, tips, all)
     - `status`: Filter by status (pending, published, rejected)
-    - `sortBy`: Sort by (title, views, created_at) (Default: created_at)
+    - `sortBy`: Sort by (title, views, createdAt) (Default: createdAt)
     - `sortType`: Sort type (asc, desc) (Default: desc)
 
-  - Example: `http://server.com/api/blog/managelist?page=1&limit=5&search=Vietnam&type=places&status=pending&sortBy=created_at&sortType=desc`
+  - Example: `http://server.com/api/blog/managelist?page=1&limit=5&search=Vietnam&type=places&status=pending&sortBy=createdAt&sortType=desc`
 
 - Response:
 
@@ -297,24 +297,27 @@ II. Admin permission
   				"title": "Top 10 best destinations in Vietnam",
   				"type": "places",
   				"author": "John Doe",
-  				"created_at": "2024-05-19T03:31:09.229Z",
-  				"status": "pending"
+  				"createdAt": "2024-05-19T03:31:09.229Z",
+  				"status": "pending",
+  				"views": 1000
   			},
   			{
   				"id": 10000002,
   				"title": "First time traveling to Da Nang - Things you need to know",
   				"type": "tips",
   				"author": "Jane Doe",
-  				"created_at": "2024-05-19T03:31:09.229Z",
-  				"status": "published"
+  				"createdAt": "2024-05-19T03:31:09.229Z",
+  				"status": "published",
+  				"views": 800
   			},
   			{
   				"id": 10000003,
   				"title": "Ultimate guide to travel to Da Nang",
   				"type": "all",
   				"author": "John Doe",
-  				"created_at": "2024-05-19T03:31:09.229Z",
-  				"status": "rejected"
+  				"createdAt": "2024-05-19T03:31:09.229Z",
+  				"status": "rejected",
+  				"views": 500
   			}
   		]
   	}

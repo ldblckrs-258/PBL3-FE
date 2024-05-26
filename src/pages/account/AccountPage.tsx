@@ -7,6 +7,7 @@ import { TabButton } from '../../components/Buttons'
 import axios from 'axios'
 import { PiHardDrivesBold, PiMapPinBold, PiUserBold } from 'react-icons/pi'
 import MyAccount from './MyAccount'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const AccountPage: React.FC = () => {
 	document.title = 'My Account | Da Nang Explore'
@@ -31,6 +32,32 @@ const AccountPage: React.FC = () => {
 	}, [user])
 
 	const [tabIndex, setTabIndex] = useState(0)
+	const location = useLocation()
+	const navigate = useNavigate()
+
+	useEffect(() => {
+		const params = new URLSearchParams(location.search)
+		const tab = params.get('tab')
+		switch (tab) {
+			case '0':
+				setTabIndex(0)
+				break
+			case '1':
+				setTabIndex(1)
+				break
+			case '2':
+				setTabIndex(2)
+				break
+			default:
+				setTabIndex(0)
+				break
+		}
+	}, [location])
+
+	const handleTabChange = (index: number) => {
+		setTabIndex(index)
+		navigate(`/account?tab=${index}`)
+	}
 
 	if (loading)
 		return (
@@ -46,7 +73,7 @@ const AccountPage: React.FC = () => {
 					<TabButton
 						index={0}
 						tabIndex={tabIndex}
-						onClick={() => setTabIndex(0)}
+						onClick={() => handleTabChange(0)}
 					>
 						<PiUserBold className="text-xl" />
 						My Account
@@ -54,7 +81,7 @@ const AccountPage: React.FC = () => {
 					<TabButton
 						index={1}
 						tabIndex={tabIndex}
-						onClick={() => setTabIndex(1)}
+						onClick={() => handleTabChange(1)}
 					>
 						<PiMapPinBold className="text-xl" />
 						Favorite Destinations
@@ -62,7 +89,7 @@ const AccountPage: React.FC = () => {
 					<TabButton
 						index={2}
 						tabIndex={tabIndex}
-						onClick={() => setTabIndex(2)}
+						onClick={() => handleTabChange(2)}
 					>
 						<PiHardDrivesBold className="text-xl" />
 						My Blogs

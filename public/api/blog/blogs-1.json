@@ -14,7 +14,7 @@
 				"avatar": "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
 			},
 			"views": 1000,
-			"created_at": "2024-01-12T12:54:00Z"
+			"createdAt": "2024-01-12T12:54:00Z"
 		},
 		{
 			"id": 20000002,
@@ -28,7 +28,7 @@
 				"avatar": "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
 			},
 			"views": 500,
-			"created_at": "2024-03-14T15:30:00Z"
+			"createdAt": "2024-03-14T15:30:00Z"
 		},
 		{
 			"id": 20000003,
@@ -42,7 +42,7 @@
 				"avatar": "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
 			},
 			"views": 200,
-			"created_at": "2023-10-10T00:00:00Z"
+			"createdAt": "2023-10-10T00:00:00Z"
 		},
 		{
 			"id": 20000004,
@@ -56,7 +56,7 @@
 				"avatar": "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
 			},
 			"views": 300,
-			"created_at": "2024-02-20T09:30:00Z"
+			"createdAt": "2024-02-20T09:30:00Z"
 		},
 		{
 			"id": 20000005,
@@ -70,7 +70,7 @@
 				"avatar": "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
 			},
 			"views": 400,
-			"created_at": "2024-01-22T04:20:00Z"
+			"createdAt": "2024-01-22T04:20:00Z"
 		}
 	]
 }

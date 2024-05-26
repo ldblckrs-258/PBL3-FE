@@ -179,14 +179,14 @@ II. Admin permission
   				"id": 10000001,
   				"name": "John Doe",
   				"email": "example@email.com",
-  				"createdAt": "2024-05-19T03:31:09.229Z", // Datetime string in ISO 8601 format
+  				"createdAt": "2024-05-19", // Datetime string in ISO 8601 format
   				"role": "user"
   			},
   			{
   				"id": 10000002,
   				"name": "Jane Doe",
   				"email": "example@email.com",
-  				"createdAt": "2024-05-19T03:31:09.229Z", // Datetime string in ISO 8601 format
+  				"createdAt": "2024-05-19", // Datetime string in ISO 8601 format
   				"role": "admin"
   			}
   		]

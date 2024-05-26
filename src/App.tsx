@@ -60,6 +60,10 @@ function App() {
 						path="/destination/new"
 						element={<DestinationEditor />}
 					></Route>
+					<Route
+						path="/destination/edit/:id"
+						element={<DestinationEditor />}
+					></Route>
 					<Route path="/destination/:id" element={<Destination />}></Route>
 					<Route path="/blog" element={<BlogPage />}></Route>
 					<Route path="/blog/new" element={<BlogEditor />}></Route>
