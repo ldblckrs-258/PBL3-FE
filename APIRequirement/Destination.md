@@ -348,7 +348,10 @@ II. Admin permission
   ```json
   {
   	"status": 201,
-  	"message": "Destination created"
+  	"message": "Destination created",
+  	"data": {
+  		"id": 10000001
+  	}
   }
   ```
 
