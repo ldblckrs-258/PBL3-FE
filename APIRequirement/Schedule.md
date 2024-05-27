@@ -13,7 +13,7 @@
     - `limit`: Number of items per page (Default: 5)
     - `search`: Search by title
     - `status`: Filter by status (planning, ongoing, completed, canceled, all) (Default: all)
-    - `sortBy`: Sort by (title, startDate, updatedAt) (Default: start_date)
+    - `sortBy`: Sort by (title, startDate, updatedAt) (Default: startDate)
     - `sortType`: Sort type (asc, desc) (Default: desc)
   - Example: `http://server.com/api/schedule/myschedule?page=1&limit=5&search=Japan&status=planning&sortBy=start_date&sortType=asc`
 
@@ -78,7 +78,7 @@
     - `page`: Number of page (Default: 1)
     - `limit`: Number of items per page (Default: 5)
     - `search`: Search by title
-    - `sortBy`: Sort by (title, totalDays, totalBudget) (Default: start_date)
+    - `sortBy`: Sort by (title, totalDays, totalBudget) (Default: title)
     - `sortType`: Sort type (asc, desc) (Default: desc)
   - Example: `http://server.com/api/schedule/sharedlist?page=1&limit=5&search=Vietnam&sortBy=totalDays&sortType=asc`
 
